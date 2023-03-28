@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Таблица истинности</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                padding: 5px;
+                border: 2px solid #8ebf42;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="lib/velosiped.js"></script>
+        <script>
+            var text = "2\n1\nA&B\n0\n0\n0\n1";
+            var s = text.split('\n');
+            var nvars = Number(s[0]);
+            var ncolumns = Number(s[1]);//Number() vs new Number() ???
+            var id = 2;             
+            var tr = document.createElement("tr");
+            var letter = 'A';
+            for(var i = 0; i < nvars; i++){
+                var td = document.createElement("td");
+                td.appendChild(document.createTextNode(letter));
+                tr.appendChild(td);
+                letter = String.fromCharCode(letter.charCodeAt(0) + 1);
+            }
+            for(var i = 0; i < ncolumns; i++){
+                var td = document.createElement("td");
+                td.appendChild(document.createTextNode(s[id]));
+                tr.appendChild(td);
+                id++;
+            }
+            var tbody = document.createElement("tbody");
+            tbody.appendChild(tr);
+            var inputId = 0;
+            for(var i = 0; i < (1 << nvars); i++){
+                var tr = document.createElement("tr");
+                for(var j = nvars - 1; j >= 0; j--){
+                    var td = document.createElement("td");
+                    td.appendChild(document
+                    .createTextNode(((i & (1 << j)) == 0) ? "0" : "1"));
+                    tr.appendChild(td);
+                }
+                for(var j = 0; j < ncolumns; j++){
+                    var input = document.createElement("input");
+                    input.setAttribute("id", "input" + inputId.toString());
+                    input.style.width = "20px";
+                    var td = document.createElement("td");
+                    td.appendChild(input);
+                    tr.appendChild(td);
+                    inputId++;
+                }
+                tbody.appendChild(tr);
+            }
+            var table = document.createElement("table");
+            table.setAttribute("id","the table");
+            table.style.position = "absolute";
+            table.style.left = "5px";
+            table.style.top = "5px";
+            table.style.minWidth = "150px";
+            table.appendChild(tbody);
+            document.body.appendChild(table);
+            putButton("0px","0px","Проверить","check()","check button");
+            appendBottom("check button", "the table");
+            alignRight("check button", "the table");
+            putHref("5px","0px","Меню", "index.html", "menu href");
+            appendBottom("menu href", "the table");
+            function check(){
+                var ans = "yes";
+                for(var i = 0; i < ncolumns * (1 << nvars); i++)
+                    if(s[i + id] != document
+                    .getElementById("input" + i.toString()).value)
+                        ans = "no";
+                alert(ans);
+            }
+        </script>
+    </body>
+</html>

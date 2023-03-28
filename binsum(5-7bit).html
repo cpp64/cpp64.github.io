@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Сумма двоичных чисел (5-7 бит)</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            tr.has-bottom-border td {
+                border-bottom: 1px solid #000000;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="lib/velosiped.js"></script>
+        <script>
+            var n1 = rand(64) + 8;
+            var n2 = rand(63) + 8;
+            var tbody = document.createElement("tbody");
+            addNumberToRow(n1);
+            addNumberToRow(n2);
+            tbody.rows[1].setAttribute("class","has-bottom-border");
+            addInputs();
+            var table = document.createElement("table");
+            table.setAttribute("border", "0");
+            table.setAttribute("id", "the table");
+            table.style.position = "absolute";
+            table.style.left = "5px";
+            table.style.top = "5px";
+            table.style.minWidth = "150px";
+            table.appendChild(tbody);
+            document.body.appendChild(table);
+            putText("0px","15px","+");            
+            putButton("0px","0px","Проверить","check()","check button");
+            appendBottom("check button", "the table");
+            alignRight("check button", "the table");
+            putHref("5px","0px","Меню", "index.html", "menu href");
+            appendBottom("menu href", "the table");            
+            function addInputs(){
+                var tr = document.createElement("tr");
+                for(let i = binLen(n1 + n2); i > 0; i--){
+                    var input = document.createElement("input");
+                    input.setAttribute("type", "text");
+                    input.setAttribute("value", "");
+                    input.setAttribute("id", i.toString());
+                    input.style.textAlign = "center";
+                    input.style.width = '20px';
+                    var td = document.createElement("td");
+                    td.style.textAlign = "center";
+                    td.appendChild(input);
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }            
+            function addNumberToRow(num){
+                var tr = document.createElement("tr");
+                for(let i = binLen(n1 + n2) - binLen(num); i > 0; i--)
+                    tr.appendChild(document.createElement("td"));
+                for(let i = binLen(num) - 1; i >= 0; i--){
+                    var td = document.createElement("td");
+                    td.style.textAlign = "center";
+                    td.appendChild(document.createTextNode(bitAt(num,i).toString()));
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+            function check(){
+                let sum = "";
+                for(let i = 0; i < binLen(n1 + n2); i++){
+                    sum += tbody.rows[2].cells[i].childNodes[0].value;
+                }
+                alert(sum == binString(n1 + n2) ? "Верно" : "Неверно");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Разложение двоичного числа по степеням (5-7 бит)</title>
+    </head>
+    <body>
+        <script src="lib/velosiped.js"></script>
+        <script>
+            //можно добавить сначала добавление компонентов по Ox
+            //потом делать AppendBottom нижних к верхним
+            var n = rand(95) + 32;
+            var x = 0;
+            x += putText(x.toString()+"px", "25px", binString(n));
+            var _x_eq = x;
+            x += putText(x.toString()+"px", "25px", "=");
+            for (var i = 0; i < binLen(n); i++){
+                //множитель
+                x += putInput(x.toString() + "px", "25px", "20px", "A" + i.toString());
+                //*2
+                var _2w = putText(x.toString() + "px", "25px", "*2");
+                //степень
+                var _iw = putInput((x + _2w).toString()+"px", "5px",
+                                   "20px", "B" + i.toString());
+                x += _2w + _iw;
+                if(i < binLen(n) - 1)
+                    x += putText(x.toString() + "px", "25px", "+");
+            }
+            x = _x_eq;
+            x += putText(x.toString() + "px", "55px", "=");
+            for (var i = 0; i < binLen(n); i++){
+                x += putInput(x.toString() + "px", "55px", "30px", "C" + i.toString());
+                if(i < binLen(n) - 1)
+                    x += putText(x.toString() + "px", "55px", "+");
+            }
+            x = _x_eq;
+            x += putText(x.toString() + "px", "85px", "=");
+            putInput(x.toString() + "px", "85px", "50px", "D");
+            putHref("0px","0px","Меню", "index.html", "menu href");
+            appendBottom("menu href", "D");
+            putButton("0px","0px","Проверить","showResult()","check button");
+            appendBottom("check button", "D");
+            alignRight("check button", "B" + (binLen(n) - 1).toString());
+            function check(){
+                if(n.toString() != document.getElementById("D").value)
+                    return 0;
+                for (var i = 0; i < binLen(n); i++)
+                    if(((n & (1 << (binLen(n) - i - 1))) == 0 ? "0" : "1") !=
+                       document.getElementById("A" + i.toString()).value)
+                        return 0;
+                for (var i = 0; i < binLen(n); i++)
+                    if((binLen(n) - i - 1).toString() !=
+                       document.getElementById("B" + i.toString()).value)
+                        return 0;
+                for (var i = 0; i < binLen(n); i++)
+                    if((n & (1 << (binLen(n) - i - 1))).toString() !=
+                       document.getElementById("C" + i.toString()).value)
+                        return 0;
+                return 1;
+            }
+            function showResult(){
+                alert(check() == 0 ? "Неверно" : "Верно");
+            }
+        </script>
+    </body>
+</html>
