@@ -38,3 +38,10 @@ body
    color: #000000;
    font-size: 15px;
 }
+.logo
+{
+   float: left;
+   display: block;
+   align-items: center;
+   padding: 1px 3px;
+}
