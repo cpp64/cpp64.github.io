@@ -37,3 +37,8 @@ body
    color: #000000;
    font-size: 15px;
 }
+.logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
