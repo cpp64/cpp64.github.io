@@ -6,6 +6,7 @@ body
 }
 .topnav
 {
+  align-items: center;
   overflow: hidden;
   background-color: #888888;
 }
