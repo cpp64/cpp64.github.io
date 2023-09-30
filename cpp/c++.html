@@ -2,6 +2,8 @@
    <head>
       <meta charset = "utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="/styles/style.css">
+      <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
       <title>C++ базовый</title>
       <link rel="stylesheet" href="codemirror/codemirror.css">
       <style>
@@ -9,65 +11,76 @@
       </style>
    </head>
    <body>
-      <div id="codediv"
-         style="position: absolute; width: 200px; height: 200px; top: 0px; left: 10px;">
+      <div class="topnav">
+         <img class="logo" src="/icons/dove32w2.ico">
+         <a href="/index.html">Информатика</a>
+         <a href = "/lessons/7kl.html">7 класс</a>
+         <a href = "/lessons/8kl.html">8 класс</a>
+         <a href = "/lessons/9kl.html">9 класс</a>
+         <a href="/oge.html">ОГЭ</a>
+         <img class="logo" src="/icons/wing64.png">
       </div>
-      <script src="codemirror/codemirror.js"></script>
-      <script src="codemirror/matchbrackets.js"></script>
-      <script src="codemirror/clike.js"></script>
-      <script src="JSCPP.es5.min.js"></script>
-      <script src="velosiped.js"></script>
-      <script type="text/javascript">
-         //сделать textarea не мпсштабируемыми
-         //JSCPP: iostream нельзя подключать раньше, чем stdio.h
-         putButton("0px","0px","Запуск","run()","run button");
-         var cppEditor = CodeMirror(
-         document.getElementById("codediv"), {
-             lineNumbers: true,
-             matchBrackets: true,
-             mode: "text/x-c++src"
-         });         
-         putTextArea('10px','0px','5','40','2');
-         putTextArea('10px','0px','5','40','3');
-         putText("10px","10px","Код", "text1");
-         putText("10px","250px","Вход", "text2");
-         putText("10px","0px","Выход", "text3");
-         putHref("10px","0px","Меню", "index.html", "menu href");
-         appendBottom("codediv", "text1");
-         appendBottom1("text2", "codediv", 10);
-         appendBottom("2", "text2");
-         appendBottom("text3", "2");
-         appendBottom("3", "text3");
-         appendBottom("menu href", "3");
-         appendBottom("run button", "3");
-         alignRight("run button", "3");   
-         document.getElementById("codediv").style.width =
-         document.getElementById("2").offsetWidth;
-         
-         function run(){
-             var output = "";
-             var config = {
-                 stdio: {
-                     write: function(s) {
-                         output += s;
-                     }
-                 }
-             };
-             var code = 
-                 "#include <cmath>\n" +
-                 "#include <iostream>\n" +
-                 "#define bool int\n" +
-                 "double round(double d)\n" +
-                 "{\n" +
-                 "    return floor(d+0.5);\n" +
-                 "}\n" +
-                 "int main(){\n" +
-                 cppEditor.getValue() +
-                 "\nreturn 0;\n}";
-             var input = document.getElementById("2").value;
-             var exitCode = JSCPP.run(code, input, config);
-             document.getElementById("3").value = output;
-         }
-      </script>
+      <div class="main">
+         <div id="codediv"
+            style="position: absolute; width: 200px; height: 200px; top: 0px; left: 10px;">
+         </div>
+         <script src="codemirror/codemirror.js"></script>
+         <script src="codemirror/matchbrackets.js"></script>
+         <script src="codemirror/clike.js"></script>
+         <script src="JSCPP.es5.min.js"></script>
+         <script src="velosiped.js"></script>
+         <script type="text/javascript">
+            //сделать textarea не мпсштабируемыми
+            //JSCPP: iostream нельзя подключать раньше, чем stdio.h
+            putButton("0px","0px","Запуск","run()","run button");
+            var cppEditor = CodeMirror(
+            document.getElementById("codediv"), {
+                lineNumbers: true,
+                matchBrackets: true,
+                mode: "text/x-c++src"
+            });         
+            putTextArea('10px','0px','5','40','2');
+            putTextArea('10px','0px','5','40','3');
+            putText("10px","10px","Код", "text1");
+            putText("10px","250px","Вход", "text2");
+            putText("10px","0px","Выход", "text3");
+            putHref("10px","0px","Меню", "index.html", "menu href");
+            appendBottom("codediv", "text1");
+            appendBottom1("text2", "codediv", 10);
+            appendBottom("2", "text2");
+            appendBottom("text3", "2");
+            appendBottom("3", "text3");
+            appendBottom("menu href", "3");
+            appendBottom("run button", "3");
+            alignRight("run button", "3");   
+            document.getElementById("codediv").style.width =
+            document.getElementById("2").offsetWidth;
+            
+            function run(){
+                var output = "";
+                var config = {
+                    stdio: {
+                        write: function(s) {
+                            output += s;
+                        }
+                    }
+                };
+                var code = 
+                    "#include <cmath>\n" +
+                    "#include <iostream>\n" +
+                    "#define bool int\n" +
+                    "double round(double d)\n" +
+                    "{\n" +
+                    "    return floor(d+0.5);\n" +
+                    "}\n" +
+                    "int main(){\n" +
+                    cppEditor.getValue() +
+                    "\nreturn 0;\n}";
+                var input = document.getElementById("2").value;
+                var exitCode = JSCPP.run(code, input, config);
+                document.getElementById("3").value = output;
+            }
+         </script>
+      </div>
    </body>
 </html>
