@@ -46,3 +46,10 @@ body
    padding-top: 3px;
    padding-left: 3px;
 }
+.wing
+{
+   float: left;
+   display: block;
+   align-items: center;
+   padding-top: 10px;
+}
