@@ -33,12 +33,15 @@
             //сделать textarea не мпсштабируемыми
             //JSCPP: iostream нельзя подключать раньше, чем stdio.h
             putButton("0px","0px","Запуск","run()","run button");
+            putButton("0px","0px","Копировать код","cod()","cod button");
             var cppEditor = CodeMirror(
-            document.getElementById("codediv"), {
-                lineNumbers: true,
-                matchBrackets: true,
-                mode: "text/x-c++src"
-            });         
+               document.getElementById("codediv"),
+               {
+                   lineNumbers: true,
+                   matchBrackets: true,
+                   mode: "text/x-c++src"
+               }
+            );
             putTextArea('8px','0px','5','40','2');
             putTextArea('8px','0px','5','40','3');
             putText("8px","50px","Код", "text1");
@@ -50,11 +53,28 @@
             appendBottom("text3", "2");
             appendBottom("3", "text3");
             appendBottom("run button", "3");
-            alignRight("run button", "3");   
+            appendBottom("cod button", "3");
+            alignRight("run button", "3");
+            alignLeft("cod button", "3");
             document.getElementById("codediv").style.width =
             document.getElementById("2").offsetWidth;
-            
-            function run(){
+            function cod()
+            {
+               navigator.clipboard.writeText(
+                  "#include <cmath>\n" +
+                  "#include <iostream>\n" +
+                  "#define bool int\n" +
+                  "double round(double d)\n" +
+                  "{\n" +
+                  "    return floor(d+0.5);\n" +
+                  "}\n" +
+                  "int main(){\n" +
+                  cppEditor.getValue() +
+                  "\nreturn 0;\n}";
+               );
+            }
+            function run()
+            {
                 var output = "";
                 var config = {
                     stdio: {
