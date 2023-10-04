@@ -56,11 +56,9 @@
             appendBottom("run button", "3");
             appendBottom("cod button", "3");
             alignRight("run button", "3");
-            alignLeft("cod button", "3");
             document.getElementById("codediv").style.width =
             document.getElementById("2").offsetWidth;
-            function cod()
-            {
+            function cod() {
                navigator.clipboard.writeText(
                   "#include <cmath>\n" +
                   "#include <iostream>\n" +
@@ -74,8 +72,7 @@
                   "\nreturn 0;\n}"
                );
             }
-            function run()
-            {
+            function run() {
                 var output = "";
                 var config = {
                     stdio: {
@@ -97,13 +94,10 @@
                     "\nreturn 0;\n}";
                 var input = document.getElementById("2").value;
                 var exitCode;
-                try
-                {
+                try {
                    exitCode = JSCPP.run(code, input, config);
                    document.getElementById("3").value = output;
-                }
-                catch(err)
-                {
+                } catch(err) {
                    document.getElementById("3").value = "Error: " + (err.message || err);
                 }
             }
