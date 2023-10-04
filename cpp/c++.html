@@ -81,7 +81,7 @@
                    exitCode = JSCPP.run(code, input, config);
                    document.getElementById("3").value = output;
                 }
-                catch(e)
+                catch(err)
                 {
                    document.getElementById("3").value = "\n\n======\nAn error occurred: " + (err.message || err);
                 }
