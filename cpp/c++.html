@@ -75,8 +75,16 @@
                     cppEditor.getValue() +
                     "\nreturn 0;\n}";
                 var input = document.getElementById("2").value;
-                var exitCode = JSCPP.run(code, input, config);
-                document.getElementById("3").value = output;
+                var exitCode;
+                try
+                {
+                   exitCode = JSCPP.run(code, input, config);
+                   document.getElementById("3").value = output;
+                }
+                catch(e)
+                {
+                   document.getElementById("3").value = "\n\n======\nAn error occurred: " + (err.message || err);
+                }
             }
          </script>
       </div>
