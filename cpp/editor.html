@@ -57,22 +57,10 @@
             alignRight("run button", "3");
             document.getElementById("codediv").style.width =
             document.getElementById("2").offsetWidth;
+            var precode = "#include <cmath>\n#include <iostream>\nint main(){\n";
+            var postcode = "\nreturn 0;\n}";
             function cod() {
-               navigator.clipboard.writeText(
-                  "#include <cmath>\n" +
-                  "#include <iostream>\n" +
-                  "#define bool int\n" +
-                  "#define or ||\n" +
-                  "#define and &&\n" +
-                  "using namespace std;\n" +
-                  "double round(double d)\n" +
-                  "{\n" +
-                  "    return floor(d+0.5);\n" +
-                  "}\n" +
-                  "int main(){\n" +
-                  cppEditor.getValue() +
-                  "\nreturn 0;\n}"
-               );
+                navigator.clipboard.writeText(precode + cppEditor.getValue() + postcode);
             }
             function run() {
                 var output = "";
@@ -83,19 +71,7 @@
                         }
                     }
                 };
-                var code = 
-                    "#include <cmath>\n" +
-                    "#include <iostream>\n" +
-                    "#define bool int\n" +
-                    "#define or ||\n" +
-                    "#define and &&\n" +
-                    "double round(double d)\n" +
-                    "{\n" +
-                    "    return floor(d+0.5);\n" +
-                    "}\n" +
-                    "int main(){\n" +
-                    cppEditor.getValue() +
-                    "\nreturn 0;\n}";
+                var code = precode + cppEditor.getValue() + postcode;
                 var input = document.getElementById("2").value;
                 var exitCode;
                 try {
