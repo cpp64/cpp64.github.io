@@ -72,12 +72,12 @@ function putTextArea(x,y,rows,cols,id){
     var textArea = document.createElement("textarea");
     textArea.setAttribute("id", id);
     textArea.style.position = "absolute";
+    textArea.resize = "none";
     //textArea.style.minWidth = "500px";
     textArea.style.left = x;
     textArea.style.top = y;
     textArea.rows = rows;
     textArea.cols = cols;
-    //textArea.resize = "none";
     document.body.appendChild(textArea);
 }
 function rand(maxValue){
