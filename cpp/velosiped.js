@@ -72,7 +72,7 @@ function putTextArea(x,y,rows,cols,id){
     var textArea = document.createElement("textarea");
     textArea.setAttribute("id", id);
     textArea.style.position = "absolute";
-    textArea.resize = "none";
+    textArea.style.resize = "none";
     //textArea.style.minWidth = "500px";
     textArea.style.left = x;
     textArea.style.top = y;
