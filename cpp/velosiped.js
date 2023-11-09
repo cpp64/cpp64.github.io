@@ -77,7 +77,7 @@ function putTextArea(x,y,rows,cols,id){
     textArea.style.top = y;
     textArea.rows = rows;
     textArea.cols = cols;
-    textArea.resize = "none";
+    //textArea.resize = "none";
     document.body.appendChild(textArea);
 }
 function rand(maxValue){
