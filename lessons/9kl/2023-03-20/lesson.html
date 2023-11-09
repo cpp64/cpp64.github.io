@@ -1,11 +1,12 @@
 <html>
    <head>
-      <script src="https://unpkg.com/htmlincludejs"></script>
-      <include src="/head.html"></include>
+      <script type="text/javascript" src="/jquery-3.7.1.min.js" ></script>
+      <script>$(function(){ $("head").load("/head.html") });</script>
+      <script>$(function(){ $("#navigation").load("/navigation.html") });</script>
       <title>Урок</title>
    </head>
    <body>
-      <include src="/nav-non-index.html"></include>
+      <div id="navigation"></div>
       <p>--------------I вариант------------------</p>
       <ol>
          <li>Дан вектор. Выведите сумму первого и последнего элементов.</li>
