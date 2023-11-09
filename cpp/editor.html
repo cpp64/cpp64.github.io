@@ -1,9 +1,8 @@
 <html>
    <head>
-      <meta charset = "UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="/styles/style.css">
-      <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+      <script type="text/javascript" src="/jquery-3.7.1.min.js" ></script>
+      <script>$(function(){$("head").load("/head.html")});</script>
+      <script>$(function(){$("#navigation").load("/navigation.html")});</script>
       <title>C++ базовый</title>
       <link rel="stylesheet" href="codemirror/codemirror.css">
       <style>
@@ -11,19 +10,9 @@
       </style>
    </head>
    <body>
-      <div class="topnav">
-         <img class="logo" src="/icons/dove32w2.ico">
-         <a href="/index.html">Информатика</a>
-         <a href = "/lessons/7kl.html">7 класс</a>
-         <a href = "/lessons/8kl.html">8 класс</a>
-         <a href = "/lessons/9kl.html">9 класс</a>
-         <a href="/oge.html">ОГЭ</a>
-         <img class="wing" src="/icons/wing64.png">
-      </div>
+      <div id="navigation"></div>
       <div class="main">
-         <div id="codediv"
-            style="position: absolute; width: 200px; height: 200px; top: 0px; left: 10px;">
-         </div>
+         <div id="codediv" style="position: absolute; width: 350px; height: 300px; top: 0px; left: 10px;"></div>
          <script src="codemirror/codemirror.js"></script>
          <script src="codemirror/matchbrackets.js"></script>
          <script src="codemirror/clike.js"></script>
@@ -42,8 +31,8 @@
                    mode: "text/x-c++src"
                }
             );
-            putTextArea('8px','0px','5','40','2');
-            putTextArea('8px','0px','5','40','3');
+            putTextArea('8px','0px','10','70','2');
+            putTextArea('8px','0px','10','70','3');
             putText("8px","50px","Код", "text1");
             putText("8px","0px","Вход", "text2");
             putText("8px","0px","Выход", "text3");
@@ -71,18 +60,10 @@
                "using namespace std;\n" +
                "int main(){\n";
             var postcode = "\nreturn 0;\n}";
-            function cod() {
-                navigator.clipboard.writeText(precode1 + cppEditor.getValue() + postcode);
-            }
+            function cod() {navigator.clipboard.writeText(precode1 + cppEditor.getValue() + postcode);}
             function run() {
                 var output = "";
-                var config = {
-                    stdio: {
-                        write: function(s) {
-                            output += s;
-                        }
-                    }
-                };
+                var config = {stdio:{write:function(s){output += s;}}};
                 var code = precode2 + cppEditor.getValue() + postcode;
                 var input = document.getElementById("2").value;
                 var exitCode;
