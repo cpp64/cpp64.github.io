@@ -26,11 +26,11 @@
          @media only screen and (max-width: 375px) {
             #codediv {
                width: 100%;
-               height: 50%;
+               height: 40%;
             }
             #2, #3 {
-               width: 95%;
-               height: 50%;
+               width: 100%;
+               height: 20%;
             }
          }
       </style>
@@ -54,7 +54,6 @@
          <script src="JSCPP.es5.min.js"></script>
          <script src="velosiped.js"></script>
          <script type="text/javascript">
-            //JSCPP: iostream нельзя подключать раньше, чем stdio.h
             putButton("0px","0px","Запуск","run()","run button");
             putButton("10px","0px","Копировать код","cod()","cod button");
             var cppEditor = CodeMirror(
@@ -95,7 +94,9 @@
                "using namespace std;\n" +
                "int main(){\n";
             var postcode = "\nreturn 0;\n}";
-            function cod() {navigator.clipboard.writeText(precode1 + cppEditor.getValue() + postcode);}
+            function cod() {
+               navigator.clipboard.writeText(precode1 + cppEditor.getValue() + postcode);
+            }
             function run() {
                 var output = "";
                 var config = {stdio:{write:function(s){output += s;}}};
