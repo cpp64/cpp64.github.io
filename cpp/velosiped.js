@@ -39,7 +39,7 @@ function putButton(x,y,text,onclick,id) {
     button.style.top = y;
     document.getElementById("main").appendChild(button);
 }
-function putText(x,y,text,id) {
+function putText(x,y,text,id,idTo) {
     var table = document.createElement("table");
     table.setAttribute("border", "0");
     table.setAttribute("id", id);
@@ -47,7 +47,7 @@ function putText(x,y,text,id) {
     table.style.left = x;
     table.style.top = y;
     table.appendChild(document.createTextNode(text));
-    document.getElementById("main").appendChild(table);
+    document.getElementById(idTo).appendChild(table);
     return table.offsetWidth;
     //не менять return, иначе
     //перестанет работать 
@@ -80,12 +80,12 @@ function putTextArea(x,y,rows,cols,id) {
     textArea.cols = cols;
     document.getElementById("main").appendChild(textArea);
 }
-function putTextAreaWithoutStyle(rows,cols,id) {
+function putTextAreaWithoutStyle(rows,cols,id,idTo) {
     var textArea = document.createElement("textarea");
     textArea.setAttribute("id", id);
     textArea.rows = rows;
     textArea.cols = cols;
-    document.getElementById("main").appendChild(textArea);
+    document.getElementById(idTo).appendChild(textArea);
 }
 function rand(maxValue) {
     return Math.floor(Math.random() * maxValue);
