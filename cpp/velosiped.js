@@ -80,6 +80,13 @@ function putTextArea(x,y,rows,cols,id) {
     textArea.cols = cols;
     document.getElementById("main").appendChild(textArea);
 }
+function putTextAreaWithoutStyle(rows,cols,id) {
+    var textArea = document.createElement("textarea");
+    textArea.setAttribute("id", id);
+    textArea.rows = rows;
+    textArea.cols = cols;
+    document.getElementById("main").appendChild(textArea);
+}
 function rand(maxValue) {
     return Math.floor(Math.random() * maxValue);
 }
