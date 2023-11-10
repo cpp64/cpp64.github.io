@@ -43,7 +43,7 @@ function putText(x,y,text,id) {
     var table = document.createElement("table");
     table.setAttribute("border", "0");
     table.setAttribute("id", id);
-    table.style.position = "absolute";
+    table.style.position = "relative";
     table.style.left = x;
     table.style.top = y;
     table.appendChild(document.createTextNode(text));
