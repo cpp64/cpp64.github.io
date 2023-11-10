@@ -98,10 +98,10 @@ function binLen(i) {
     } while (i > 0);
     return ans;
 }
-function bitAt(n,i){
+function bitAt(n,i) {
     return (n & (1 << i)) == 0 ? 0 : 1;
 }
-function binString(n){
+function binString(n) {
     let s = "";
     for(let i = binLen(n) - 1; i >= 0; --i)
         s += (n & (1 << i)) == 0 ? '0' : '1';
