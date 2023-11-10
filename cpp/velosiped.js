@@ -23,7 +23,7 @@ function putHref(x,y,text,_link,id) {
     var table = document.createElement("table");
     table.setAttribute("border", "0");
     table.setAttribute("id", id);
-    table.style.position = "absolute";
+    table.style.position = "relative";
     table.style.left = x;
     table.style.top = y;
     table.appendChild(a);
@@ -34,7 +34,7 @@ function putButton(x,y,text,onclick,id) {
     button.appendChild(document.createTextNode(text));
     button.setAttribute("onclick", onclick);
     button.setAttribute("id", id);
-    button.style.position = "absolute";
+    button.style.position = "relative";
     button.style.left = x;
     button.style.top = y;
     document.getElementById("main").appendChild(button);
@@ -58,7 +58,7 @@ function putInput(x,y,width,id) {
     input.setAttribute("type", "text");
     input.setAttribute("value", "");
     input.setAttribute("id", id);
-    input.style.position = 'absolute';
+    input.style.position = 'relative';
     input.style.left = x;
     input.style.top = y;
     input.style.width = width;
@@ -71,7 +71,7 @@ function putInput(x,y,width,id) {
 function putTextArea(x,y,rows,cols,id) {
     var textArea = document.createElement("textarea");
     textArea.setAttribute("id", id);
-    textArea.style.position = "absolute";
+    textArea.style.position = "relative";
     textArea.style.resize = "none";
     //textArea.style.minWidth = "500px";
     textArea.style.left = x;
