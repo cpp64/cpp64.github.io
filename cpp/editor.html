@@ -17,6 +17,10 @@
             top: 0px;
             left: 0px;
          }
+         #2, #3 {
+            position = "absolute";
+            resize = "none";
+         }
          @media only screen and (max-width: 349px) {
             #codediv {
                width: 95%;
@@ -60,8 +64,8 @@
                    mode: "text/x-c++src"
                }
             );
-            putTextArea('10px','0px','10','70','2');
-            putTextArea('10px','0px','10','70','3');
+            putTextAreaWithoutStyle('10px','0px','10','70','2');
+            putTextAreaWithoutStyle('10px','0px','10','70','3');
             putText("10px","50px","Код", "text1");
             putText("10px","0px","Вход", "text2");
             putText("10px","0px","Выход", "text3");
