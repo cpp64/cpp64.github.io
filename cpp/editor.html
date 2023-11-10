@@ -18,7 +18,7 @@
             top: 0px;
             left: 0px;
          }
-         #2, #3 {
+         #area2, #area3 {
             position: "relative";
             resize: "none";
             top: 0px;
@@ -29,7 +29,7 @@
                width: 100%;
                height: 40%;
             }
-            #2, #3 {
+            #area2, #area3 {
                width: 100%;
                height: 20%;
             }
@@ -66,21 +66,21 @@
                 mode: "text/x-c++src"
             }
          );
-         //putTextArea('10px','0px','10','70','2');
-         //putTextArea('10px','0px','10','70','3');
-         putTextAreaWithoutStyle('10','70','2');
-         putTextAreaWithoutStyle('10','70','3');
+         //putTextArea('10px','0px','10','70','area2');
+         //putTextArea('10px','0px','10','70','area3');
+         putTextAreaWithoutStyle('10','70','area2');
+         putTextAreaWithoutStyle('10','70','area3');
          putText("10px","0px","Код", "text1");
          putText("10px","0px","Вход", "text2");
          putText("10px","0px","Выход", "text3");
          appendBottom("codediv", "text1");
          appendBottom1("text2", "codediv", 10);
-         appendBottom("2", "text2");
-         appendBottom("text3", "2");
-         appendBottom("3", "text3");
-         appendBottom("run button", "3");
-         appendBottom("cod button", "3");
-         alignRight("run button", "3");
+         appendBottom("area2", "text2");
+         appendBottom("text3", "area2");
+         appendBottom("area3", "text3");
+         appendBottom("run button", "area3");
+         appendBottom("cod button", "area3");
+         alignRight("run button", "area3");
          //document.getElementById("codediv").style.width = document.getElementById("2").offsetWidth;
          var precode1 = 
             "#include <cmath>\n" +
