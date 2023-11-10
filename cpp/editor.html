@@ -29,7 +29,7 @@
          <img class="wing" src="/icons/wing64(1).png">
       </div>
       <div class="main">
-         <div id="codediv" style="position: absolute; width: 350px; height: 300px; top: 0px; left: 10px;"></div>
+         <div id="codediv" style="position: absolute; width: 350px; height: 300px; top: 0px; left: 0px;"></div>
          <script src="codemirror/codemirror.js"></script>
          <script src="codemirror/matchbrackets.js"></script>
          <script src="codemirror/clike.js"></script>
@@ -39,7 +39,7 @@
             //сделать textarea не мпсштабируемыми
             //JSCPP: iostream нельзя подключать раньше, чем stdio.h
             putButton("0px","0px","Запуск","run()","run button");
-            putButton("8px","0px","Копировать код","cod()","cod button");
+            putButton("10px","0px","Копировать код","cod()","cod button");
             var cppEditor = CodeMirror(
                document.getElementById("codediv"),
                {
@@ -48,11 +48,11 @@
                    mode: "text/x-c++src"
                }
             );
-            putTextArea('8px','0px','10','70','2');
-            putTextArea('8px','0px','10','70','3');
-            putText("8px","50px","Код", "text1");
-            putText("8px","0px","Вход", "text2");
-            putText("8px","0px","Выход", "text3");
+            putTextArea('10px','0px','10','70','2');
+            putTextArea('10px','0px','10','70','3');
+            putText("10px","50px","Код", "text1");
+            putText("10px","0px","Вход", "text2");
+            putText("10px","0px","Выход", "text3");
             appendBottom("codediv", "text1");
             appendBottom1("text2", "codediv", 10);
             appendBottom("2", "text2");
