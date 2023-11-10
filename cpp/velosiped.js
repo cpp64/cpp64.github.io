@@ -1,16 +1,16 @@
-function alignRight(idWhat, idTo){
+function alignRight(idWhat, idTo) {
     var what = document.getElementById(idWhat);
     var to = document.getElementById(idTo);
     var xTo = Number(to.style.left.substr(0, to.style.left.length - 2));
     what.style.left = (xTo + to.offsetWidth - what.offsetWidth).toString() + "px";
 }
-function appendBottom(idWhat, idTo){
+function appendBottom(idWhat, idTo) {
     var what = document.getElementById(idWhat);
     var to = document.getElementById(idTo);
     var yTo = Number(to.style.top.substr(0, to.style.top.length - 2));
     what.style.top = (yTo + to.offsetHeight + 5).toString() + "px";
 }
-function appendBottom1(idWhat, idTo, offset){
+function appendBottom1(idWhat, idTo, offset) {
     var what = document.getElementById(idWhat);
     var to = document.getElementById(idTo);
     var yTo = Number(to.style.top.substr(0, to.style.top.length - 2));
@@ -27,9 +27,9 @@ function putHref(x,y,text,_link,id) {
     table.style.left = x;
     table.style.top = y;
     table.appendChild(a);
-    document.body.appendChild(table);
+    document.getElementById("main").appendChild(table);
 }
-function putButton(x,y,text,onclick,id){
+function putButton(x,y,text,onclick,id) {
     var button = document.createElement("button");
     button.appendChild(document.createTextNode(text));
     button.setAttribute("onclick", onclick);
@@ -37,7 +37,7 @@ function putButton(x,y,text,onclick,id){
     button.style.position = "absolute";
     button.style.left = x;
     button.style.top = y;
-    document.body.appendChild(button);
+    document.getElementById("main").appendChild(button);
 }
 function putText(x,y,text,id) {
     var table = document.createElement("table");
@@ -47,13 +47,13 @@ function putText(x,y,text,id) {
     table.style.left = x;
     table.style.top = y;
     table.appendChild(document.createTextNode(text));
-    document.body.appendChild(table);
+    document.getElementById("main").appendChild(table);
     return table.offsetWidth;
     //не менять return, иначе
     //перестанет работать 
     //разложение по степеням
 }
-function putInput(x,y,width,id){
+function putInput(x,y,width,id) {
     var input = document.createElement("input");
     input.setAttribute("type", "text");
     input.setAttribute("value", "");
@@ -62,13 +62,13 @@ function putInput(x,y,width,id){
     input.style.left = x;
     input.style.top = y;
     input.style.width = width;
-    document.body.appendChild(input);
+    document.getElementById("main").appendChild(input);
     return input.offsetWidth;
     //не менять return, иначе
     //перестанет работать
     //разложение по степеням
 }
-function putTextArea(x,y,rows,cols,id){
+function putTextArea(x,y,rows,cols,id) {
     var textArea = document.createElement("textarea");
     textArea.setAttribute("id", id);
     textArea.style.position = "absolute";
@@ -78,12 +78,12 @@ function putTextArea(x,y,rows,cols,id){
     textArea.style.top = y;
     textArea.rows = rows;
     textArea.cols = cols;
-    document.body.appendChild(textArea);
+    document.getElementById("main").appendChild(textArea);
 }
-function rand(maxValue){
+function rand(maxValue) {
     return Math.floor(Math.random() * maxValue);
 }
-function binLen(i){
+function binLen(i) {
     let ans = 0;
     do {
         i >>= 1;
