@@ -7,8 +7,17 @@
       <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
       <title>C++ базовый</title>
       <link rel="stylesheet" href="codemirror/codemirror.css">
-      <style>.CodeMirror{border: 1px inset #dee;}</style>
+      <style></style>
       <style>
+         .CodeMirror {
+            border: 1px inset #dee;
+         }
+         #codediv {
+            width: 350px;
+            height: 300px;
+            top: 0px;
+            left: 0px;
+         }
          @media only screen and (max-width: 349px) {
             #codediv {
                width: 95%;
@@ -33,7 +42,7 @@
          <img class="wing" src="/icons/wing64(1).png">
       </div>
       <div class="main">
-         <div id="codediv" style="width: 350px; height: 300px; top: 0px; left: 0px;"></div>
+         <div id="codediv"></div>
          <script src="codemirror/codemirror.js"></script>
          <script src="codemirror/matchbrackets.js"></script>
          <script src="codemirror/clike.js"></script>
