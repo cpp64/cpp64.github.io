@@ -72,20 +72,20 @@
          //putTextArea('10px','0px','10','70','area2');
          //putTextArea('10px','0px','10','70','area3');
          putText("0px","0px","Код","text1","main");
+         appendBottom("codediv", "text1");
          putText("0px","0px","Вход","text2","main");
-         putText("0px","0px","Выход", "text3");
+         appendBottom1("text2", "codediv", 10);
+         /*putText("0px","0px","Выход", "text3");
          putTextAreaWithoutStyle('10','70','area2');
          putTextAreaWithoutStyle('10','70','area3');
          putButton("0px","0px","Запуск","run()","run button");
          putButton("10px","0px","Копировать код","cod()","cod button");
-         appendBottom("codediv", "text1");
-         appendBottom1("text2", "codediv", 10);
          appendBottom("area2", "text2");
          appendBottom("text3", "area2");
          appendBottom("area3", "text3");
          appendBottom("run button", "area3");
          appendBottom("cod button", "area3");
-         alignRight("run button", "area3");
+         alignRight("run button", "area3");*/
          //document.getElementById("codediv").style.width = document.getElementById("2").offsetWidth;
          var precode1 = 
             "#include <cmath>\n" +
