@@ -48,12 +48,12 @@
          <img class="wing" src="/icons/wing64(1).png">
       </div>
       <div class="main" id="main" style="position:relative;">
-         <!--<div id="text1div"></div>-->
+         <div id="text1div" style="position:absolute;"></div>
          <div id="codediv" style="position:absolute;"></div>
-         <!--<div id="text2div"></div>
-         <div id="area2div"></div>
-         <div id="text3div"></div>
-         <div id="area3div"></div>-->
+         <div id="text2div" style="position:absolute;"></div>
+         <div id="area2div" style="position:absolute;"></div>
+         <div id="text3div" style="position:absolute;"></div>
+         <div id="area3div" style="position:absolute;"></div>
       </div>
       <script src="codemirror/codemirror.js"></script>
       <script src="codemirror/matchbrackets.js"></script>
@@ -71,12 +71,12 @@
          );
          //putTextArea('10px','0px','10','70','area2');
          //putTextArea('10px','0px','10','70','area3');
-         putText("0px","0px","Код","text1","main");
-         appendBottom("codediv", "text1");
-         putText("0px","0px","Вход","text2","main");
-         appendBottom1("text2", "codediv", 10);
-         putTextAreaWithoutStyle('10','70','area2',"main");
-         appendBottom("area2", "text2");
+         putText("0px","0px","Код","text1","text1div");
+         appendBottom("codediv", "text1div");
+         putText("0px","0px","Вход","text2","text2div");
+         appendBottom1("text2div", "codediv", 10);
+         putTextAreaWithoutStyle('10','70','area2',"area2div");
+         appendBottom("area2div", "text2div");
          /*putText("0px","0px","Выход", "text3");
          putTextAreaWithoutStyle('10','70','area3');
          putButton("0px","0px","Запуск","run()","run button");
