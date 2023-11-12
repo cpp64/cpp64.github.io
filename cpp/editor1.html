@@ -107,13 +107,13 @@
              var output = "";
              var config = {stdio:{write:function(s){output += s;}}};
              var code = precode2 + cppEditor.getValue() + postcode;
-             var input = document.getElementById("2").value;
+             var input = document.getElementById("area2").value;
              var exitCode;
              try {
                 exitCode = JSCPP.run(code, input, config);
-                document.getElementById("3").value = output;
+                document.getElementById("area3").value = output;
              } catch(err) {
-                document.getElementById("3").value = "Error: " + (err.message || err);
+                document.getElementById("area3").value = "Error: " + (err.message || err);
              }
          }
       </script>
