@@ -13,6 +13,8 @@
          }
          #area2, #area3{
             resize: none;
+            width: 100%;
+            height: 100%;
          }
          #codediv{
             width: 400px;
@@ -30,8 +32,8 @@
             #area2, #area3 {
                width: 100%;
                height: 50px;
-            }*/
-         }
+            }
+         }*/
       </style>
    </head>
    <body>
@@ -49,7 +51,9 @@
          <div id="text1div" style="display:inline-block; position:relative; background-color:green;">Код</div>
          <div id="codediv"  style="position:relative;"></div>
          <div id="text2div" style="width:100%; height: fit-content; position:relative; background-color:red;">Вход</div>
-         <div id="area2div" style="position:relative; background-color:blue;"></div>
+         <div id="area2div" style="position:relative; background-color:blue;">
+            <textarea id="area2"></textarea>
+         </div>
          <!--<div id="text3div" style="width:100%; background-color:cyan;"></div>
          <div id="area3div" style="width:100%; background-color:yellow;"></div>-->
       </div>
@@ -69,22 +73,9 @@
          );
          //putTextArea('10px','0px','10','70','area2');
          //putTextArea('10px','0px','10','70','area3');
-         //putText("0px","0px","Код","text1","text1div");
-         //appendBottom("codediv", "text1div");
-         //putText("0px","0px","Вход","text2","text2div");
-         //appendBottom1("text2div", "codediv", 10);
-         //putTextAreaWithoutStyle('10','70','area2',"area2div");
-         //appendBottom("area2div", "text2div");
-         /*putText("0px","0px","Выход", "text3");
-         putTextAreaWithoutStyle('10','70','area3');
+         /*putTextAreaWithoutStyle('10','70','area3');
          putButton("0px","0px","Запуск","run()","run button");
-         putButton("10px","0px","Копировать код","cod()","cod button");
-         appendBottom("text3", "area2");
-         appendBottom("area3", "text3");
-         appendBottom("run button", "area3");
-         appendBottom("cod button", "area3");
-         alignRight("run button", "area3");*/
-         //document.getElementById("codediv").style.width = document.getElementById("2").offsetWidth;
+         putButton("10px","0px","Копировать код","cod()","cod button");*/
          var precode1 = 
             "#include <cmath>\n" +
             "#include <iostream>\n" +
