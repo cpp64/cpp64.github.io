@@ -111,7 +111,7 @@
              var exitCode;
              var PTest = function () {
                 return new Promise(function (resolve, reject) {
-                setTimeout(function() { reject(); }, 5000)
+                   setTimeout(function() { reject(); }, 5000);
                 // Lines of Code
             /* try {
                 exitCode = JSCPP.run(code, input, config);
@@ -119,8 +119,8 @@
              } catch(err) {
                 document.getElementById("area3").value = "Error: " + (err.message || err);
              }         */         
-                while(1==1);
-                resolve();
+                   while(1==1);
+                   resolve();
                 });
              }
              var myfunc = PTest();
