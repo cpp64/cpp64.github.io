@@ -54,6 +54,12 @@
          let canvas = document.getElementById('canvas'),
              ctx = canvas.getContext('2d');
          drawLine(ctx, 10, 10, 100, 100, 'tomato', 3);
+         function draw() {
+            const ctx = document.getElementById("canvas").getContext("2d");
+            ctx.font = "48px serif";
+            ctx.fillText("Hello world", 10, 50);
+         }
+         draw();
       </script>
    </body>
 </html>
