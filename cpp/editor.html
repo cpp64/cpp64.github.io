@@ -109,24 +109,35 @@
              var code = precode2 + cppEditor.getValue() + postcode;
              var input = document.getElementById("area2").value;
              var exitCode;
-             var PTest = function () {
-                return new Promise(function (resolve, reject) {
-                   setTimeout(function() { reject(); }, 5000);
-                // Lines of Code
             /* try {
                 exitCode = JSCPP.run(code, input, config);
                 document.getElementById("area3").value = output;
              } catch(err) {
                 document.getElementById("area3").value = "Error: " + (err.message || err);
-             }         */         
-                   while(1==1);
-                   resolve();
-                });
-             }
-             var myfunc = PTest();
-             myfunc.then(function () { console.log("Promise Resolved"); }).catch(function () {
-                console.log("Promise Rejected");
-             });
+             }         */
+            var p1 = new Promise((resolve, reject) => { 
+  setTimeout(resolve, 2000, "long_execution"); 
+}); 
+
+var p2 = new Promise((resolve, reject) => { 
+  setTimeout(resolve, 500, "ok"); 
+}); 
+
+var p3 = new Promise((resolve, reject) => {
+  setTimeout(reject, 1000, "reject");
+});
+
+Promise.race([p1, p3]).then(values => { 
+  console.log(values);
+}, reason => {
+  console.log(reason)
+});
+
+Promise.race([p2, p3]).then(values => { 
+  console.log(values);
+}, reason => {
+  console.log(reason)
+});
          }
       </script>
    </body>
