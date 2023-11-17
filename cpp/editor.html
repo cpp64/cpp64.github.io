@@ -109,12 +109,23 @@
              var code = precode2 + cppEditor.getValue() + postcode;
              var input = document.getElementById("area2").value;
              var exitCode;
+             var PTest = function () {
+                return new Promise(function (resolve, reject) {
+                setTimeout(function() { reject(); }, 5000)
+                // Lines of Code
              try {
                 exitCode = JSCPP.run(code, input, config);
                 document.getElementById("area3").value = output;
              } catch(err) {
                 document.getElementById("area3").value = "Error: " + (err.message || err);
+             }                  
+                resolve();
+                });
              }
+             var myfunc = PTest();
+             myfunc.then(function () { console.log("Promise Resolved"); }).catch(function () {
+                console.log("Promise Rejected");
+             });
          }
       </script>
    </body>
