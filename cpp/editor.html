@@ -104,40 +104,18 @@
             navigator.clipboard.writeText(precode1 + cppEditor.getValue() + postcode);
          }
          function run() {
-             var output = "";
-             var config = {stdio:{write:function(s){output += s;}}};
-             var code = precode2 + cppEditor.getValue() + postcode;
-             var input = document.getElementById("area2").value;
-             var exitCode;
-            /* try {
-                exitCode = JSCPP.run(code, input, config);
-                document.getElementById("area3").value = output;
-             } catch(err) {
-                document.getElementById("area3").value = "Error: " + (err.message || err);
-             }         */
-            var p1 = new Promise((resolve, reject) => { 
-  setTimeout(resolve, 2000, "long_execution"); 
-}); 
-
-var p2 = new Promise((resolve, reject) => { 
-  setTimeout(resolve, 500, "ok"); 
-}); 
-
-var p3 = new Promise((resolve, reject) => {
-  setTimeout(reject, 1000, "reject");
-});
-
-Promise.race([p1, p3]).then(values => { 
-  console.log(values);
-}, reason => {
-  console.log(reason)
-});
-
-Promise.race([p2, p3]).then(values => { 
-  console.log(values);
-}, reason => {
-  console.log(reason)
-});
+            navigator.clipboard.writeText(cppEditor.getValue());
+            var output = "";
+            var config = {stdio:{write:function(s){output += s;}}};
+            var code = precode2 + cppEditor.getValue() + postcode;
+            var input = document.getElementById("area2").value;
+            var exitCode;
+            try {
+               exitCode = JSCPP.run(code, input, config);
+               document.getElementById("area3").value = output;
+            } catch(err) {
+               document.getElementById("area3").value = "Error: " + (err.message || err);
+            }
          }
       </script>
    </body>
