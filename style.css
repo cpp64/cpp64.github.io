@@ -1,14 +1,14 @@
-body{
+body {
    background-color: FFFFC0;/*#f9ffff;*/
    margin: 0;
    padding: 0;
 }
-.topnav{
+.topnav {
   align-items: center;
   overflow: hidden;
   background-color: #888888;
 }
-.topnav a{
+.topnav a {
   float: left;
   display: block;
   color: #ffffff;
@@ -16,14 +16,14 @@ body{
   padding: 14px 16px;
   text-decoration: none;
 }
-.topnav a:hover{
+.topnav a:hover {
   background-color: #eeeeee;
   color: #000000;
 }
-.main{
+.main {
    padding: 10px;
 }
-.footer{
+.footer {
    position: absolute;
    left: 0;
    bottom: 0;
@@ -32,14 +32,14 @@ body{
    color: #000000;
    font-size: 15px;
 }
-.logo{
+.logo {
    float: left;
    display: block;
    align-items: center;
    padding-top: 5px;
    padding-left: 5px;
 }
-.wing{
+.wing {
    float: left;
    display: block;
    align-items: center;
