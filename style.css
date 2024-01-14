@@ -10,35 +10,35 @@ body {
 
 .topnav {
 
-  align-items: center;
+   align-items: center;
 
-  overflow: hidden;
+   overflow: hidden;
 
-  background-color: #888888;
+   background-color: #888888;
 
 }
 
 .topnav a {
 
-  float: left;
+   float: left;
 
-  display: block;
+   display: block;
 
-  color: #ffffff;
+   color: #ffffff;
 
-  text-align: center;
+   text-align: center;
 
-  padding: 14px 16px;
+   padding: 14px 16px;
 
-  text-decoration: none;
+   text-decoration: none;
 
 }
 
 .topnav a:hover {
 
-  background-color: #eeeeee;
+   background-color: #eeeeee;
 
-  color: #000000;
+   color: #000000;
 
 }
 
@@ -173,5 +173,15 @@ body {
    -o-border-radius: 10px;
    
    -ms-border-radius: 10px;
+
+   float: left;
+
+   display: block;
+
+   text-align: center;
+
+   padding: 14px 16px;
+
+   text-decoration: none;
    
 }
