@@ -121,3 +121,50 @@ body {
    text-decoration: none;
    
 }
+
+.lnk {
+
+   color: #ffffff;
+
+   text-decoration: none;
+
+	background-color: #888888;
+
+	line-height: 40px;
+
+}
+
+.lnk:hover {
+
+   background-color: #eeeeee;
+
+   color: #000000;
+
+}
+
+.outer {
+
+	 display: flex;
+
+	 align-items: strech;
+
+    border: 1px solid black;
+}
+
+.inner {
+
+	background-color: #888888;
+	
+	display: flex;
+	
+	align-items: center;
+
+}
+
+.inner:hover {
+
+   background-color: #eeeeee;
+
+   color: #000000;
+
+}
