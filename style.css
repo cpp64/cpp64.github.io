@@ -8,40 +8,6 @@ body {
 
 }
 
-.topnav {
-
-   align-items: center;
-
-   overflow: hidden;
-
-   background-color: #888888;
-
-}
-
-.topnav a {
-
-   float: left;
-
-   display: block;
-
-   color: #ffffff;
-
-   text-align: center;
-
-   padding: 14px 16px;
-
-   text-decoration: none;
-
-}
-
-.topnav a:hover {
-
-   background-color: #eeeeee;
-
-   color: #000000;
-
-}
-
 .main {
 
    padding: 10px;
@@ -64,20 +30,6 @@ body {
 
    font-size: 15px;
 
-}
-
-.logo {
-
-   float: left;
-
-   display: block;
-
-   align-items: center;
-/*
-   padding-top: 5px;
-
-   padding-left: 5px;
-*/
 }
 
 .wing {
@@ -127,10 +79,10 @@ body {
    color: #ffffff;
 
    text-decoration: none;
+	
+   background-color: #888888;
 
-	background-color: #888888;
-
-	line-height: 40px;
+   line-height: 40px;
 
 }
 
@@ -144,20 +96,19 @@ body {
 
 .outer {
 
-	 display: flex;
+   display: flex;
 
-	 align-items: strech;
+   align-items: strech;
 
-    border: 1px solid black;
 }
 
 .inner {
 
-	background-color: #888888;
+   background-color: #888888;
 	
-	display: flex;
+   display: flex;
 	
-	align-items: center;
+   align-items: center;
 
 }
 
