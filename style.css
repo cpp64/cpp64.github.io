@@ -1,63 +1,63 @@
 body {
-   background-color: #fffff5;
-   margin: 0;
-   padding: 0;
+        background-color: #fffff5;
+        margin: 0;
+        padding: 0;
 }
 .main {
-   padding: 10px;
+        padding: 10px;
 }
 .footer {
-   position: absolute;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   text-align: center;
-   color: #000000;
-   font-size: 15px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: #000000;
+        font-size: 15px;
 }
 .wing {
-   float: left;
-   display: block;
-   align-items: center;
-   padding-top: 8px;
-   padding-left: 3px;
+        float: left;
+        display: block;
+        align-items: center;
+        padding-top: 8px;
+        padding-left: 3px;
 }
-.bluebutton {  
-   background: #d0ffff;
-   padding: 10px;
-   border-radius: 10px;
-   -moz-border-radius: 10px;
-   -webkit-border-radius: 10px;
-   -o-border-radius: 10px;
-   -ms-border-radius: 10px;
-   float: left;
-   display: block;
-   text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
+.bluebutton {
+        background: #d0ffff;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -o-border-radius: 10px;
+        -ms-border-radius: 10px;
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
 }
 .lnk {
-   color: #ffffff;
-   text-decoration: none;
-   /* тяп-ляп */
-   line-height: 40px;
-   padding-right: 10px;
-   padding-left: 10px;
+        color: #ffffff;
+        text-decoration: none;
+        /* тяп-ляп */
+        line-height: 40px;
+        padding-right: 10px;
+        padding-left: 10px;
 }
 .lnk:hover {
-   background-color: #eeeeee;
-   color: #000000;
+        background-color: #eeeeee;
+        color: #000000;
 }
 .outer {
-   background-color: #888888;
-   display: flex;
-   align-items: strech;
+        background-color: #888888;
+        display: flex;
+        align-items: strech;
 }
-.inner {	
-   display: flex;
-   align-items: center;
+.inner {
+        display: flex;
+        align-items: center;
 }
 .inner:hover {
-   background-color: #eeeeee;
-   color: #000000;
+        background-color: #eeeeee;
+        color: #000000;
 }
