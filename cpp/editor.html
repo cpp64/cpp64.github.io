@@ -1,248 +1,121 @@
 <!-- подключение любых библиотек крашит codemirror -->
-
 <html>
-   
-   <head>
-      
-      <!-- <script>location.replace("https://cpp64.github.io/error.html");</script> -->
-      
-      <meta charset="UTF-8">
-      
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" type="text/css" href="/style.css">
-      
-      <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
-      
-      <title>C++ базовый</title>
-      
-      <link rel="stylesheet" href="codemirror/codemirror.css">
-      
-      <style>
-         
-         .CodeMirror {
-            
-            border: 1px inset #dee;
-            
-         }
-         
-         #area2, #area3 {
-            
-            resize: none;
-            
-            width: 100%;
-            
-            height: 100%;
-            
-         }
-         
-         #codediv {
-            
-            width: 500px;
-            
-            height: 300px;
-            
-         }
-         
-         #area2div, #area3div {
-            
-            width: 500px;
-            
-            height: 200px;
-            
-         }
-         
-         #buttons_div {
-            
-            width: 500px;
-            
-            height: min-content;
-            //DIV НЕ ПОДГОНЯЕТСЯ ПО ВЫСОТЕ
-            //ВЫСОТА РАВНА 0
-
-         }
-         
-         @media only screen and (max-width: 525px) {
-            
-            #codediv {
-               
-               width: 100%;
-               
-               height: 40%;
-               
-            }
-            
-            #area2div, #area3div {
-               
-               width: 100%;
-               
-               height: 20%;
-               
-            }
-            
-            #buttons_div {
-               
-               width: 100%;
-               
-            }
-            
-         }
-         
-      </style>
-      
-   </head>
-   
-   <body>
-      
-      <div class="outer">
-         
-         <div class="inner">
-            
-            <a href="/index.html">
-               
-               <img style = "margin: 5px;" src="/icons/dove32w2.ico" alt="Информатика">
-            
-            </a>
-         
-         </div>
-         
-         <a class="lnk" href = "/7kl/7kl.html">7 класс</a>
-         
-         <a class="lnk" href = "/8kl/8kl.html">8 класс</a>
-         
-         <a class="lnk" href = "/9kl/9kl.html">9 класс</a>
-         
-         <a class="lnk" href = "/acm/acm.html">Кружок</a>
-         
-         <a class="lnk" href="/oge/oge.html">ОГЭ</a>
-         
-         <a class="lnk" href = "/sgu/sgu.html">Студенты</a>
-         
-         <img class="wing" src="/icons/wing64(1).png">
-         
-      </div>
-      
-      <div class="main" id="main" style="position:relative;">
-         
-         <div id="text1div" style="position:relative;">Код</div>
-         
-         <div id="codediv"  style="position:relative;"></div>
-         
-         <div id="text2div" style="position:relative;">Вход</div>
-         
-         <div id="area2div" style="position:relative;">
-            
-            <textarea id="area2"></textarea>
-            
-         </div>
-         
-         <div id="text3div" style="position:relative;">Выход</div>
-         
-         <div id="area3div" style="position:relative;">
-            
-            <textarea id="area3"></textarea>
-            
-         </div>
-         
-         <div id="buttons_div" style="position:relative; background-color:green;">
-            
-            <button onclick="cod()" style="position:absolute;left:0px;">Копировать код</button>
-            
-            <button onclick="run()" style="position:absolute;right:0px;">Запуск</button>
-            
-         </div>
-         
-      </div>
-      
-      <script src="codemirror/codemirror.js"></script>
-      
-      <script src="codemirror/matchbrackets.js"></script>
-      
-      <script src="codemirror/clike.js"></script>
-      
-      <script src="JSCPP.es5.min.js"></script>
-      
-      <script type="text/javascript">
-         
-         var cppEditor = CodeMirror(
-            
-            document.getElementById("codediv"),
-            
-            {
-               
-                lineNumbers: true,
-               
-                matchBrackets: true,
-               
-                mode: "text/x-c++src"
-               
-            }
-            
-         );
-         
-         var precode1 = 
-            
-            "#include <cmath>\n" +
-            
-            "#include <iostream>\n" +
-            
-            "using namespace std;\n" +
-            
-            "int main(){\n";
-         
-         var precode2 = 
-            
-            "#include <cmath>\n" +
-            
-            "#include <iostream>\n" +
-            
-            "#define or ||\n" +
-            
-            "#define and &&\n" +
-            
-            "#define bool int\n" +
-            
-            "using namespace std;\n" +
-            
-            "int main(){\n";
-         
-         var postcode = "\nreturn 0;\n}";
-         
-         function cod() {
-            
-            navigator.clipboard.writeText(precode1 + cppEditor.getValue() + postcode);
-            
-         }
-         function run() {
-            
-            navigator.clipboard.writeText(cppEditor.getValue());
-            
-            var output = "";
-            
-            var config = {stdio:{write:function(s){output += s;}}};
-            
-            var code = precode2 + cppEditor.getValue() + postcode;
-            
-            var input = document.getElementById("area2").value;
-            
-            var exitCode;
-            
-            try {
-               
-               exitCode = JSCPP.run(code, input, config);
-               
-               document.getElementById("area3").value = output;
-               
-            } catch(err) {
-               
-               document.getElementById("area3").value = "Error: " + (err.message || err);
-               
-            }
-            
-         }
-         
-      </script>
-      
-   </body>
-   
+        <head>
+                <!-- <script>location.replace("https://cpp64.github.io/error.html");</script> -->
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" type="text/css" href="/style.css" />
+                <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
+                <title>C++ базовый</title>
+                <link rel="stylesheet" href="codemirror/codemirror.css" />
+                <style>
+                        .CodeMirror {
+                                border: 1px inset #dee;
+                        }
+                        #area2,
+                        #area3 {
+                                resize: none;
+                                width: 100%;
+                                height: 100%;
+                        }
+                        #codediv {
+                                width: 500px;
+                                height: 300px;
+                        }
+                        #area2div,
+                        #area3div {
+                                width: 500px;
+                                height: 200px;
+                        }
+                        #buttons_div {
+                                width: 500px;
+                                height: min-content;
+                                //DIV НЕ ПОДГОНЯЕТСЯ ПО ВЫСОТЕ
+                                //ВЫСОТА РАВНА 0
+                        }
+                        @media only screen and (max-width: 525px) {
+                                #codediv {
+                                        width: 100%;
+                                        height: 40%;
+                                }
+                                #area2div,
+                                #area3div {
+                                        width: 100%;
+                                        height: 20%;
+                                }
+                                #buttons_div {
+                                        width: 100%;
+                                }
+                        }
+                </style>
+        </head>
+        <body>
+                <div class="outer">
+                        <div class="inner">
+                                <a href="/index.html">
+                                        <img style="margin: 5px;" src="/icons/dove32w2.ico" alt="Информатика" />
+                                </a>
+                        </div>
+                        <a class="lnk" href="/7kl/7kl.html">7 класс</a>
+                        <a class="lnk" href="/8kl/8kl.html">8 класс</a>
+                        <a class="lnk" href="/9kl/9kl.html">9 класс</a>
+                        <a class="lnk" href="/acm/acm.html">Кружок</a>
+                        <a class="lnk" href="/oge/oge.html">ОГЭ</a>
+                        <a class="lnk" href="/sgu/sgu.html">Студенты</a>
+                        <img class="wing" src="/icons/wing64(1).png" />
+                </div>
+                <div class="main" id="main" style="position: relative;">
+                        <div id="text1div" style="position: relative;">Код</div>
+                        <div id="codediv" style="position: relative;"></div>
+                        <div id="text2div" style="position: relative;">Вход</div>
+                        <div id="area2div" style="position: relative;">
+                                <textarea id="area2"></textarea>
+                        </div>
+                        <div id="text3div" style="position: relative;">Выход</div>
+                        <div id="area3div" style="position: relative;">
+                                <textarea id="area3"></textarea>
+                        </div>
+                        <div id="buttons_div" style="position: relative; background-color: green;">
+                                <button onclick="cod()" style="position: absolute; left: 0px;">Копировать код</button>
+                                <button onclick="run()" style="position: absolute; right: 0px;">Запуск</button>
+                        </div>
+                </div>
+                <script src="codemirror/codemirror.js"></script>
+                <script src="codemirror/matchbrackets.js"></script>
+                <script src="codemirror/clike.js"></script>
+                <script src="JSCPP.es5.min.js"></script>
+                <script type="text/javascript">
+                        var cppEditor = CodeMirror(document.getElementById("codediv"), {
+                                lineNumbers: true,
+                                matchBrackets: true,
+                                mode: "text/x-c++src",
+                        });
+                        var precode1 = "#include <cmath>\n" + "#include <iostream>\n" + "using namespace std;\n" + "int main(){\n";
+                        var precode2 = "#include <cmath>\n" + "#include <iostream>\n" + "#define or ||\n" + "#define and &&\n" + "#define bool int\n" + "using namespace std;\n" + "int main(){\n";
+                        var postcode = "\nreturn 0;\n}";
+                        function cod() {
+                                navigator.clipboard.writeText(precode1 + cppEditor.getValue() + postcode);
+                        }
+                        function run() {
+                                navigator.clipboard.writeText(cppEditor.getValue());
+                                var output = "";
+                                var config = {
+                                        stdio: {
+                                                write: function (s) {
+                                                        output += s;
+                                                },
+                                        },
+                                };
+                                var code = precode2 + cppEditor.getValue() + postcode;
+                                var input = document.getElementById("area2").value;
+                                var exitCode;
+                                try {
+                                        exitCode = JSCPP.run(code, input, config);
+                                        document.getElementById("area3").value = output;
+                                } catch (err) {
+                                        document.getElementById("area3").value = "Error: " + (err.message || err);
+                                }
+                        }
+                </script>
+        </body>
 </html>
