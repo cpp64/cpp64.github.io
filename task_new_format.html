@@ -6,6 +6,30 @@
                 <link rel="stylesheet" type="text/css" href="/style.css" />
                 <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
                 <title>7 класс</title>
+                <style>
+                        #wrapper {
+                                display: table;
+                                table-layout: fixed;
+
+                                width: 100%;
+                                height: 100px;
+                                background-color: Gray;
+                        }
+                        #wrapper div {
+                                display: table-cell;
+                                height: 100px;
+                        }
+
+                        #one {
+                                background-color: green;
+                        }
+                        #two {
+                                background-color: blue;
+                        }
+                        #three {
+                                background-color: red;
+                        }
+                </style>
         </head>
         <body>
                 <div id="navigation"></div>
@@ -18,10 +42,16 @@
                 <div class="main">
                         <p><b>I вариант</b></p>
                         <ol>
-                                <li>
-                                        <p>Вход: целое число n.</p>
-                                        <p>Выход: числа от 14 до 20 в порядке убывания (решение при помощи цикла for или while).</p>
-                                </li>
+                                <div id="wrapper">
+                                        <div id="one">
+                                                <li>
+                                                        <p>Вход: целое число n.</p>
+                                                        <p>Выход: числа от 14 до 20 в порядке убывания (решение при помощи цикла for или while).</p>
+                                                </li>
+                                        </div>
+                                        <div id="two">two two two two two two</div>
+                                        <div id="three">three</div>
+                                </div>
                                 <li>
                                         <p>При помощи цикла for вывести на экран числа от -12 до 15.</p>
                                 </li>
