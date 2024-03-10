@@ -16,9 +16,6 @@
                                 vertical-align: top;
                                 padding: 5px 20px;
                         }
-                        #hcell {
-                                width: 100%;
-                        }
                 </style>
         </head>
         <body>
@@ -28,23 +25,6 @@
                         $(function () {
                                 $("#navigation").load("/navigation.html");
                         });
-                        s = "";
-                        t = "";
-                        const xhttp = new XMLHttpRequest();
-                        xhttp.onload = function() {
-                                //document.getElementById("demo").innerHTML = this.responseText;
-                                s = this.responseText;
-                                alert(s);
-                                for (let i = 0; i < s.length; i++) {
-                                        if(s[i] == '\n')
-                                                t += "</p><p>";
-                                        else
-                                                t += s[i];
-                                }
-                                alert(t);
-                        }
-                        xhttp.open("GET", "https://cpp64.github.io/task_new_format.txt");
-                        xhttp.send();
                 </script>
                 <div class="main">
                         <p><b>I вариант</b></p>
@@ -55,41 +35,43 @@
                                 </li>
                                 <p><b>Примеры</b></p>
                                 <div class="table">
-                                        <div class="table" id="hcell">
-                                                <div class="cell" style="text-align: center;">
-                                                        <b>Пример 1</b>
+                                        <div class="cell">
+                                                <div class="table" style="width: 100%;">
+                                                        <div class="cell" style="text-align: center;">
+                                                                <b>Пример 1</b>
+                                                        </div>
+                                                </div>
+                                                <div class="table">
+                                                        <div class="cell">
+                                                                <p><b>Вход</b></p>
+                                                                <p>5</p>
+                                                                <p>1 2 3</p>
+                                                        </div>
+                                                        <div class="cell">
+                                                                <p><b>Выход</b></p>
+                                                                <p>5</p>
+                                                        </div>
                                                 </div>
                                         </div>
-                                        <div class="table">
-                                                <div class="cell">
-                                                        <p><b>Вход</b></p>
-                                                        <p>5</p>
-                                                        <p>1 2 3</p>
+                                        <div class="cell">
+                                                <div class="table" style="width: 100%;">
+                                                        <div class="cell" style="text-align: center;">
+                                                                <b>Пример 2</b>
+                                                        </div>
                                                 </div>
-                                                <div class="cell">
-                                                        <p><b>Выход</b></p>
-                                                        <p>5</p>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="table">
-                                        <div class="table" id="hcell">
-                                                <div class="cell" style="text-align: center;">
-                                                        <b>Пример 2</b>
-                                                </div>
-                                        </div>
-                                        <div class="table">
-                                                <div class="cell">
-                                                        <b>Вход</b>
-                                                        <br>
-                                                        5
-                                                        <br>
-                                                        1 2 3 4 5
-                                                </div>
-                                                <div class="cell">
-                                                        <b>Выход</b>
-                                                        <br>
-                                                        5
+                                                <div class="table">
+                                                        <div class="cell">
+                                                                <b>Вход</b>
+                                                                <br />
+                                                                5
+                                                                <br />
+                                                                1 2 3 4 5
+                                                        </div>
+                                                        <div class="cell">
+                                                                <b>Выход</b>
+                                                                <br />
+                                                                5
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
