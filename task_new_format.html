@@ -28,6 +28,12 @@
                         $(function () {
                                 $("#navigation").load("/navigation.html");
                         });
+                        var client = new XMLHttpRequest();
+                        client.open('GET', '/foo.txt');
+                        client.onreadystatechange = function() {
+                                alert(client.responseText);
+                        }
+                        client.send();
                 </script>
                 <div class="main">
                         <p><b>I вариант</b></p>
