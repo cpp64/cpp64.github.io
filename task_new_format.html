@@ -28,12 +28,15 @@
                         $(function () {
                                 $("#navigation").load("/navigation.html");
                         });
-                        var client = new XMLHttpRequest();
-                        client.open('GET', '/foo.txt');
-                        client.onreadystatechange = function() {
-                                alert(client.responseText);
+                        s = "";
+                        const xhttp = new XMLHttpRequest();
+                        xhttp.onload = function() {
+                                //document.getElementById("demo").innerHTML = this.responseText;
+                                s = this.responseText;
                         }
-                        client.send();
+                        xhttp.open("GET", "ajax_info.txt");
+                        xhttp.send();
+                        alert(s);
                 </script>
                 <div class="main">
                         <p><b>I вариант</b></p>
