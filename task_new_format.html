@@ -29,11 +29,19 @@
                                 $("#navigation").load("/navigation.html");
                         });
                         s = "";
+                        t = "";
                         const xhttp = new XMLHttpRequest();
                         xhttp.onload = function() {
                                 //document.getElementById("demo").innerHTML = this.responseText;
                                 s = this.responseText;
                                 alert(s);
+                                for (let i = 0; i < s.length; i++) {
+                                        if(s[i] == '\n')
+                                                t += "</p><p>";
+                                        else
+                                                t += s[i];
+                                }
+                                alert(t);
                         }
                         xhttp.open("GET", "https://cpp64.github.io/task_new_format.txt");
                         xhttp.send();
