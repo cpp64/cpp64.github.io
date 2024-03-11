@@ -6,26 +6,6 @@
                 <link rel="stylesheet" type="text/css" href="/style.css" />
                 <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
                 <title>7 класс</title>
-                <style>
-                        .table {
-                                display: table;
-                        }
-                        .cell {
-                                display: table-cell;
-                                /*border: 1px solid black;*/
-                                vertical-align: top;
-                                padding: 5px 20px;
-                                height: 100%;
-                                /*background: green;*/
-                        }
-                        .Tcell {
-                                display: table-cell;
-                                border: none;
-                                vertical-align: top;
-                                padding: 0px;
-                                /*background: blue;*/
-                        }
-                </style>
         </head>
         <body>
                 <div id="navigation"></div>
@@ -43,63 +23,38 @@
                                         <p>Выход: числа от 14 до 20 в порядке убывания (решение при помощи цикла for или while).</p>
                                 </li>
                                 <p><b>Примеры</b></p>
-                                <table>
+                                <table style="border: 1px solid black;">
                                         <tr>
-                                                <td colspan="2">&nbsp;</td>
-                                                <td>&nbsp;</td>
+                                                <td colspan="2"><b>Пример 1</b></td>
+                                                <td colspan="2"><b>Пример 2</b></td>
                                         </tr>
                                         <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
+                                                <td>
+                                                        <b>Вход</b>
+                                                        <br />
+                                                        5
+                                                        <br />
+                                                        1 2 3 4 5
+                                                </td>
+                                                <td>
+                                                        <b>Выход</b>
+                                                        <br />
+                                                        5
+                                                </td>
+                                                <td>
+                                                        <b>Вход</b>
+                                                        <br />
+                                                        5
+                                                        <br />
+                                                        1 2 3 4 5
+                                                </td>
+                                                <td>
+                                                        <b>Выход</b>
+                                                        <br />
+                                                        5
+                                                </td>
                                         </tr>
                                 </table>
-                                <div class="table" style="border: 1px solid black;">
-                                        <div class="Tcell">
-                                                <div class="table" style="width: 100%;">
-                                                        <div class="cell" style="text-align: center;">
-                                                                <b>Пример 1</b>
-                                                        </div>
-                                                </div>
-                                                <div class="table">
-                                                        <div class="cell">
-                                                                <p><b>Вход</b></p>
-                                                                <p>5</p>
-                                                                <p>1 2 3</p>
-                                                        </div>
-                                                        <div class="cell">
-                                                                <p><b>Выход</b></p>
-                                                                <p>5</p>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="Tcell">
-                                                <div class="table" style="width: 100%;">
-                                                        <div class="cell" style="text-align: center;">
-                                                                <b>Пример 2</b>
-                                                        </div>
-                                                </div>
-                                                <div class="table" style="height: 100%;">
-                                                        <div class="cell" style="height: 100%;">
-                                                                <b>Вход</b>
-                                                                <br />
-                                                                5
-                                                                <br />
-                                                                1 2 3 4 5
-                                                        </div>
-                                                        <div class="cell" style="height: 100%;">
-                                                                <b>Выход</b>
-                                                                <br />
-                                                                5
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
                                 <li>
                                         <p>При помощи цикла for вывести на экран числа от -12 до 15.</p>
                                 </li>
