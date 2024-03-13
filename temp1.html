@@ -25,7 +25,7 @@
                         <script>
                                 document.forms["myform"].elements["myfile"].onchange = function (evt) {
                                         if (!window.FileReader) return; // Browser is not compatible
-                                        debugger;
+                                        //debugger;
                                         var reader = new FileReader();
                                         reader.onload = function (evt) {
                                                 if (evt.target.readyState != 2) return;
