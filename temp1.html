@@ -59,6 +59,16 @@
                                                         buf = buf + '<' + fio[i] + '>';
                                                 }
                                                 alert(buf);
+                                                buf = "";
+                                                for(let i = 0; i < corp.length; ++i) {
+                                                        buf = buf + '<' + corp[i] + '>';
+                                                }
+                                                alert(buf);
+                                                buf = "";
+                                                for(let i = 0; i < hrs.length; ++i) {
+                                                        buf = buf + '<' + hrs[i] + '>';
+                                                }
+                                                alert(buf);
                                         };
                                         reader.readAsText(evt.target.files[0]);
                                 };
