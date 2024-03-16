@@ -35,17 +35,30 @@
                                                 }
                                                 filecontent = evt.target.result;
                                                 document.forms["myform"].elements["text"].value = evt.target.result;
-                                                s = document.forms["myform"].elements["text"].value;
-                                                alert(s);
-                                                t = "";
+                                                let s = document.forms["myform"].elements["text"].value;
+                                                let t = "";
+                                                let fio = [];
+                                                let corp = [];
+                                                let hrs = [];
+                                                let iter = 0;
                                                 for (let i = 0; i < s.length; ++i) {
                                                         if (s[i] == ';' || s[i] == '\n') {
-                                                                alert(t);
+                                                                if(iter == 0)
+                                                                        fio.push(t);
+                                                                else if(iter == 1)
+                                                                        corp.push(t);
+                                                                else hrs.push(t);
+                                                                iter = (iter + 1) % 3;
                                                                 t = "";
                                                         } else {
                                                                 t = t + s[i];
                                                         }
                                                 }
+                                                let buf = "";
+                                                for(let i = 0; i < fio.length; ++i) {
+                                                        buf = buf + '<' + fio[i] + '>';
+                                                }
+                                                alert(buf);
                                         };
                                         reader.readAsText(evt.target.files[0]);
                                 };
