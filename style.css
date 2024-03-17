@@ -21,7 +21,8 @@ body {
         border: 1px solid blue;
         padding:14px 16px;
         margin-bottom:5px;
-        display:table;
+        display:flex;/*table;*/
+        flex-direction: column;
         text-align:center;
         text-decoration:none;
         border-radius:10px;
