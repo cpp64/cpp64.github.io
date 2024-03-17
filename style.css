@@ -34,13 +34,11 @@ body {
         background:#ffffa0;
 }
 .navigation {
-        vertical-align:middle;
         background-color: #888888;
         display:flex;
         align-items:strech;
 }
 .navigation a {
-        vertical-align:middle;
         color:#ffffff;
         text-decoration:none;
         line-height:40px; /* тяп-ляп */
