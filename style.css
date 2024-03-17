@@ -18,15 +18,15 @@ body {
 .bluebutton {
         background:#a0eeee;
         color:black;
-        padding:10px;
         border-radius:10px;
         -moz-border-radius:10px;
         -webkit-border-radius:10px;
         -o-border-radius:10px;
         -ms-border-radius:10px;
-        float:left;
+        /*float:left;
         display:block;
         text-align:center;
+        padding:10px;*/
         padding:14px 16px;
         text-decoration:none;
 }
