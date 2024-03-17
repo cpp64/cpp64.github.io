@@ -31,17 +31,17 @@ body {
         text-decoration: none;
 }
 .bluebutton:hover {
-        background: #d0ffd0;
+        background: #ffffd0;
         color: grey;
 }
 .navigation {
-        // vertical-align : middle; !!!!!!!!!
+        vertical-align : middle;
         background-color: #888888;
         display: flex;
         align-items: strech;
 }
 .navigation a {
-        // vertical-align : middle; !!!!!!!!!
+        vertical-align : middle;
         color: #ffffff;
         text-decoration: none;
         line-height: 40px; /* тяп-ляп */
