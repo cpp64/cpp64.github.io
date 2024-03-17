@@ -1,51 +1,51 @@
 body {
-        background-color : #fffff5;
-        margin : 0;
-        padding : 0;
+        background-color:#fffff5;
+        margin:0;
+        padding:0;
 }
 .main {
-        padding : 10px;
+        padding:10px;
 }
 .footer {
-        position : absolute;
-        left : 0;
-        bottom : 0;
-        width : 100%;
-        text-align : center;
-        color : #000000;
-        font-size : 15px;
+        position:absolute;
+        left:0;
+        bottom:0;
+        width:100%;
+        text-align:center;
+        color:#000000;
+        font-size:15px;
 }
 .bluebutton {
-        background : #a0eeee;
-        color : black;
-        padding : 10px;
-        border-radius : 10px;
-        -moz-border-radius : 10px;
-        -webkit-border-radius : 10px;
-        -o-border-radius : 10px;
-        -ms-border-radius : 10px;
-        float : left;
-        display : block;
-        text-align : center;
-        padding : 14px 16px;
-        text-decoration : none;
+        background:#a0eeee;
+        color:black;
+        padding:10px;
+        border-radius:10px;
+        -moz-border-radius:10px;
+        -webkit-border-radius:10px;
+        -o-border-radius:10px;
+        -ms-border-radius:10px;
+        float:left;
+        display:block;
+        text-align:center;
+        padding:14px 16px;
+        text-decoration:none;
 }
 .bluebutton:hover {
-        background : #ffff50;
+        background:#ffff50;
 }
 .navigation {
-        vertical-align : middle;
+        vertical-align:middle;
         background-color: #888888;
-        display : flex;
-        align-items : strech;
+        display:flex;
+        align-items:strech;
 }
 .navigation a {
-        vertical-align : middle;
-        color : #ffffff;
-        text-decoration : none;
-        line-height : 40px; /* тяп-ляп */
-        padding-right : 10px;
-        padding-left : 10px;
+        vertical-align:middle;
+        color:#ffffff;
+        text-decoration:none;
+        line-height:40px; /* тяп-ляп */
+        padding-right:10px;
+        padding-left:10px;
 }
 .navigation a:hover {
         background-color:#eeeeee;
