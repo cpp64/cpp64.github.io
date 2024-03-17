@@ -15,7 +15,7 @@ body {
         color:#000000;
         font-size:15px;
 }
-.main a {
+.tablo {
         background:#a0eeee;
         color:black;
         border: 1px solid blue;
@@ -30,7 +30,7 @@ body {
         -o-border-radius:10px;
         -ms-border-radius:10px;
 }
-.main a:hover {
+.tablo:hover {
         background:#ffffa0;
 }
 .navigation {
