@@ -15,7 +15,7 @@ body {
         color:#000000;
         font-size:15px;
 }
-.bluebutton {
+.main a {
         background:#a0eeee;
         color:black;
         padding:14px 16px;
@@ -26,7 +26,7 @@ body {
         -o-border-radius:10px;
         -ms-border-radius:10px;
 }
-.bluebutton:hover {
+.main a:hover {
         background:#ffffa0;
 }
 .navigation {
