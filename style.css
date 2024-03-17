@@ -16,7 +16,7 @@ body {
         font-size:15px;
 }
 .tablo {
-        display:flex;
+        display:inline-flex;
         flex-direction: column;
 }
 .tablo a{
