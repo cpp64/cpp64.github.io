@@ -29,26 +29,26 @@ body {
         padding: 14px 16px;
         text-decoration: none;
 }
-.outer.a {
-        color: #ffffff;
-        text-decoration: none;
-        line-height: 40px; /* тяп-ляп */
-        padding-right: 10px;
-        padding-left: 10px;
-}
-.outer.a:hover {
-        background-color: #eeeeee;
-        color: #000000;
-}
-.outer {
+.navigation {
         background-color: #888888;
         display: flex;
         align-items: strech;
 }
 /*.inner {
         display: flex;
-}*/
+}
 .inner:hover {
+        background-color: #eeeeee;
+        color: #000000;
+}*/
+.navigation a {
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 40px; /* тяп-ляп */
+        padding-right: 10px;
+        padding-left: 10px;
+}
+.navigation a:hover {
         background-color: #eeeeee;
         color: #000000;
 }
