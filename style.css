@@ -47,7 +47,6 @@ body {
 }
 .inner {
         display: flex;
-        /***align-items: center;***/
 }
 .inner:hover {
         background-color: #eeeeee;
