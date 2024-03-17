@@ -15,14 +15,14 @@ body {
         color:#000000;
         font-size:15px;
 }
-.testbutton {
+.main a {
         background:#a0eeee;
         color:black;
         border: 1px solid blue;
         padding:14px 16px;
-        display:table;/*block;*/
+        margin-bottom:5px;
+        display:table;
         text-align:center;
-        /*float:left;*/
         text-decoration:none;
         border-radius:10px;
         -moz-border-radius:10px;
@@ -30,7 +30,7 @@ body {
         -o-border-radius:10px;
         -ms-border-radius:10px;
 }
-.testbutton:hover {
+.main a:hover {
         background:#ffffa0;
 }
 .navigation {
