@@ -45,9 +45,9 @@ body {
         display: flex;
         align-items: strech;
 }
-.inner {
+/*.inner {
         display: flex;
-}
+}*/
 .inner:hover {
         background-color: #eeeeee;
         color: #000000;
