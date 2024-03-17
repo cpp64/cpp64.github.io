@@ -16,7 +16,7 @@ body {
         font-size: 15px;
 }
 .bluebutton {
-        background: #d0ffff;
+        background: #a0dddd;
         color: black;
         padding: 10px;
         border-radius: 10px;
@@ -31,7 +31,7 @@ body {
         text-decoration: none;
 }
 .bluebutton:hover {
-        background: #ffffd0;
+        background: #dddda0;
 }
 .navigation {
         vertical-align : middle;
