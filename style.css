@@ -15,7 +15,7 @@ body {
         color:#000000;
         font-size:15px;
 }
-.main a {
+.testbutton {
         background:#a0eeee;
         color:black;
         padding:14px 16px;
@@ -29,7 +29,7 @@ body {
         -o-border-radius:10px;
         -ms-border-radius:10px;
 }
-.main a:hover {
+.testbutton:hover {
         background:#ffffa0;
 }
 .navigation {
