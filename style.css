@@ -18,6 +18,7 @@ body {
 .testbutton {
         background:#a0eeee;
         color:black;
+        border: 1px solid blue;
         padding:14px 16px;
         display:table;/*block;*/
         text-align:center;
