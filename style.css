@@ -17,6 +17,7 @@ body {
 }
 .bluebutton {
         background: #d0ffff;
+        color: black;
         padding: 10px;
         border-radius: 10px;
         -moz-border-radius: 10px;
@@ -28,6 +29,10 @@ body {
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+}
+.bluebutton:hover {
+        background: #d0ffd0;
+        color: grey;
 }
 .navigation {
         background-color: #888888;
