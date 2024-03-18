@@ -25,8 +25,8 @@ body {
         border: 1px solid gray;
         padding:14px 16px;
         margin-bottom:5px;
-        display:flex;/*table;*/
-        flex-direction: row;
+        /*display:flex;
+        flex-direction:row;*/
         text-align:center;
         text-decoration:none;
         border-radius:10px;
