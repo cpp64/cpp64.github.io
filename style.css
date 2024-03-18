@@ -20,9 +20,9 @@ body {
         flex-direction: column;
 }
 .tablo a{
-        background:#a0eeee;
+        background:#eeffff;
         color:black;
-        border: 1px solid blue;
+        border: 1px solid gray;
         padding:14px 16px;
         margin-bottom:5px;
         display:flex;/*table;*/
