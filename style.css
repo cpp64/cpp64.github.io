@@ -26,8 +26,6 @@ body {
         padding:14px 16px;
         margin-bottom:5px;
         display:flex;
-        /*flex-direction:row;
-        text-align:center;*/
         justify-content: center;
         text-decoration:none;
         border-radius:10px;
