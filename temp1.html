@@ -69,6 +69,10 @@
                                                         buf = buf + '<' + hrs[i] + '>';
                                                 }
                                                 alert(buf);
+                                                let final = [];
+                                                for(let i = 0; i < 7; ++i) {
+                                                        final.push(["","","","","",""]);
+                                                }
                                         };
                                         reader.readAsText(evt.target.files[0]);
                                 };
