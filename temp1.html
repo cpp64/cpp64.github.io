@@ -69,9 +69,17 @@
                                                         buf = buf + '<' + hrs[i] + '>';
                                                 }
                                                 alert(buf);
-                                                let final = [];
-                                                for(let i = 0; i < 7; ++i) {
-                                                        final.push(["","","","","",""]);
+                                                let a = [];
+                                                for(let i = 0; i < Ncorp; ++i) {
+                                                        let week = [];
+                                                        for(let j = 0; j < Ndays; ++j) {
+                                                                let day = [];
+                                                                for(let k = 0; k < Nlessons; ++k) {
+                                                                        day.push("");
+                                                                }
+                                                                week.push(day);
+                                                        }
+                                                        a.push(week);
                                                 }
                                         };
                                         reader.readAsText(evt.target.files[0]);
