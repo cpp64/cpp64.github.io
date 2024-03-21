@@ -42,14 +42,15 @@
                                                         if (s[i] == ';' || s[i] == '\n') {
                                                                 row.push(t);
                                                                 t = "";
+                                                                if(row.length == 4) {
+                                                                        table.push(row);
+                                                                        row = [];
+                                                                }
                                                         } else {
                                                                 t = t + s[i];
                                                         }
-                                                        if(row.length == 4) {
-                                                                table.push(row);
-                                                                row = [];
-                                                        }
                                                 }
+                                                alert("now will show content of table you have load");
                                                 for(let x = 0; x < table.length; ++x){
                                                         let buf = "";
                                                         for(let i = 0; i < table[x].length; ++i) {
@@ -69,6 +70,29 @@
                                                                 week.push(day);
                                                         }
                                                         a.push(week);
+                                                }
+                                                for(let i = 0; i < table.length; ++i) {
+                                                        let fio = table[i][0];
+                                                        let hrs = Number(table[i][1]);
+                                                        let corp = Number(table[i][2]);
+                                                        let cab = Number(table[i][3]);
+                                                        for(let day = 0; day < Ndays && hrs > 0; ++day)
+                                                        for(let j = lesson; lesson < Nlessons && hrs > 0; ++lesson) {
+                                                                if(table[corp - 1][day][lesson] == "") {
+                                                                        --hrs;
+                                                                        table[corp - 1][day][lesson] = fio;
+                                                                }
+                                                        }
+                                                }
+                                                for(let corp = 0; corp < Ncorp; ++corp) {
+                                                        alert("processing " + (corp+1).toString() + " corpus");
+                                                        for(let day = 0; day < Ndays; ++day){
+                                                                let s = "day " + day.toString() + ":";
+                                                                for(let j = lesson; lesson < Nlessons; ++lesson) {
+                                                                        s += table[corp][day][lesson] + ";";
+                                                                }
+                                                                alert(s);
+                                                        }
                                                 }
                                         };
                                         reader.readAsText(evt.target.files[0]);
