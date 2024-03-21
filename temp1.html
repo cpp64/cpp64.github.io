@@ -78,9 +78,9 @@
                                                         let cab = Number(table[i][3]);
                                                         for(let day = 0; day < Ndays && hrs > 0; ++day)
                                                         for(let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                                                if(table[corp - 1][day][lesson] == "") {
+                                                                if(a[corp - 1][day][lesson] == "") {
                                                                         --hrs;
-                                                                        table[corp - 1][day][lesson] = fio;
+                                                                        a[corp - 1][day][lesson] = fio;
                                                                 }
                                                         }
                                                 }
@@ -89,7 +89,7 @@
                                                         for(let day = 0; day < Ndays; ++day){
                                                                 let s = "day " + day.toString() + ":";
                                                                 for(let lesson = 0; lesson < Nlessons; ++lesson) {
-                                                                        s += table[corp][day][lesson] + ";";
+                                                                        s += a[corp][day][lesson] + ";";
                                                                 }
                                                                 alert(s);
                                                         }
