@@ -37,12 +37,13 @@
                                                 document.forms["myform"].elements["text"].value = evt.target.result;
                                                 let s = document.forms["myform"].elements["text"].value;
                                                 let t = "";
-                                                let table = [], row = [];
+                                                let table = [],
+                                                        row = [];
                                                 for (let i = 0; i < s.length; ++i) {
-                                                        if (s[i] == ';' || s[i] == '\n') {
+                                                        if (s[i] == ";" || s[i] == "\n") {
                                                                 row.push(t);
                                                                 t = "";
-                                                                if(row.length == 4) {
+                                                                if (row.length == 4) {
                                                                         table.push(row);
                                                                         row = [];
                                                                 }
@@ -51,48 +52,68 @@
                                                         }
                                                 }
                                                 alert("now will show content of table you have load");
-                                                for(let x = 0; x < table.length; ++x){
+                                                for (let x = 0; x < table.length; ++x) {
                                                         let buf = "";
-                                                        for(let i = 0; i < table[x].length; ++i) {
-                                                                buf = buf + '<' + table[x][i] + '>';
+                                                        for (let i = 0; i < table[x].length; ++i) {
+                                                                buf = buf + "<" + table[x][i] + ">";
                                                         }
                                                         alert(buf);
                                                 }
                                                 let a = [];
-                                                let Ncorp = 3, Ndays = 6, Nlessons = 6;
-                                                for(let i = 0; i < Ncorp; ++i) {
+                                                let Ncorp = 3,
+                                                        Ndays = 6,
+                                                        Nlessons = 6;
+                                                for (let i = 0; i < Ncorp; ++i) {
                                                         let week = [];
-                                                        for(let j = 0; j < Ndays; ++j) {
+                                                        for (let j = 0; j < Ndays; ++j) {
                                                                 let day = [];
-                                                                for(let k = 0; k < Nlessons; ++k) {
+                                                                for (let k = 0; k < Nlessons; ++k) {
                                                                         day.push("");
                                                                 }
                                                                 week.push(day);
                                                         }
                                                         a.push(week);
                                                 }
-                                                for(let i = 0; i < table.length; ++i) {
+                                                for (let i = 0; i < table.length; ++i) {
                                                         let fio = table[i][0];
                                                         let hrs = Number(table[i][1]);
                                                         let corp = Number(table[i][2]);
                                                         let cab = Number(table[i][3]);
-                                                        for(let day = 0; day < Ndays && hrs > 0; ++day)
-                                                        for(let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                                                if(a[corp - 1][day][lesson] == "") {
-                                                                        --hrs;
-                                                                        a[corp - 1][day][lesson] = fio;
+                                                        for (let day = 0; day < Ndays && hrs > 0; ++day) {
+                                                                for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
+                                                                        if (a[corp - 1][day][lesson] == "") {
+                                                                                --hrs;
+                                                                                a[corp - 1][day][lesson] = fio;
+                                                                        }
                                                                 }
                                                         }
                                                 }
-                                                for(let corp = 0; corp < Ncorp; ++corp) {
-                                                        alert("processing " + (corp+1).toString() + " corpus");
-                                                        for(let day = 0; day < Ndays; ++day){
+                                                for (let corp = 0; corp < Ncorp; ++corp) {
+                                                        alert("processing " + (corp + 1).toString() + " corpus");
+                                                        for (let day = 0; day < Ndays; ++day) {
                                                                 let s = "day " + day.toString() + ":";
-                                                                for(let lesson = 0; lesson < Nlessons; ++lesson) {
+                                                                for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                         s += a[corp][day][lesson] + ";";
                                                                 }
                                                                 alert(s);
                                                         }
+                                                        var saveData = (function () {
+                                                                var a = document.createElement("a");
+                                                                // document.body.appendChild(a);
+                                                                // a.style = "display: none";
+                                                                return function (data, fileName) {
+                                                                        var json = JSON.stringify(data);
+                                                                        var blob = new Blob([json], { type: "octet/stream" });
+                                                                        var url = window.URL.createObjectURL(blob);
+                                                                        a.href = url;
+                                                                        a.download = fileName;
+                                                                        a.click();
+                                                                        window.URL.revokeObjectURL(url);
+                                                                };
+                                                        })();
+                                                        var data = { x: 42, s: "hello, world", d: new Date() };
+                                                        var fileName = "my-download.json";
+                                                        saveData(data, fileName);
                                                 }
                                         };
                                         reader.readAsText(evt.target.files[0]);
