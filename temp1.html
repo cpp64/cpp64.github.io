@@ -77,7 +77,7 @@
                                                         let corp = Number(table[i][2]);
                                                         let cab = Number(table[i][3]);
                                                         for(let day = 0; day < Ndays && hrs > 0; ++day)
-                                                        for(let j = lesson; lesson < Nlessons && hrs > 0; ++lesson) {
+                                                        for(let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
                                                                 if(table[corp - 1][day][lesson] == "") {
                                                                         --hrs;
                                                                         table[corp - 1][day][lesson] = fio;
