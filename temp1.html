@@ -88,7 +88,7 @@
                                                         alert("processing " + (corp+1).toString() + " corpus");
                                                         for(let day = 0; day < Ndays; ++day){
                                                                 let s = "day " + day.toString() + ":";
-                                                                for(let j = lesson; lesson < Nlessons; ++lesson) {
+                                                                for(let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                         s += table[corp][day][lesson] + ";";
                                                                 }
                                                                 alert(s);
