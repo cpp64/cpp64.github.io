@@ -33,9 +33,9 @@
                                                         alert("Error while reading file");
                                                         return;
                                                 }
-                                                filecontent = evt.target.result;
-                                                document.forms["myform"].elements["text"].value = evt.target.result;
-                                                let s = document.forms["myform"].elements["text"].value;
+                                                //filecontent = evt.target.result;
+                                                //document.forms["myform"].elements["text"].value = evt.target.result;
+                                                let s = evt.target.result;
                                                 let t = "";
                                                 let table = [], row = [];
                                                 for (let i = 0; i < s.length; ++i) {
