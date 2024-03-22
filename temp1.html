@@ -78,10 +78,11 @@
                                                         }
                                                 }
                                                 s = "";
+                                                let weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
                                                 for (let corp = 0; corp < Ncorp; ++corp) {
                                                         s += "corpus " + (corp+1).toString() + ';';
                                                         for (let day = 0; day < Ndays; ++day) {
-                                                                s += "day " + (day+1).toString() + ';';
+                                                                s += weekday[day] + ';';
                                                         }
                                                         s += '\n';
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
