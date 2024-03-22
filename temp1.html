@@ -37,8 +37,7 @@
                                                 document.forms["myform"].elements["text"].value = evt.target.result;
                                                 let s = document.forms["myform"].elements["text"].value;
                                                 let t = "";
-                                                let table = [],
-                                                        row = [];
+                                                let table = [], row = [];
                                                 for (let i = 0; i < s.length; ++i) {
                                                         if (s[i] == ";" || s[i] == "\n") {
                                                                 row.push(t);
@@ -86,14 +85,17 @@
                                                                 }
                                                         }
                                                 }
+                                                let s = "";
                                                 for (let corp = 0; corp < Ncorp; ++corp) {
-                                                        alert("processing " + (corp + 1).toString() + " corpus");
+                                                        for (let lesson = 0; lesson < Nlessons; ++lesson) {
+                                                                s += "lesson " + (lesson+1).toString() + ";";
+                                                        }
+                                                        s += '\n';
                                                         for (let day = 0; day < Ndays; ++day) {
-                                                                let s = "day " + day.toString() + ":";
                                                                 for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                         s += a[corp][day][lesson] + ";";
                                                                 }
-                                                                alert(s);
+                                                                s += '\n';
                                                         }
                                                         var saveData = (function () {
                                                                 var a = document.createElement("a");
@@ -111,7 +113,8 @@
                                                         })();
                                                         var data = { x: 42, s: "hello, world", d: new Date() };
                                                         var fileName = "my-download.json";
-                                                        saveData(data, fileName);
+                                                        //saveData(data, fileName);
+                                                        saveData(s, fileName);
                                                 }
                                         };
                                         reader.readAsText(evt.target.files[0]);
