@@ -50,14 +50,6 @@
                                                                 t = t + s[i];
                                                         }
                                                 }
-                                                /*alert("now will show content of table you have load");
-                                                for (let x = 0; x < table.length; ++x) {
-                                                        let buf = "";
-                                                        for (let i = 0; i < table[x].length; ++i) {
-                                                                buf = buf + "<" + table[x][i] + ">";
-                                                        }
-                                                        alert(buf);
-                                                }*/
                                                 let a = [];
                                                 let Ncorp = 3, Ndays = 6, Nlessons = 6;
                                                 for (let i = 0; i < Ncorp; ++i) {
@@ -91,6 +83,7 @@
                                                         for (let day = 0; day < Ndays; ++day) {
                                                                 s += "day " + (day+1).toString() + ';';
                                                         }
+                                                        s += '\n';
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                 s += (lesson+1).toString() + ';';
                                                                 for (let day = 0; day < Ndays; ++day) {
