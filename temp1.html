@@ -107,7 +107,7 @@
                                                         //s += (lesson+1).toString() + ';';
                                                         s.push(';');
                                                         for (let day = 0; day < Ndays; ++day) {
-                                                                s.push(a[corp][day][lesson]);
+                                                                s.concat(a[corp][day][lesson]);
                                                                 s.push(';');
                                                         }
                                                         s.push('\n');
