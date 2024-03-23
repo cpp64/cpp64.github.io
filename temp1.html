@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
         <head>
-                <!-- <meta charset="UTF-8" /> -->
-                <meta charset="windows-1251" />
+                <meta charset="UTF-8" />
+                <!-- <meta charset="windows-1251" /> -->
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link rel="stylesheet" type="text/css" href="/style.css" />
                 <link rel="icon" type="image/png" sizes="192x192" href="/icons/dove32w2.ico" />
@@ -19,7 +19,7 @@
                 <div class="main">
                         <input type="file" id="input">
                         <script>
-                                // map[x]=y, где x - код буквы на англ.раскладке,
+                                // translit[x]=y, где x - код буквы на англ.раскладке,
                                 // y - код буквы на рус.раскладке win1251
                                 let translit = [0,0,0,0,0,0,0,0,
                                                 0,0,0,0,0,0,0,0,
@@ -123,9 +123,10 @@
                                                        ['S','a','t','u','r','d','a','y'], 
                                                        ['S','u','n','d','a','y']];
                                         for (let corp = 0; corp < Ncorp; ++corp) {
-                                                appendStrToIntArray("Корпус;",s);
+                                                appendTranslitStrToIntArray("Rjhgec",s);//Корпус
+                                                appendStrToIntArray(";",s);
                                                 for (let day = 0; day < Ndays; ++day) {
-                                                        appendStrToIntArray(weekday[day],s);
+                                                        appendStrToIntArray(/*weekday[day]*/"day",s);
                                                         s.push(59);
                                                 }
                                                 s.push(10);
