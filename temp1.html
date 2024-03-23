@@ -91,11 +91,11 @@
                                                        ['F','r','i','d','a','y'], 
                                                        ['S','a','t','u','r','d','a','y'], 
                                                        ['S','u','n','d','a','y']];
-                                        for (let corp = 0; corp < 1/*Ncorp*/; ++corp) {
-                                                appendStrToIntArray("corpusl",s);
+                                        for (let corp = 0; corp < Ncorp; ++corp) {
+                                                appendStrToIntArray("corpus;",s);
                                                 for (let day = 0; day < Ndays; ++day) {
                                                         appendStrToIntArray(weekday[day],s);
-                                                        s.push(';');
+                                                        s.push(59);
                                                 }
                                                 s.push(10);
                                                 for (let lesson = 0; lesson < Nlessons; ++lesson) {
