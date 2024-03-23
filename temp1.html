@@ -21,11 +21,12 @@
                         <script>
                                 // translit[x]=y, где x - код буквы на англ.раскладке,
                                 // y - код буквы на рус.раскладке win1251
+                                // + пробел и др. неязыковые символы
                                 let translit = [  0,  0,  0,  0,  0,  0,  0,  0,
                                                   0,  0,  0,  0,  0,  0,  0,  0,
                                                   0,  0,  0,  0,  0,  0,  0,  0,
                                                   0,  0,  0,  0,  0,  0,  0,  0,
-                                                  0,  0,221,  0,  0,  0,  0,253,
+                                                 32,  0,221,  0,  0,  0,  0,253,
                                                   0,  0,  0,  0,225,  0,254,  0,
                                                   0,  0,  0,  0,  0,  0,  0,  0,
                                                   0,  0,198,230,193,  0,222,  0,
@@ -37,13 +38,6 @@
                                                 240,248,238,235,228,252,242,249,
                                                 231,233,234,251,229,227,236,246,
                                                 247,237,255,213,  0,218,168,  0];
-                                function strtranslit(s) {
-                                        let a = [];
-                                        for(let i = 0; i < s.length; ++i) {
-                                                a.push(translit[s[i].charCodeAt(0)]);
-                                        }
-                                        return a;
-                                }
                                 function appendStrToIntArray(s,a) {
                                         for(let i = 0; i < s.length; ++i)
                                                 a.push(s[i].charCodeAt(0));
@@ -51,6 +45,16 @@
                                 function appendTranslitStrToIntArray(s,a) {
                                         for(let i = 0; i < s.length; ++i)
                                                 a.push(translit[s[i].charCodeAt(0)]);
+                                }
+                                function appendIntToIntArray(s,a) {
+                                        if(s < 0) {
+                                                appendStrToIntArray("-",a);
+                                                s = -s;
+                                        }
+                                        do {
+                                                a.push(s % 10 + 48);
+                                                s /= 10;
+                                        } while(s > 0);
                                 }
                                 function ASCIIarrToInt(arr) {
                                         let res = 0;
@@ -114,20 +118,14 @@
                                         }
                                         //console.log(a[0][0]);
                                         s = [];
-                                        let weekday = ["Понедельник", 
-                                                       ['T','u','e','s','d','a','y'], 
-                                                       ['W','e','d','n','e','s','d','a','y'], 
-                                                       ['T','h','u','r','s','d','a','y'], 
-                                                       ['F','r','i','d','a','y'], 
-                                                       ['S','a','t','u','r','d','a','y'], 
-                                                       ['S','u','n','d','a','y']];
+                                        // дни недели транслитом
+                                        let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
                                         for (let corp = 0; corp < Ncorp; ++corp) {
-                                                appendTranslitStrToIntArray("f,dult`;pbqrkvyjghcnea[wxio]sm'.z",s);//рус
-                                                appendTranslitStrToIntArray("F<DULT~:PBQRKVYJGHCNEA{WXIO}SM\">Z",s);//РУС
-                                                appendTranslitStrToIntArray("Rjhgec",s);//Корпус
+                                                appendTranslitStrToIntArray("Rjhgec ",s);//Корпус
+                                                appendIntToIntArray(corp + 1, s);
                                                 appendStrToIntArray(";",s);
                                                 for (let day = 0; day < Ndays; ++day) {
-                                                        appendStrToIntArray(/*weekday[day]*/"day",s);
+                                                        appendTranslitStrToIntArray(weekday[day],s);
                                                         s.push(59);
                                                 }
                                                 s.push(10);
