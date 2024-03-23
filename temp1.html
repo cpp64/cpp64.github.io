@@ -18,6 +18,10 @@
                 <div class="main">
                         <input type="file" id="input">
                         <script>
+                                function appendStrToIntArray(s,a) {
+                                        for(let i = 0; i < s.length; ++i)
+                                                a.push(s[i].charCodeAt(0));
+                                }
                                 function ASCIIarrToInt(arr) {
                                         let res = 0;
                                         for (let i = 0; i < arr.length; ++i) {
@@ -88,9 +92,9 @@
                                                        ['S','a','t','u','r','d','a','y'], 
                                                        ['S','u','n','d','a','y']];
                                         for (let corp = 0; corp < 1/*Ncorp*/; ++corp) {
-                                                s.concat(['c','o','r','p','u','s',';']);
+                                                appendStrToIntArray("corpusl",s);
                                                 for (let day = 0; day < Ndays; ++day) {
-                                                        s.concat(weekday[day]);
+                                                        appendStrToIntArray(weekday[day],s);
                                                         s.push(';');
                                                 }
                                                 s.push(10);
