@@ -18,6 +18,9 @@
                 <div class="main">
                         <input type="file" id="input">
                         <script>
+                                function translit(s) {
+                                        let x = s.charCodeAt(0);
+                                }
                                 function appendStrToIntArray(s,a) {
                                         for(let i = 0; i < s.length; ++i)
                                                 a.push(s[i].charCodeAt(0));
@@ -85,7 +88,7 @@
                                         }
                                         //console.log(a[0][0]);
                                         s = [];
-                                        let weekday = [['M','o','n','d','a','y'], 
+                                        let weekday = [[207,238,237,229,228,229,235,252,237,232,234], 
                                                        ['T','u','e','s','d','a','y'], 
                                                        ['W','e','d','n','e','s','d','a','y'], 
                                                        ['T','h','u','r','s','d','a','y'], 
@@ -95,7 +98,7 @@
                                         for (let corp = 0; corp < Ncorp; ++corp) {
                                                 appendStrToIntArray("corpus;",s);
                                                 for (let day = 0; day < Ndays; ++day) {
-                                                        appendStrToIntArray(weekday[day],s);
+                                                        appendStrToIntArray(/*weekday[day]*/"day",s);
                                                         s.push(59);
                                                 }
                                                 s.push(10);
