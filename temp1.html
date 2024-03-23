@@ -84,7 +84,6 @@
                                                                 if (a[corp - 1][day][lesson].length == 0) {
                                                                         --hrs;
                                                                         a[corp - 1][day][lesson] = fio;
-                                                                        alert(a[corp - 1][day][lesson] );
                                                                 }
                                                         }
                                                 }
@@ -109,6 +108,7 @@
                                                         s.push(';');
                                                         for (let day = 0; day < Ndays; ++day) {
                                                                 //s.concat(a[corp][day][lesson]);
+                                                                alert(a[corp][day][lesson]);
                                                                 for(let x = 0; x < a[corp][day][lesson].length; ++x)
                                                                         s.push(a[corp][day][lesson][x]);
                                                                 s.push(';');
