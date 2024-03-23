@@ -29,6 +29,8 @@
                                         fr.readAsArrayBuffer(document.getElementById("input").files[0]);
                                 }
                                 function process(s) {
+                                        alert("warning");
+                                        alert(s);
                                         let t = "";
                                         let table = [], row = [];
                                         for (let i = 0; i < s.length; ++i) {
