@@ -107,7 +107,6 @@
                                                         //s += (lesson+1).toString() + ';';
                                                         s.push(';');
                                                         for (let day = 0; day < Ndays; ++day) {
-                                                                alert(a[corp][day][lesson]);
                                                                 s.concat(a[corp][day][lesson]);
                                                                 s.push(';');
                                                         }
@@ -115,6 +114,7 @@
                                                 }
                                                 s.push('\n');
                                         }
+                                        alert(s);
                                         var saveData = (function () {
                                                 var a = document.createElement("a");
                                                 // document.body.appendChild(a);
