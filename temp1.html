@@ -133,11 +133,10 @@
                                                 }
                                                 s.push(10);
                                         }
-                                        //console.log(s);
                                         var saveData = (function () {
                                                 var a = document.createElement("a");
-                                                // document.body.appendChild(a);
-                                                // a.style = "display: none";
+                                                // document.body.appendChild(a); можно
+                                                // a.style = "display: none"; но не нужно
                                                 return function (data, fileName) {
                                                         var blob = new Blob([new Uint8Array(data)], { type: "application/octet-stream" });
                                                         var url = window.URL.createObjectURL(blob);
