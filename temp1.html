@@ -18,11 +18,6 @@
                 <div class="main">
                         <input type="file" id="input">
                         <script>
-                                /*let em = [];
-                                if(em.length == 0)
-                                        alert('empty');
-                                else
-                                        alert('error');*/
                                 function ASCIIarrToInt(arr) {
                                         let res = 0;
                                         for (let i = 0; i < arr.length; ++i) {
@@ -41,8 +36,6 @@
                                         fr.readAsArrayBuffer(document.getElementById("input").files[0]);
                                 }
                                 function process(s) {
-                                        //alert("data");
-                                        //alert(s);
                                         let t = [];
                                         let table = [];
                                         let row = [];
@@ -51,9 +44,6 @@
                                                         row.push(t);
                                                         t = [];
                                                         if (row.length == 4) {
-                                                                //alert("row");
-                                                                //for (let j = 0; j < 4; ++j)
-                                                                //        alert(row[j]);
                                                                 table.push(row);
                                                                 row = [];
                                                         }
