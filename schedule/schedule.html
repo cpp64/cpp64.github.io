@@ -19,7 +19,10 @@
                 <div class="main">
                         <h3>Расписание онлайн</h3>
                         <p><a href = "schedule.csv">Скачать шаблон</a></p>
-                        <p>Составить расписание: <input type="file" id="input"><p>
+                        <input type='file' id="input" style="display:none">
+                        <button style="display:block;width:120px; height:30px;" onclick="document.getElementById("input").click()">
+                                Составить расписание
+                        </button>
                         <script>
                                 // translit[x]=y, где x - код буквы на англ.раскладке,
                                 // y - код буквы на рус.раскладке win1251
