@@ -31,13 +31,15 @@
                                 function process(s) {
                                         alert("warning");
                                         alert(s);
-                                        let t = "";
-                                        let table = [], row = [];
+                                        let t = [];
+                                        let table = [];
+                                        let row = [];
                                         for (let i = 0; i < s.length; ++i) {
-                                                if (s[i] == ';' || s[i] == '\n') {
+                                                if (s[i] == 59 || s[i] == 10) {
                                                         row.push(t);
-                                                        t = "";
+                                                        t = [];
                                                         if (row.length == 4) {
+                                                                alert(row);
                                                                 table.push(row);
                                                                 row = [];
                                                         }
