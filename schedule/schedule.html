@@ -17,10 +17,9 @@
                         });
                 </script>
                 <div class="main">
-                        <h2>Расписание онлайн</h2>
-                        <h3><a href = "schedule.csv">Скачать шаблон</a></h3>
-                        <h3>Составить расписание</h3>
-                        <input type="file" id="input">
+                        <h3>Расписание онлайн</h3>
+                        <p><a href = "schedule.csv">Скачать шаблон</a></p>
+                        <p>Составить расписание: <input type="file" id="input"><p>
                         <script>
                                 // translit[x]=y, где x - код буквы на англ.раскладке,
                                 // y - код буквы на рус.раскладке win1251
@@ -109,12 +108,11 @@
                                                         }
                                                 }
                                         }
-                                        //console.log(a[0][0]);
                                         s = [];
                                         // дни недели транслитом
                                         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
                                         for (let corp = 0; corp < Ncorp; ++corp) {
-                                                appendTranslitStrToIntArray("Rjhgec ",s);//Корпус
+                                                appendTranslitStrToIntArray("Rjhgec ",s);//"Корпус "
                                                 appendStrToIntArray((corp + 1).toString(), s);
                                                 appendStrToIntArray(";",s);
                                                 for (let day = 0; day < Ndays; ++day) {
