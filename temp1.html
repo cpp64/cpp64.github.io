@@ -106,17 +106,17 @@
                                                 s.push('\n');*/
                                                 for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                         //s += (lesson+1).toString() + ';';
-                                                        s.push(';');
+                                                        s.push(59);
                                                         for (let day = 0; day < Ndays; ++day) {
                                                                 //s.concat(a[corp][day][lesson]);
                                                                 //alert(a[corp][day][lesson]);
                                                                 for(let x = 0; x < a[corp][day][lesson].length; ++x)
                                                                         s.push(a[corp][day][lesson][x]);
-                                                                s.push(';');
+                                                                s.push(59);
                                                         }
-                                                        s.push('\n');
+                                                        s.push(10);
                                                 }
-                                                s.push('\n');
+                                                s.push(10);
                                         }
                                         console.log(s);
                                         var saveData = (function () {
@@ -124,8 +124,7 @@
                                                 // document.body.appendChild(a);
                                                 // a.style = "display: none";
                                                 return function (data, fileName) {
-                                                        var json = s;
-                                                        var blob = new Blob([json], { type: "octet/stream" });
+                                                        var blob = new Blob([data], { type: "octet/stream" });
                                                         var url = window.URL.createObjectURL(blob);
                                                         a.href = url;
                                                         a.download = fileName;
@@ -133,8 +132,7 @@
                                                         window.URL.revokeObjectURL(url);
                                                 };
                                         })();
-                                        var fileName = "schedule.csv";
-                                        saveData(s, fileName);
+                                        saveData(s, "schedule.csv");
                                 }
                         </script>
                 </div>
