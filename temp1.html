@@ -46,16 +46,6 @@
                                         for(let i = 0; i < s.length; ++i)
                                                 a.push(translit[s[i].charCodeAt(0)]);
                                 }
-                                function appendIntToIntArray(s,a) {
-                                        if(s < 0) {
-                                                appendStrToIntArray("-",a);
-                                                s = -s;
-                                        }
-                                        do {
-                                                a.push(s % 10 + 48);
-                                                s /= 10;
-                                        } while(s > 0);
-                                }
                                 function ASCIIarrToInt(arr) {
                                         let res = 0;
                                         for (let i = 0; i < arr.length; ++i) {
@@ -122,7 +112,7 @@
                                         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
                                         for (let corp = 0; corp < Ncorp; ++corp) {
                                                 appendTranslitStrToIntArray("Rjhgec ",s);//Корпус
-                                                appendIntToIntArray(corp + 1, s);
+                                                appendStrToIntArray((corp + 1).toString(), s);
                                                 appendStrToIntArray(";",s);
                                                 for (let day = 0; day < Ndays; ++day) {
                                                         appendTranslitStrToIntArray(weekday[day],s);
@@ -130,7 +120,7 @@
                                                 }
                                                 s.push(10);
                                                 for (let lesson = 0; lesson < Nlessons; ++lesson) {
-                                                        //s += (lesson+1).toString() + ';';
+                                                        appendStrToIntArray((lesson + 1).toString(), s);
                                                         s.push(59);
                                                         for (let day = 0; day < Ndays; ++day) {
                                                                 //s.concat(a[corp][day][lesson]);
