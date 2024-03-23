@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
         <head>
-                <meta charset="UTF-8" />
+                <!-- <meta charset="UTF-8" /> -->
+                <meta charset="windows-1251" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link rel="stylesheet" type="text/css" href="/style.css" />
                 <link rel="icon" type="image/png" sizes="192x192" href="/icons/dove32w2.ico" />
@@ -18,12 +19,38 @@
                 <div class="main">
                         <input type="file" id="input">
                         <script>
-                                function translit(s) {
-                                        let x = s.charCodeAt(0);
+                                // map[x]=y, где x - код буквы на англ.раскладке,
+                                // y - код буквы на рус.раскладке win1251
+                                let translit = [0,0,0,0,0,0,0,0,
+                                                0,0,0,0,0,0,0,0,
+                                                0,0,0,0,0,0,0,0,
+                                                0,0,0,0,0,0,0,0,
+                                                0,0,0,0,0,0,0,0,0,
+                                                0,0,0,225,0,254,0,0,
+                                                0,0,0,0,0,0,0,0,
+                                                0,198,230,193,0,222,0,0,
+                                                212,200,209,194,211,192,207,208,
+                                                216,206,203,196,220,210,217,199,
+                                                210,202,219,197,195,204,214,215,
+                                                205,223,245,0,250,0,0,184,
+                                                244,232,241,226,243,224,249,240,
+                                                248,238,235,228,252,242,249,231,
+                                                233,234,251,229,227,236,246,247,
+                                                237,255,213,0,218,168,0,0];
+                                function strtranslit(s) {
+                                        let a = [];
+                                        for(let i = 0; i < s.length; ++i) {
+                                                a.push(translit[s[i].charCodeAt(0)]);
+                                        }
+                                        return a;
                                 }
                                 function appendStrToIntArray(s,a) {
                                         for(let i = 0; i < s.length; ++i)
                                                 a.push(s[i].charCodeAt(0));
+                                }
+                                function appendTranslitStrToIntArray(s,a) {
+                                        for(let i = 0; i < s.length; ++i)
+                                                a.push(translit[s[i].charCodeAt(0)]);
                                 }
                                 function ASCIIarrToInt(arr) {
                                         let res = 0;
@@ -88,7 +115,7 @@
                                         }
                                         //console.log(a[0][0]);
                                         s = [];
-                                        let weekday = [[207,238,237,229,228,229,235,252,237,232,234], 
+                                        let weekday = ["Понедельник", 
                                                        ['T','u','e','s','d','a','y'], 
                                                        ['W','e','d','n','e','s','d','a','y'], 
                                                        ['T','h','u','r','s','d','a','y'], 
@@ -96,9 +123,9 @@
                                                        ['S','a','t','u','r','d','a','y'], 
                                                        ['S','u','n','d','a','y']];
                                         for (let corp = 0; corp < Ncorp; ++corp) {
-                                                appendStrToIntArray("corpus;",s);
+                                                appendStrToIntArray("Корпус;",s);
                                                 for (let day = 0; day < Ndays; ++day) {
-                                                        appendStrToIntArray(/*weekday[day]*/"day",s);
+                                                        appendStrToIntArray(weekday[day],s);
                                                         s.push(59);
                                                 }
                                                 s.push(10);
