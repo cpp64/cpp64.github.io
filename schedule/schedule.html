@@ -96,7 +96,9 @@
                                         let a = [];
                                         let Ncorp = 3, Ndays = 6, Nlessons = 6;
                                         // количество классов в каждой параллели
-                                        let Nparallel[11] = [0,0,0,0,0,0,4,4,4,0,0];
+                                        let Nparallel[3][11] = [[0,0,0,0,0,4,0,0,4,4,4],
+                                                                [0,0,0,0,0,0,4,4,0,0,0],
+                                                                [0,0,0,0,4,0,0,0,0,0,0]];
                                         for (let i = 0; i < Ncorp; ++i) {
                                                 let week = [];
                                                 for (let j = 0; j < Ndays; ++j) {
@@ -131,16 +133,21 @@
                                                 appendStrToIntArray((corp + 1).toString() + "\n", s);
                                                 for (let day = 0; day < Ndays; ++day) {
                                                         appendTranslitStrToIntArray(weekday[day] + "\n", s);
+                                                        for(let parallel = 0; parallel < 11; ++parallel) {
+                                                                for(let i = 0; i < Nparallel[corp][parallel]; ++i) {
+                                                                        appendTranslitStrToIntArray("Gfhfkktkm ", s); // Параллель
+                                                                        appendStrToIntArray((parallel + 1).toString() + ";", s);
+                                                                }
+                                                        }
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
-                                                                appendStrToIntArray((lesson + 1).toString(), s);
-                                                                appendStrToIntArray(";", s);
-                                                                for (let day = 0; day < Ndays; ++day) {
+                                                                appendStrToIntArray((lesson + 1).toString() + ";", s);
+                                                                /*for (let day = 0; day < Ndays; ++day) {
                                                                         //s.concat(a[corp][day][lesson]);
                                                                         //alert(a[corp][day][lesson]);
                                                                         for(let x = 0; x < a[corp][day][lesson].length; ++x)
                                                                                 s.push(a[corp][day][lesson][x]);
                                                                         appendStrToIntArray(";", s);
-                                                                }
+                                                                }*/
                                                                 appendStrToIntArray("\n", s);
                                                         }
                                                         appendStrToIntArray("\n", s);
