@@ -135,7 +135,7 @@
                                                         appendTranslitStrToIntArray(weekday[day] + "\n", s);
                                                         for(let parallel = 0; parallel < 11; ++parallel) {
                                                                 for(let i = 0; i < Nparallel[corp][parallel]; ++i) {
-                                                                        appendStrToIntArray((parallel + 1).toString() + "-" + (i + 1).toString() + ";", s);
+                                                                        appendStrToIntArray("'" + (parallel + 1).toString() + "-" + (i + 1).toString() + ";", s);
                                                                 }
                                                         }
                                                         appendStrToIntArray("\n", s);
