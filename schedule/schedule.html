@@ -95,6 +95,8 @@
                                         }
                                         let a = [];
                                         let Ncorp = 3, Ndays = 6, Nlessons = 6;
+                                        // количество классов в каждой параллели
+                                        let Nparallel[11] = [0,0,0,0,0,0,4,4,4,0,0];
                                         for (let i = 0; i < Ncorp; ++i) {
                                                 let week = [];
                                                 for (let j = 0; j < Ndays; ++j) {
@@ -130,22 +132,21 @@
                                                 appendStrToIntArray(";",s);
                                                 for (let day = 0; day < Ndays; ++day) {
                                                         appendTranslitStrToIntArray(weekday[day],s);
-                                                        s.push(59);
-                                                }
-                                                s.push(10);
-                                                for (let lesson = 0; lesson < Nlessons; ++lesson) {
-                                                        appendStrToIntArray((lesson + 1).toString(), s);
-                                                        s.push(59);
-                                                        for (let day = 0; day < Ndays; ++day) {
-                                                                //s.concat(a[corp][day][lesson]);
-                                                                //alert(a[corp][day][lesson]);
-                                                                for(let x = 0; x < a[corp][day][lesson].length; ++x)
-                                                                        s.push(a[corp][day][lesson][x]);
+                                                        s.push(10);
+                                                        for (let lesson = 0; lesson < Nlessons; ++lesson) {
+                                                                appendStrToIntArray((lesson + 1).toString(), s);
                                                                 s.push(59);
+                                                                for (let day = 0; day < Ndays; ++day) {
+                                                                        //s.concat(a[corp][day][lesson]);
+                                                                        //alert(a[corp][day][lesson]);
+                                                                        for(let x = 0; x < a[corp][day][lesson].length; ++x)
+                                                                                s.push(a[corp][day][lesson][x]);
+                                                                        s.push(59);
+                                                                }
+                                                                s.push(10);
                                                         }
                                                         s.push(10);
                                                 }
-                                                s.push(10);
                                         }
                                         var saveData = (function () {
                                                 var a = document.createElement("a");
