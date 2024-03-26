@@ -36,7 +36,7 @@
                                 // y - код буквы на рус.раскладке win1251
                                 // + пробел и др. неязыковые символы
                                 let translit = [  0,  0,  0,  0,  0,  0,  0,  0,
-                                                  0,  0,  0,  0,  0,  0,  0,  0,
+                                                  0,  0, 10,  0,  0,  0,  0,  0,
                                                   0,  0,  0,  0,  0,  0,  0,  0,
                                                   0,  0,  0,  0,  0,  0,  0,  0,
                                                  32,  0,221,  0,  0,  0,  0,253,
@@ -128,24 +128,22 @@
                                         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
                                         for (let corp = 0; corp < Ncorp; ++corp) {
                                                 appendTranslitStrToIntArray("Rjhgec ",s);//"Корпус "
-                                                appendStrToIntArray((corp + 1).toString(), s);
-                                                appendStrToIntArray("\n",s);
+                                                appendStrToIntArray((corp + 1).toString() + "\n", s);
                                                 for (let day = 0; day < Ndays; ++day) {
-                                                        appendTranslitStrToIntArray(weekday[day],s);
-                                                        s.push(10);
+                                                        appendTranslitStrToIntArray(weekday[day] + "\n", s);
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                 appendStrToIntArray((lesson + 1).toString(), s);
-                                                                s.push(59);
+                                                                appendStrToIntArray(";", s);
                                                                 for (let day = 0; day < Ndays; ++day) {
                                                                         //s.concat(a[corp][day][lesson]);
                                                                         //alert(a[corp][day][lesson]);
                                                                         for(let x = 0; x < a[corp][day][lesson].length; ++x)
                                                                                 s.push(a[corp][day][lesson][x]);
-                                                                        s.push(59);
+                                                                        appendStrToIntArray(";", s);
                                                                 }
-                                                                s.push(10);
+                                                                appendStrToIntArray("\n", s);
                                                         }
-                                                        s.push(10);
+                                                        appendStrToIntArray("\n", s);
                                                 }
                                         }
                                         var saveData = (function () {
