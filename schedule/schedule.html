@@ -85,6 +85,8 @@
                                                         row.push(t);
                                                         t = [];
                                                 } else if (s[i] == 10) { // '\n'
+                                                        row.push(t);
+                                                        t = [];
                                                         table.push(row);
                                                         row = [];
                                                 } else {
