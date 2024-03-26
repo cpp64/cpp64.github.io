@@ -135,10 +135,10 @@
                                                         appendTranslitStrToIntArray(weekday[day] + "\n", s);
                                                         for(let parallel = 0; parallel < 11; ++parallel) {
                                                                 for(let i = 0; i < Nparallel[corp][parallel]; ++i) {
-                                                                        appendTranslitStrToIntArray("Gfhfkktkm ", s); // Параллель
-                                                                        appendStrToIntArray((parallel + 1).toString() + ";", s);
+                                                                        appendStrToIntArray((parallel + 1).toString() + "-" + (i + 1).toString() + ";", s);
                                                                 }
                                                         }
+                                                        appendStrToIntArray("\n", s);
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                 appendStrToIntArray((lesson + 1).toString() + ";", s);
                                                                 /*for (let day = 0; day < Ndays; ++day) {
