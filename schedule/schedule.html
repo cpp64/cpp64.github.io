@@ -147,7 +147,7 @@
                                                         console.log(table[i][j]);
                                                 }
                                                 console.log("-----------------------");*/
-                                                let fio = table[i][0];
+                                                let _fio = table[i][0];
                                                 let hrs = ASCIIarrToInt(table[i][1]);
                                                 let corp = ASCIIarrToInt(table[i][2]);
                                                 let cab = ASCIIarrToInt(table[i][3]);
@@ -164,7 +164,7 @@
                                                                         if (fio[corp][day][lesson][parallel][_class].length == 0 &&
                                                                             cabs[corp][day][lesson][cab] == 0) {
                                                                                 --hrs;
-                                                                                fio[corp][day][lesson][parallel][_class] = fio;
+                                                                                fio[corp][day][lesson][parallel][_class] = _fio;
                                                                                 cabs[corp][day][lesson][cab] = 1;
                                                                                 break; // for(... _class ...), чтобы не ставить
                                                                                 // одного учителя в несколько классов за 1 урок
