@@ -150,6 +150,8 @@
                                                                                 --hrs;
                                                                                 fio[corp][day][lesson][parallel][_class] = fio;
                                                                                 cabs[corp][day][lesson][cab] = 1;
+                                                                                break; // for(... _class ...), чтобы не ставить
+                                                                                // одного учителя в несколько классов за 1 урок
                                                                         }
                                                                 }
                                                         }
