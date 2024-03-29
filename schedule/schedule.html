@@ -137,6 +137,10 @@
                                                 cabs.push(week);
                                         }
                                         for (let i = 1; i < table.length; ++i) {
+                                                for(let j = 0; j < 5; ++j) {
+                                                        console.log(table[i][j]);
+                                                }
+                                                console.log("-----------------------");
                                                 let fio = table[i][0];
                                                 let hrs = ASCIIarrToInt(table[i][1]);
                                                 let corp = ASCIIarrToInt(table[i][2]);
