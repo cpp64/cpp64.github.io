@@ -118,11 +118,13 @@
                                                 for (let day = 0; day < Ndays; ++day) {
                                                         let _day = [];
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
+                                                                let _lesson = [];
                                                                 for(let parallel = 0; parallel < 11; ++parallel) {
                                                                         for(let i = 0; i < Nparallel[corp][parallel]; ++i) {
-                                                                                _day.push(0);
+                                                                                _lesson.push(0);
                                                                         }
                                                                 }
+                                                                _day.push(_lesson);
                                                         }
                                                         week.push(_day);
                                                 }
