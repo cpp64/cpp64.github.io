@@ -143,24 +143,24 @@
                                                 cabs.push(week);
                                         }
                                         for (let i = 1; i < table.length; ++i) {
-                                                for(let j = 0; j < 5; ++j) {
+                                                /*for(let j = 0; j < 5; ++j) {
                                                         console.log(table[i][j]);
                                                 }
-                                                console.log("-----------------------");
+                                                console.log("-----------------------");*/
                                                 let fio = table[i][0];
                                                 let hrs = ASCIIarrToInt(table[i][1]);
                                                 let corp = ASCIIarrToInt(table[i][2]);
                                                 let cab = ASCIIarrToInt(table[i][3]);
                                                 let parallel = ASCIIarrToInt(table[i][4]);
-                                                console.log(fio);
+                                                /*console.log(fio);
                                                 console.log(hrs);
                                                 console.log(corp);
                                                 console.log(cab);
                                                 console.log(parallel);
-                                                console.log("\n\n");
+                                                console.log("\n\n");*/
                                                 for (let day = 0; day < Ndays && hrs > 0; ++day) {
                                                         for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                                                for(let _class = 0; _class < Nparallel[parallel] && hrs > 0; ++_class) {
+                                                                for(let _class = 0; _class < Nparallel[corp][parallel] && hrs > 0; ++_class) {
                                                                         if (fio[corp][day][lesson][parallel][_class].length == 0 &&
                                                                             cabs[corp][day][lesson][cab] == 0) {
                                                                                 --hrs;
