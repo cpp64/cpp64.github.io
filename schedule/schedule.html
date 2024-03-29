@@ -95,7 +95,7 @@
                                                         t.push(s[i]);
                                                 }
                                         }
-                                        let Ncorp = 3, Ndays = 6, Nlessons = 6;
+                                        let Ncorp = 3, Ndays = 6, Nlessons = 6, Ncab = 100;
                                         // количество классов в каждой параллели
                                         let Nparallel = [[0,0,0,0,0,4,0,0,4,4,4],
                                                          [0,0,0,0,0,0,4,4,0,0,0],
@@ -106,9 +106,17 @@
                                                 for (let day = 0; day < Ndays; ++day) {
                                                         let _day = [];
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
-                                                                _day.push([]);
+                                                                let _lesson = [];
+                                                                for(let parallel = 0; parallel < 11; ++parallel) {
+                                                                        let _parallel = [];
+                                                                        for(let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+                                                                                _parallel.push([]);
+                                                                        }
+                                                                        _lesson.push(_parallel);
+                                                                }
+                                                                _day.push(_lesson);
                                                         }
-                                                        week.push(day);
+                                                        week.push(_day);
                                                 }
                                                 fio.push(week);
                                         }
@@ -119,12 +127,8 @@
                                                         let _day = [];
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                 let _lesson = [];
-                                                                for(let parallel = 0; parallel < 11; ++parallel) {
-                                                                        let _parallel = [];
-                                                                        for(let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-                                                                                _parallel.push(0);
-                                                                        }
-                                                                        _lesson.push(_parallel);
+                                                                for(let cab = 0; cab < Ncab; ++cab) {
+                                                                        lesson.push(0);
                                                                 }
                                                                 _day.push(_lesson);
                                                         }
