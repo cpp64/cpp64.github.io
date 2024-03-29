@@ -140,16 +140,20 @@
                                                 let fio = table[i][0];
                                                 let hrs = ASCIIarrToInt(table[i][1]);
                                                 let corp = ASCIIarrToInt(table[i][2]);
-                                                //let cab = Number(table[i][3]);
-                                                //let parallel = Number(table[i][4]);
-                                                /*for (let day = 0; day < Ndays && hrs > 0; ++day) {
+                                                let cab = Number(table[i][3]);
+                                                let parallel = Number(table[i][4]);
+                                                for (let day = 0; day < Ndays && hrs > 0; ++day) {
                                                         for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                                                if (a[corp - 1][day][lesson].length == 0) {
-                                                                        --hrs;
-                                                                        a[corp - 1][day][lesson] = fio;
+                                                                for(let parallel = 0; parallel < 11 && hrs > 0; ++parallel) {
+                                                                        if (fio[corp][day][lesson][parallel][_class].length == 0 &&
+                                                                            cabs[corp][day][lesson][cab] == 0) {
+                                                                                --hrs;
+                                                                                fio[corp][day][lesson][parallel][_class] = fio;
+                                                                                cabs[corp][day][lesson][cab] = 1;
+                                                                        }
                                                                 }
                                                         }
-                                                }*/
+                                                }
                                         }
                                         s = [];
                                         // дни недели транслитом
