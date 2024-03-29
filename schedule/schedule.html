@@ -30,6 +30,8 @@
                         </button>
                         <script>
                                 function fake_click() {
+                                        // сделать неограниченное количество загрузок
+                                        // сейчас однократное
                                         document.getElementById("input").click();
                                 }
                                 // translit[x]=y, где x - код буквы на англ.раскладке,
@@ -93,12 +95,12 @@
                                                         t.push(s[i]);
                                                 }
                                         }
-                                        let a = [];
                                         let Ncorp = 3, Ndays = 6, Nlessons = 6;
                                         // количество классов в каждой параллели
                                         let Nparallel = [[0,0,0,0,0,4,0,0,4,4,4],
                                                          [0,0,0,0,0,0,4,4,0,0,0],
                                                          [0,0,0,0,4,0,0,0,0,0,0]];
+                                        let fio = [];
                                         for (let i = 0; i < Ncorp; ++i) {
                                                 let week = [];
                                                 for (let j = 0; j < Ndays; ++j) {
@@ -108,7 +110,23 @@
                                                         }
                                                         week.push(day);
                                                 }
-                                                a.push(week);
+                                                fio.push(week);
+                                        }
+                                        let cabs = [];
+                                        for (let i = 0; i < Ncorp; ++i) {
+                                                let week = [];
+                                                for (let j = 0; j < Ndays; ++j) {
+                                                        let day = [];
+                                                        for (let k = 0; k < Nlessons; ++k) {
+                                                                for(let parallel = 0; parallel < 11; ++parallel) {
+                                                                        for(let i = 0; i < Nparallel[corp][parallel]; ++i) {
+                                                                                day.push([]);
+                                                                        }
+                                                                }
+                                                        }
+                                                        week.push(day);
+                                                }
+                                                cabs.push(week);
                                         }
                                         for (let i = 1; i < table.length; ++i) {
                                                 let fio = table[i][0];
