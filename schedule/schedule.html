@@ -142,6 +142,12 @@
                                                 let corp = ASCIIarrToInt(table[i][2]);
                                                 let cab = Number(table[i][3]);
                                                 let parallel = Number(table[i][4]);
+                                                console.log(fio);
+                                                console.log(hrs);
+                                                console.log(corp);
+                                                console.log(cab);
+                                                console.log(parallel);
+                                                console.log("\n\n");
                                                 for (let day = 0; day < Ndays && hrs > 0; ++day) {
                                                         for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
                                                                 for(let _class = 0; _class < Nparallel[parallel] && hrs > 0; ++_class) {
