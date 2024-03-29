@@ -171,13 +171,15 @@
                                                         appendStrToIntArray("\n", s);
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                 appendStrToIntArray((lesson + 1).toString() + ";", s);
-                                                                /*for (let day = 0; day < Ndays; ++day) {
-                                                                        //s.concat(a[corp][day][lesson]);
-                                                                        //alert(a[corp][day][lesson]);
-                                                                        for(let x = 0; x < a[corp][day][lesson].length; ++x)
-                                                                                s.push(a[corp][day][lesson][x]);
-                                                                        appendStrToIntArray(";", s);
-                                                                }*/
+                                                                for(let parallel = 0; parallel < 11; ++parallel) {
+                                                                        for(let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+                                                                                //s.concat(a[corp][day][lesson]);
+                                                                                //alert(a[corp][day][lesson]);
+                                                                                for(let x = 0; x < fio[corp][day][lesson][parallel][_class].length; ++x)
+                                                                                        s.push(fio[corp][day][lesson][parallel][_class][x]);
+                                                                                appendStrToIntArray(";", s);
+                                                                        }
+                                                                }
                                                                 appendStrToIntArray("\n", s);
                                                         }
                                                         appendStrToIntArray("\n", s);
