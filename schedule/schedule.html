@@ -120,9 +120,11 @@
                                                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
                                                                 let _lesson = [];
                                                                 for(let parallel = 0; parallel < 11; ++parallel) {
+                                                                        let _parallel = [];
                                                                         for(let i = 0; i < Nparallel[corp][parallel]; ++i) {
-                                                                                _lesson.push(0);
+                                                                                _parallel.push(0);
                                                                         }
+                                                                        _lesson.push(_parallel);
                                                                 }
                                                                 _day.push(_lesson);
                                                         }
