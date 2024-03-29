@@ -101,30 +101,30 @@
                                                          [0,0,0,0,0,0,4,4,0,0,0],
                                                          [0,0,0,0,4,0,0,0,0,0,0]];
                                         let fio = [];
-                                        for (let i = 0; i < Ncorp; ++i) {
+                                        for (let corp = 0; corp < Ncorp; ++corp) {
                                                 let week = [];
-                                                for (let j = 0; j < Ndays; ++j) {
-                                                        let day = [];
-                                                        for (let k = 0; k < Nlessons; ++k) {
-                                                                day.push([]);
+                                                for (let day = 0; day < Ndays; ++day) {
+                                                        let _day = [];
+                                                        for (let lesson = 0; lesson < Nlessons; ++lesson) {
+                                                                _day.push([]);
                                                         }
                                                         week.push(day);
                                                 }
                                                 fio.push(week);
                                         }
                                         let cabs = [];
-                                        for (let i = 0; i < Ncorp; ++i) {
+                                        for (let corp = 0; corp < Ncorp; ++corp) {
                                                 let week = [];
-                                                for (let j = 0; j < Ndays; ++j) {
-                                                        let day = [];
-                                                        for (let k = 0; k < Nlessons; ++k) {
+                                                for (let day = 0; day < Ndays; ++day) {
+                                                        let _day = [];
+                                                        for (let k = lesson; lesson < Nlessons; ++lesson) {
                                                                 for(let parallel = 0; parallel < 11; ++parallel) {
                                                                         for(let i = 0; i < Nparallel[corp][parallel]; ++i) {
-                                                                                day.push([]);
+                                                                                _day.push([]);
                                                                         }
                                                                 }
                                                         }
-                                                        week.push(day);
+                                                        week.push(_day);
                                                 }
                                                 cabs.push(week);
                                         }
