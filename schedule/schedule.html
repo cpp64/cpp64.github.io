@@ -160,16 +160,26 @@
                                                 console.log("\n\n");*/
                                                 for (let day = 0; day < Ndays && hrs > 0; ++day) {
                                                         for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                                                for(let _class = 0; _class < Nparallel[corp][parallel] && hrs > 0; ++_class) {
-                                                                        if (fio[corp][day][lesson][parallel][_class].length == 0 &&
-                                                                            cabs[corp][day][lesson][cab] == 0) {
-                                                                                --hrs;
-                                                                                fio[corp][day][lesson][parallel][_class] = _fio;
-                                                                                cabs[corp][day][lesson][cab] = 1;
-                                                                                break; // for(... _class ...), чтобы не ставить
-                                                                                // одного учителя в несколько классов за 1 урок
+                                                                if(cabs[corp][day][lesson][cab] != 0)
+                                                                        continue;
+                                                                let imin = 0;
+                                                                for(let icur = 1; icur < Nparallel[corp][parallel]; ++icur) {
+                                                                        // нет проверки на то, что ячейка уже занята
+                                                                        // другим учителем
+                                                                        let cursum = 0, minsum = 0;
+                                                                        for(let c = 0; c < lesson; ++c) {
+                                                                                if(fio[corp][day][c][parallel][imin] == _fio)
+                                                                                        minsum += 1;
+                                                                                if(fio[corp][day][c][parallel][icur] == _fio)
+                                                                                        cursum += 1;
+                                                                        }
+                                                                        if(cursum < minsum) {
+                                                                                imin = icur;
                                                                         }
                                                                 }
+                                                                --hrs;
+                                                                fio[corp][day][lesson][parallel][imin] = _fio;
+                                                                cabs[corp][day][lesson][cab] = 1;
                                                         }
                                                 }
                                         }
