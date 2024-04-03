@@ -160,15 +160,20 @@
                                                 console.log("\n\n");*/
                                                 for (let day = 0; day < Ndays && hrs > 0; ++day) {
                                                         for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                                                if(cabs[corp][day][lesson][cab] != 0)
+                                                                console.log("lesson "+lesson.to_String());
+                                                                if(cabs[corp][day][lesson][cab] != 0) {
+                                                                        console.log("cab "+cab.to_String()+" not empty");
                                                                         continue;
+                                                                }
                                                                 let imin = 0;
                                                                 while(imin < Nparallel[corp][parallel] && 
                                                                       fio[corp][day][lesson][parallel][imin].length == 0)
                                                                         ++imin;
-                                                                if(imin >= Nparallel[corp][parallel])
-                                                                        continue;
                                                                 console.log("found "+imin.to_String());
+                                                                if(imin >= Nparallel[corp][parallel]) {
+                                                                        console.log("imin >= "+Nparallel[corp][parallel].to_String());
+                                                                        continue;
+                                                                }
                                                                 for(let icur = imin + 1; icur < Nparallel[corp][parallel]; ++icur) {
                                                                         if(fio[corp][day][lesson][parallel][imin].length != 0)
                                                                                 continue;
