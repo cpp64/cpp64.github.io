@@ -143,35 +143,21 @@
                                                 cabs.push(week);
                                         }
                                         for (let i = 12; i < table.length; ++i) {
-                                                /*for(let j = 0; j < 5; ++j) {
-                                                        console.log(table[i][j]);
-                                                }
-                                                console.log("-----------------------");*/
                                                 let _fio = table[i][0];
                                                 let hrs = ASCIIarrToInt(table[i][1]);
                                                 let corp = ASCIIarrToInt(table[i][2]) - 1;
                                                 let cab = ASCIIarrToInt(table[i][3]) - 1;
                                                 let parallel = ASCIIarrToInt(table[i][4]) - 1;
-                                                /*console.log(fio);
-                                                console.log(hrs);
-                                                console.log(corp);
-                                                console.log(cab);
-                                                console.log(parallel);
-                                                console.log("\n\n");*/
                                                 for (let day = 0; day < Ndays && hrs > 0; ++day) {
                                                         for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                                                console.log("lesson "+lesson.toString());
                                                                 if(cabs[corp][day][lesson][cab] != 0) {
-                                                                        console.log("cab "+cab.toString()+" not empty");
                                                                         continue;
                                                                 }
                                                                 let imin = 0;
                                                                 while(imin < Nparallel[corp][parallel] && 
                                                                       fio[corp][day][lesson][parallel][imin].length != 0)
                                                                         ++imin;
-                                                                console.log("found "+imin.toString());
                                                                 if(imin >= Nparallel[corp][parallel]) {
-                                                                        console.log("imin >= "+Nparallel[corp][parallel].toString());
                                                                         continue;
                                                                 }
                                                                 for(let icur = imin + 1; icur < Nparallel[corp][parallel]; ++icur) {
@@ -212,8 +198,8 @@
                                                                 appendStrToIntArray((lesson + 1).toString() + ";", s);
                                                                 for(let parallel = 0; parallel < 11; ++parallel) {
                                                                         for(let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-                                                                                //s.concat(a[corp][day][lesson]);
-                                                                                //alert(a[corp][day][lesson]);
+                                                                                //s.concat(a[corp][day][lesson]); почему нельзя это
+                                                                                // вместо кошмара ниже
                                                                                 for(let x = 0; x < fio[corp][day][lesson][parallel][_class].length; ++x)
                                                                                         s.push(fio[corp][day][lesson][parallel][_class][x]);
                                                                                 appendStrToIntArray(";", s);
