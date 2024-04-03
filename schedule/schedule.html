@@ -167,7 +167,7 @@
                                                                 }
                                                                 let imin = 0;
                                                                 while(imin < Nparallel[corp][parallel] && 
-                                                                      fio[corp][day][lesson][parallel][imin].length == 0)
+                                                                      fio[corp][day][lesson][parallel][imin].length != 0)
                                                                         ++imin;
                                                                 console.log("found "+imin.toString());
                                                                 if(imin >= Nparallel[corp][parallel]) {
