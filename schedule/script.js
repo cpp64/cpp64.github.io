@@ -1,12 +1,39 @@
-/* Парные уроки сделать как
-   ФИО: Тюрин/Александрова
-   Кабинет:17/25
-   (не более 2 кабинетов) */
-function make_hours() {
-        alert("make_hours");
-}
+// количество корпусов, дней, уроков в день, кабинетов, классов в каждой параллели
+let Ncorp, Ndays, Nlessons, Ncab = 9999, Nparallel = [];
 function fake_click() {
         alert("fake_click");
+}
+function load_N() {
+	var fr = new FileReader();
+	fr.onload = function () {
+		var data = fr.result;
+		var array = new Uint8Array(data);
+		load_N1(array);
+	};
+	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
+}
+function load_N1(s) {
+	Ncorp = Number(document.getElementById("Ncorp_input").value);
+	Ndays = Number(document.getElementById("Ndays_input").value);
+	Nlessons = Number(document.getElementById("Nlessons_input").value);
+	let t = [];
+	let row = [];
+	let rn = 0;
+	for (let i = 0; i < s.length; ++i) {
+		if (s[i] == 59) { // ';'
+			row.push(t);
+			t = [];
+		} else if (s[i] == 10 || s[i] == 13) { // '\n' or '\r'
+			if (i > 0 && (s[i - 1] == 10 || s[i - 1] == 13)) // очень коряво
+				continue;
+			row.push(t);
+			t = [];
+			Nparallel.push(row);
+			row = [];
+		} else {
+			t.push(s[i]);
+		}
+	}
 }
 // translit[x] = y, где x - код буквы на англ.раскладке,
 // y - код буквы на рус.раскладке win1251
@@ -57,9 +84,6 @@ function build_table1(s) {
 	let t = [];
 	let table = [];
 	let row = [];
-	// !! EXCEL когда-то добавляет, а когда-то не добавляет
-	// \r в конец строки и в целом не понятно, когда
-	// \r, когда \n, когда \r\n
 	let rn = 0;
 	for (let i = 0; i < s.length; ++i) {
 		if (s[i] == 59) { // ';'
@@ -76,13 +100,6 @@ function build_table1(s) {
 			t.push(s[i]);
 		}
 	}
-	let Ncorp = 3, Ndays = 6, Nlessons = 6, Ncab = 100;
-	// количество классов в каждой параллели
-	let Nparallel = [
-		[0, 0, 0, 0, 0, 4, 0, 0, 4, 4, 4],
-		[0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0],
-		[0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
-	];
 	let fio = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
 		let week = [];
