@@ -1,47 +1,42 @@
 /* Парные уроки сделать как
-				   ФИО: Тюрин/Александрова
-				   Кабинет:17/25
-				   (не более 2 кабинетов) */
+   ФИО: Тюрин/Александрова
+   Кабинет:17/25
+   (не более 2 кабинетов) */
 function make_hours() {
         alert("make_hours");
 }
-
 function fake_click() {
-	// сделать неограниченное количество загрузок
-	// сейчас однократное
-	document.getElementById("input").click();
+        alert("fake_click");
 }
-// translit[x]=y, где x - код буквы на англ.раскладке,
+// translit[x] = y, где x - код буквы на англ.раскладке,
 // y - код буквы на рус.раскладке win1251
 // + пробел и др. неязыковые символы
-let translit = [0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 10, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	32, 0, 221, 0, 0, 0, 0, 253,
-	0, 0, 0, 0, 225, 0, 254, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 198, 230, 193, 0, 222, 0,
-	0, 212, 200, 209, 194, 211, 192, 207,
+let translit = [
+	  0,   0,   0,   0,   0,   0,   0,   0,
+	  0,   0,  10,   0,   0,   0,   0,   0,
+	  0,   0,   0,   0,   0,   0,   0,   0,
+	  0,   0,   0,   0,   0,   0,   0,   0,
+	 32,   0, 221,   0,   0,   0,   0, 253,
+	  0,   0,   0,   0, 225,   0, 254,   0,
+	  0,   0,   0,   0,   0,   0,   0,   0,
+	  0,   0, 198, 230, 193,   0, 222,   0,
+	  0, 212, 200, 209, 194, 211, 192, 207,
 	208, 216, 206, 203, 196, 220, 210, 217,
 	199, 201, 202, 219, 197, 195, 204, 214,
-	215, 205, 223, 245, 0, 250, 0, 0,
+	215, 205, 223, 245,   0, 250,   0,   0,
 	184, 244, 232, 241, 226, 243, 224, 239,
 	240, 248, 238, 235, 228, 252, 242, 249,
 	231, 233, 234, 251, 229, 227, 236, 246,
-	247, 237, 255, 213, 0, 218, 168, 0
+	247, 237, 255, 213,   0, 218, 168,   0
 ];
-
 function appendStrToIntArray(s, a) {
 	for (let i = 0; i < s.length; ++i)
 		a.push(s[i].charCodeAt(0));
 }
-
 function appendTranslitStrToIntArray(s, a) {
 	for (let i = 0; i < s.length; ++i)
 		a.push(translit[s[i].charCodeAt(0)]);
 }
-
 function ASCIIarrToInt(arr) {
 	let res = 0;
 	for (let i = 0; i < arr.length; ++i)
@@ -58,7 +53,6 @@ function build_table() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
-
 function build_table1(s) {
 	let t = [];
 	let table = [];
@@ -82,10 +76,7 @@ function build_table1(s) {
 			t.push(s[i]);
 		}
 	}
-	let Ncorp = 3,
-		Ndays = 6,
-		Nlessons = 6,
-		Ncab = 100;
+	let Ncorp = 3, Ndays = 6, Nlessons = 6, Ncab = 100;
 	// количество классов в каждой параллели
 	let Nparallel = [
 		[0, 0, 0, 0, 0, 4, 0, 0, 4, 4, 4],
@@ -128,10 +119,9 @@ function build_table1(s) {
 		}
 		cabs.push(week);
 	}
-	for (let i = 12; i < table.length; ++i) {
-		let _fio = table[i][0];
-		let hrs = ASCIIarrToInt(table[i][1]);
-		let corp = ASCIIarrToInt(table[i][2]) - 1;
+	for (let i = 1; i < table.length; ++i) {
+		let corp = ASCIIarrToInt(table[i][0]) - 1;
+		let _fio = table[i][1];
 		let cab = ASCIIarrToInt(table[i][3]) - 1;
 		let parallel = ASCIIarrToInt(table[i][4]) - 1;
 		for (let day = 0; day < Ndays && hrs > 0; ++day) {
