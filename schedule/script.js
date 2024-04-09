@@ -2,6 +2,8 @@
 let Ncorp, Ndays, Nlessons, Ncab = 9999, Nparallel = [];
 function fake_click() {
         alert("fake_click");
+	load_N();
+	build_table();
 }
 function load_N() {
 	var fr = new FileReader();
