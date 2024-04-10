@@ -14,6 +14,28 @@ function load_N() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
 }
+function parseCSV(s) {
+	let table = [];
+	let t = [];
+	let row = [];
+	let rn = 0;
+	for (let i = 0; i < s.length; ++i) {
+		if (s[i] == 59) { // ';'
+			row.push(t);
+			t = [];
+		} else if (s[i] == 10 || s[i] == 13) { // '\n' or '\r'
+			if (i > 0 && (s[i - 1] == 10 || s[i - 1] == 13)) // очень коряво
+				continue;
+			row.push(t);
+			t = [];
+			table.push(row);
+			row = [];
+		} else {
+			t.push(s[i]);
+		}
+	}
+	return table;
+}
 function load_N1(s) {
 	Ncorp = Number(document.getElementById("Ncorp_input").value);
 	Ndays = Number(document.getElementById("Ndays_input").value);
