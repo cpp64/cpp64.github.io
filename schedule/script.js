@@ -16,15 +16,14 @@ function load_N() {
 }
 function parseCSV(s) {
 	let table = [];
-	let t = [];
 	let row = [];
-	let rn = 0;
+	let t = [];
 	for (let i = 0; i < s.length; ++i) {
 		if (s[i] == 59) { // ';'
 			row.push(t);
 			t = [];
 		} else if (s[i] == 10 || s[i] == 13) { // '\n' or '\r'
-			if (i > 0 && (s[i - 1] == 10 || s[i - 1] == 13)) // очень коряво
+			if (i > 0 && (s[i-1] == 10 || s[i-1] == 13)) // очень коряво
 				continue;
 			row.push(t);
 			t = [];
@@ -40,24 +39,7 @@ function load_N1(s) {
 	Ncorp = Number(document.getElementById("Ncorp_input").value);
 	Ndays = Number(document.getElementById("Ndays_input").value);
 	Nlessons = Number(document.getElementById("Nlessons_input").value);
-	let t = [];
-	let row = [];
-	let rn = 0;
-	for (let i = 0; i < s.length; ++i) {
-		if (s[i] == 59) { // ';'
-			row.push(t);
-			t = [];
-		} else if (s[i] == 10 || s[i] == 13) { // '\n' or '\r'
-			if (i > 0 && (s[i - 1] == 10 || s[i - 1] == 13)) // очень коряво
-				continue;
-			row.push(t);
-			t = [];
-			Nparallel.push(row);
-			row = [];
-		} else {
-			t.push(s[i]);
-		}
-	}
+	Nparallel = parseCSV(s);
 }
 // translit[x] = y, где x - код буквы на англ.раскладке,
 // y - код буквы на рус.раскладке win1251
