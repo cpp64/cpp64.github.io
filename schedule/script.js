@@ -14,10 +14,34 @@ function load_N() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
 }
-function parseCSV(s) {
-	let table = [];
-	let row = [];
-	let t = [];
+function parse_interval(s) {
+	let t = [[],[]], result = [], i = 0, t_id = 0;
+	while(i <= s.length) {
+		if(i >= s.length || s[i] == ',' || s[i] == ';') {
+			if(t_id == 1) {
+				for(let i = ASCIIarrToInt(t[0]); i <= ASCIIarrToInt(t[1]); ++i)
+					result.push(i);
+				t_id = 0;
+			} else {
+				result.push(ASCIIarrToInt(t[0]));
+			}
+		}
+		if(i >= s.length)
+			break;
+		if(s[i] == 32) // ' ' (пробел)
+			continue;
+		if(48 <= s[i] && s[i] <= 57) {
+			t[t_id].push(s[i]);
+			continue;
+		}
+		if(s[i] == 45) { // '-' (тире)
+			t_id = 1;
+			continue;
+		}
+	}
+}
+function parse_csv(s) {
+	let table = [], row = [], t = [];
 	for (let i = 0; i < s.length; ++i) {
 		if (s[i] == 59) { // ';'
 			row.push(t);
