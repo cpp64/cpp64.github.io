@@ -22,7 +22,7 @@ function parse_interval(s) {
 	let t = [[],[]], result = [], t_id = 0;
 	for(let i = 0; i <= s.length; ++i) {
 		// если i == s.length, дальше условие проверяться не будет
-		if(i == s.length || s[i] == 44 /* , */ || s[i] == 59 /* ; */) {
+		if(i == s.length || s[i] == _int(',') || s[i] == _int(';')) {
 			if(t_id == 1) {
 				for(let i = ASCIIarrToInt(t[0]); i <= ASCIIarrToInt(t[1]); ++i)
 					result.push(i);
@@ -33,13 +33,13 @@ function parse_interval(s) {
 			t = [[],[]];
 			continue;
 		}
-		if(s[i] == 32) // ' ' (пробел)
+		if(s[i] == _int(' '))
 			continue;
-		if(48 <= s[i] && s[i] <= 57) {
+		if(_int('0') <= s[i] && s[i] <= _int('9')) {
 			t[t_id].push(s[i]);
 			continue;
 		}
-		if(s[i] == 45) { // '-' (тире)
+		if(s[i] == _int('-')) {
 			t_id = 1;
 			continue;
 		}
@@ -49,11 +49,11 @@ function parse_interval(s) {
 function parse_csv(s) {
 	let table = [], row = [], t = [];
 	for (let i = 0; i < s.length; ++i) {
-		if (s[i] == 59) { // ';'
+		if (s[i] == _int(';')) {
 			row.push(t);
 			t = [];
-		} else if (s[i] == 10 || s[i] == 13) { // '\n' or '\r'
-			if (i > 0 && (s[i-1] == 10 || s[i-1] == 13)) // очень коряво
+		} else if (s[i] == _int('\r') || s[i] == _int('\n')) {
+			if (i > 0 && (s[i-1] == _int('\r') || s[i-1] == _int('\r'))) // очень коряво
 				continue;
 			row.push(t);
 			t = [];
@@ -92,6 +92,9 @@ let translit = [
 	231, 233, 234, 251, 229, 227, 236, 246,
 	247, 237, 255, 213,   0, 218, 168,   0
 ];
+function _int(_char) {
+	return _char.charCodeAt(0);
+}
 function appendStrToIntArray(s, a) {
 	for (let i = 0; i < s.length; ++i)
 		a.push(s[i].charCodeAt(0));
@@ -122,11 +125,11 @@ function build_table1(s) {
 	let row = [];
 	let rn = 0;
 	for (let i = 0; i < s.length; ++i) {
-		if (s[i] == 59) { // ';'
+		if (s[i] == _int(';')) {
 			row.push(t);
 			t = [];
-		} else if (s[i] == 10 || s[i] == 13) { // '\n' or '\r'
-			if (i > 0 && (s[i - 1] == 10 || s[i - 1] == 13)) // очень коряво
+		} else if (s[i] == _int('\r') || s[i] == _int('\n')) {
+			if (i > 0 && (s[i] == _int('\r') || s[i] == _int('\n'))) // очень коряво
 				continue;
 			row.push(t);
 			t = [];
