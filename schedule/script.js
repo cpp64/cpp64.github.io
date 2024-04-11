@@ -14,7 +14,9 @@ function load_N() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
 }
-console.log(parse_interval("1 - 3, 8, 10 - 12"));
+let arrr = [];
+appendStrToIntArray("1 - 3, 8, 10 - 12", arrr);
+console.log(parse_interval(arrr));
 function parse_interval(s) {
 	let t = [[],[]], result = [], i = -1, t_id = 0;
 	while(i <= s.length) {
