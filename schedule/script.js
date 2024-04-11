@@ -15,7 +15,7 @@ function load_N() {
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
 }
 let arrr = [];
-appendStrToIntArray("1 - 3, 8, 10 - 12", arrr);
+appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
 console.log(arrr);
 console.log(parse_interval(arrr));
 function parse_interval(s) {
