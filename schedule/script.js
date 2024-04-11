@@ -22,8 +22,6 @@ function parse_interval(s) {
 	let t = [[],[]], result = [], i = -1, t_id = 0;
 	while(i <= s.length) {
 		++i;
-		if(i > s.length)
-			break;
 		// если i == s.length, дальше условие проверяться не будет
 		if(i == s.length || s[i] == 44 /* , */ || s[i] == 59 /* ; */) {
 			if(t_id == 1) {
