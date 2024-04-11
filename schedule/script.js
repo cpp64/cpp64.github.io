@@ -16,8 +16,9 @@ function load_N() {
 }
 console.log(parse_interval("1 - 3, 8, 10 - 12"));
 function parse_interval(s) {
-	let t = [[],[]], result = [], i = 0, t_id = 0;
+	let t = [[],[]], result = [], i = -1, t_id = 0;
 	while(true) {
+		++i;
 		// если i >= s.length, дальше условие проверяться не будет
 		if(i >= s.length || s[i] == ',' || s[i] == ';') {
 			if(t_id == 1) {
@@ -28,9 +29,10 @@ function parse_interval(s) {
 				result.push(ASCIIarrToInt(t[0]));
 			}
 			t = [[],[]];
+			if(i >= s.length)
+				break;
+			continue;
 		}
-		if(i >= s.length)
-			break;
 		if(s[i] == 32) // ' ' (пробел)
 			continue;
 		if(48 <= s[i] && s[i] <= 57) {
