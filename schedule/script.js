@@ -28,7 +28,7 @@ function parse_interval(s) {
 		if(i > s.length)
 			break;
 		// если i == s.length, дальше условие проверяться не будет
-		if(i == s.length || s[i] == ',' || s[i] == ';') {
+		if(i == s.length || s[i] == 44 /* , */ || s[i] == 59 /* ; */) {
 			if(t_id == 1) {
 				for(let i = ASCIIarrToInt(t[0]); i <= ASCIIarrToInt(t[1]); ++i)
 					result.push(i);
