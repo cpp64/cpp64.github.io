@@ -22,9 +22,6 @@ function parse_interval(s) {
 	let t = [[],[]], result = [], i = -1, t_id = 0;
 	while(i <= s.length) {
 		++i;
-		console.log('iteration ' + i.toString());
-		console.log(t);
-		console.log(result);
 		if(i > s.length)
 			break;
 		// если i == s.length, дальше условие проверяться не будет
