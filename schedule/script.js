@@ -14,9 +14,11 @@ function load_N() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
 }
+console.log(parse_interval("1 - 3, 8, 10 - 12"));
 function parse_interval(s) {
 	let t = [[],[]], result = [], i = 0, t_id = 0;
 	while(i <= s.length) {
+		// если i >= s.length, дальше условие проверяться не будет
 		if(i >= s.length || s[i] == ',' || s[i] == ';') {
 			if(t_id == 1) {
 				for(let i = ASCIIarrToInt(t[0]); i <= ASCIIarrToInt(t[1]); ++i)
@@ -25,6 +27,7 @@ function parse_interval(s) {
 			} else {
 				result.push(ASCIIarrToInt(t[0]));
 			}
+			t = [[],[]];
 		}
 		if(i >= s.length)
 			break;
@@ -39,6 +42,7 @@ function parse_interval(s) {
 			continue;
 		}
 	}
+	return result;
 }
 function parse_csv(s) {
 	let table = [], row = [], t = [];
