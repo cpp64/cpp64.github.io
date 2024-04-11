@@ -19,9 +19,8 @@ appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
 console.log(arrr);
 console.log(parse_interval(arrr));
 function parse_interval(s) {
-	let t = [[],[]], result = [], i = -1, t_id = 0;
-	while(i <= s.length) {
-		++i;
+	let t = [[],[]], result = [], t_id = 0;
+	for(let i = 0; i <= s.length; ++i) {
 		// если i == s.length, дальше условие проверяться не будет
 		if(i == s.length || s[i] == 44 /* , */ || s[i] == 59 /* ; */) {
 			if(t_id == 1) {
