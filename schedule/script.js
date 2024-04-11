@@ -17,7 +17,7 @@ function load_N() {
 console.log(parse_interval("1 - 3, 8, 10 - 12"));
 function parse_interval(s) {
 	let t = [[],[]], result = [], i = 0, t_id = 0;
-	while(i <= s.length) {
+	while(true) {
 		// если i >= s.length, дальше условие проверяться не будет
 		if(i >= s.length || s[i] == ',' || s[i] == ';') {
 			if(t_id == 1) {
