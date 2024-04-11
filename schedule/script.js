@@ -21,6 +21,9 @@ console.log(parse_interval(arrr));
 function parse_interval(s) {
 	let t = [[],[]], result = [], i = -1, t_id = 0;
 	while(i <= s.length) {
+		console.log('iteration ' + i.toString());
+		console.log(t);
+		console.log(result);
 		++i;
 		if(i > s.length)
 			break;
