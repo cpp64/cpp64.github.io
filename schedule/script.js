@@ -16,8 +16,8 @@ function fake_click() {
 }
 let arrr = [];
 appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
-console.log(arrr);
-console.log(parse_interval(arrr));
+//console.log(arrr);
+//console.log(parse_interval(arrr));
 function parse_interval(s) {
 	let t = [[],[]], result = [], t_id = 0;
 	for(let i = 0; i <= s.length; ++i) {
@@ -47,10 +47,11 @@ function parse_interval(s) {
 	return result;
 }
 function parse_csv(s) {
-	console.log("parse_csv()");
-	console.log(s);
+	//console.log("parse_csv()");
+	//console.log(s);
 	let table = [], row = [], t = [];
 	for (let i = 0; i < s.length; ++i) {
+		// работает некорректно, не добавляет последнюю ячейку
 		if (s[i] == _int(';')) {
 			row.push(t);
 			t = [];
@@ -64,6 +65,7 @@ function parse_csv(s) {
 		} else {
 			t.push(s[i]);
 		}
+		console.log('t:'+t.toString());
 	}
 	return table;
 }
