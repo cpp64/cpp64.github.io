@@ -11,7 +11,6 @@ function fake_click() {
 		Nparallel = parse_csv(new Uint8Array(fr.result));
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
-	console.log(Nparallel);
 	//build_table();
 }
 let arrr = [];
@@ -65,8 +64,8 @@ function parse_csv(s) {
 		} else {
 			t.push(s[i]);
 		}
-		console.log('t:'+t.toString());
 	}
+	console.log('table:'+table.toString());
 	return table;
 }
 // translit[x] = y, где x - код буквы на англ.раскладке,
