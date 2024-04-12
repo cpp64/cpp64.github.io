@@ -7,10 +7,23 @@ function fake_click() {
 	for(let i = 1; i < 7; ++i)
 		Nlessons.push(Number(document.getElementById("Nlessons_input"+i.toString()).value));
 	var fr = new FileReader();
+	let temp = [];
 	fr.onload = function () {
-		Nparallel = parse_csv(new Uint8Array(fr.result));
+		temp = parse_csv(new Uint8Array(fr.result));
+		console.log('temp:');
+		console.log(temp);
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
+	console.log('temp1:');
+	console.log(temp);
+	for(let i = 0; i < temp.length; ++i) {
+		let t = [];
+		for(let j = 0; j < temp[i].length; ++j)
+			t.push(ASCIIarrToInt(temp[i][j]);
+		Nparallel.push(t);
+	}
+	console.log('Nparallel:');
+	console.log(Nparallel);
 	//build_table();
 }
 let arrr = [];
@@ -65,8 +78,6 @@ function parse_csv(s) {
 			t.push(s[i]);
 		}
 	}
-	console.log('table:');
-	console.log(table);
 	return table;
 }
 // translit[x] = y, где x - код буквы на англ.раскладке,
