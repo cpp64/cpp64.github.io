@@ -8,7 +8,7 @@ function fake_click() {
 		Nlessons.push(Number(document.getElementById("Nlessons_input"+i.toString()).value));
 	var fr = new FileReader();
 	fr.onload = function () {
-		Nparallel = parseCSV(new Uint8Array(fr.result));
+		Nparallel = parse_csv(new Uint8Array(fr.result));
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
 	//build_table();
