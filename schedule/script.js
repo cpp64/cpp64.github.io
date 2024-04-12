@@ -3,8 +3,9 @@ let Ncorp, Nlessons = [], Ncab = 9999, Nparallel = [];
 function fake_click() {
         console.log("fake_click");
 	Ncorp = Number(document.getElementById("Ncorp_input").value);
+	Nlessons = [];
 	for(let i = 1; i < 7; ++i)
-		Nlessons[i-1] = Number(document.getElementById("Nlessons_input"+i.toString()).value);
+		Nlessons.push(Number(document.getElementById("Nlessons_input"+i.toString()).value));
 	var fr = new FileReader();
 	fr.onload = function () {
 		Nparallel = parseCSV(new Uint8Array(fr.result));
