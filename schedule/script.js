@@ -4,7 +4,7 @@ function fake_click() {
         console.log("fake_click");
 	Ncorp = Number(document.getElementById("Ncorp_input").value);
 	for(let i = 1; i < 7; ++i)
-		Nlessons = Number(document.getElementById("Nlessons_input"+i.toString()).value);
+		Nlessons[i-1] = Number(document.getElementById("Nlessons_input"+i.toString()).value);
 	var fr = new FileReader();
 	fr.onload = function () {
 		Nparallel = parseCSV(new Uint8Array(fr.result));
