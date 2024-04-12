@@ -8,12 +8,13 @@ function fake_click() {
 		Nlessons.push(Number(document.getElementById("Nlessons_input"+i.toString()).value));
 	var fr = new FileReader();
 	let temp = [];
-	fr.onload = function () {
+	/*fr.onload = function () {
 		temp = parse_csv(new Uint8Array(fr.result));
 		console.log('temp:');
 		console.log(temp);
 	};
-	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
+	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);*/
+	temp = parse_csv(new Uint8Array(document.getElementById("parallel_input").files[0]));
 	console.log('temp1:');
 	console.log(temp);
 	for(let i = 0; i < temp.length; ++i) {
