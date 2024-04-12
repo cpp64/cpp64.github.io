@@ -105,9 +105,7 @@ function ASCIIarrToInt(arr) {
 function build_table() {
 	var fr = new FileReader();
 	fr.onload = function () {
-		var data = fr.result;
-		var array = new Uint8Array(data);
-		build_table1(array);
+		build_table1(new Uint8Array(fr.result));
 	};
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
