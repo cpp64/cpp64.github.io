@@ -19,7 +19,7 @@ function fake_click() {
 	for(let i = 0; i < temp.length; ++i) {
 		let t = [];
 		for(let j = 0; j < temp[i].length; ++j)
-			t.push(ASCIIarrToInt(temp[i][j]);
+			t.push(ASCIIarrToInt(temp[i][j]));
 		Nparallel.push(t);
 	}
 	console.log('Nparallel:');
