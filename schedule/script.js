@@ -65,7 +65,8 @@ function parse_csv(s) {
 			t.push(s[i]);
 		}
 	}
-	console.log('table:'+table.toString());
+	console.log('table:');
+	console.log(table);
 	return table;
 }
 // translit[x] = y, где x - код буквы на англ.раскладке,
