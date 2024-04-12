@@ -11,6 +11,7 @@ function fake_click() {
 		Nparallel = parse_csv(new Uint8Array(fr.result));
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
+	console.log(Nparallel);
 	//build_table();
 }
 let arrr = [];
