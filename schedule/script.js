@@ -110,25 +110,7 @@ function build_table() {
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
 function build_table1(s) {
-	let t = [];
-	let table = [];
-	let row = [];
-	let rn = 0;
-	for (let i = 0; i < s.length; ++i) {
-		if (s[i] == _int(';')) {
-			row.push(t);
-			t = [];
-		} else if (s[i] == _int('\r') || s[i] == _int('\n')) {
-			if (i > 0 && (s[i] == _int('\r') || s[i] == _int('\n'))) // очень коряво
-				continue;
-			row.push(t);
-			t = [];
-			table.push(row);
-			row = [];
-		} else {
-			t.push(s[i]);
-		}
-	}
+	let table = parse_csv(s);
 	let fio = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
 		let week = [];
@@ -197,7 +179,7 @@ function build_table1(s) {
 						imin = icur;
 					}
 				}
-				--hrs;
+				//--hrs;
 				fio[corp][day][lesson][parallel][imin] = _fio;
 				cabs[corp][day][lesson][cab] = 1;
 			}
