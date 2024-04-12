@@ -47,6 +47,8 @@ function parse_interval(s) {
 	return result;
 }
 function parse_csv(s) {
+	console.log("parse_csv()");
+	console.log(s);
 	let table = [], row = [], t = [];
 	for (let i = 0; i < s.length; ++i) {
 		if (s[i] == _int(';')) {
