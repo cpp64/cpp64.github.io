@@ -2,17 +2,15 @@
 let Ncorp, Ndays, Nlessons, Ncab = 9999, Nparallel = [];
 function fake_click() {
         alert("fake_click");
-	load_N();
-	build_table();
-}
-function load_N() {
+	Ncorp = Number(document.getElementById("Ncorp_input").value);
+	Ndays = Number(document.getElementById("Ndays_input").value);
+	Nlessons = Number(document.getElementById("Nlessons_input").value);
 	var fr = new FileReader();
 	fr.onload = function () {
-		var data = fr.result;
-		var array = new Uint8Array(data);
-		load_N1(array);
+		Nparallel = parseCSV(new Uint8Array(fr.result));
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
+	//build_table();
 }
 let arrr = [];
 appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
@@ -64,12 +62,6 @@ function parse_csv(s) {
 		}
 	}
 	return table;
-}
-function load_N1(s) {
-	Ncorp = Number(document.getElementById("Ncorp_input").value);
-	Ndays = Number(document.getElementById("Ndays_input").value);
-	Nlessons = Number(document.getElementById("Nlessons_input").value);
-	Nparallel = parseCSV(s);
 }
 // translit[x] = y, где x - код буквы на англ.раскладке,
 // y - код буквы на рус.раскладке win1251
