@@ -15,7 +15,7 @@ function fake_click() {
 			// 0 строка - заголовок таблицы
 			let t = [];
 			for(let j = 0; j < temp[i].length; ++j)
-				t.push(ASCIIarrToInt(temp[i][j]));
+				t.push(ASCIIarrToInt(my_split(temp[i][j]," \t")));
 			Nparallel.push(t);
 		}
 		console.log('Nparallel:');
