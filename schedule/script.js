@@ -4,8 +4,10 @@ function fake_click() {
         console.log("fake_click");
 	Ncorp = Number(document.getElementById("Ncorp_input").value);
 	Nlessons = [];
-	for(let i = 1; i < 7; ++i)
-		Nlessons.push(Number(document.getElementById("Nlessons_input"+i.toString()).value));
+	for(let i = 1; i < 7; ++i) {
+		let input = document.getElementById("Nlessons_input"+i.toString());
+		Nlessons.push(Number(input.value));
+	}
 	var fr = new FileReader();
 	fr.onload = function () {
 		let temp = parse_csv(new Uint8Array(fr.result));
