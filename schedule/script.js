@@ -1,5 +1,5 @@
 // количество корпусов, дней, уроков в день, кабинетов, классов в каждой параллели
-let Ncorp, Nlessons = [], Ncab = 9999, Nparallel = [];
+let Ncorp, Nlessons = [], Ncab = 9999, Nparallel = [], Ndays = 6;
 function fake_click() {
         console.log("fake_click");
 	Ncorp = Number(document.getElementById("Ncorp_input").value);
@@ -122,31 +122,33 @@ function build_table() {
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
 // индексация фио[корпус][день][урок][параллель][класс]
-function make_parallel(corp) {
-	let result = [];
-	for (let i = 0; i < 11; ++i) {
-		let temp = [];
-		for (let j = 0; j < Nparallel[corp][i]; ++j)
-			temp.push([]);
-		result.push(temp);
+function make_lesson(corp) {
+	let lesson = [];
+	for (let _class = 0; _class < 11; ++_class) {
+		let parallel = [];
+		for (let i = 0; i < Nparallel[corp][_class]; ++i)
+			parallel.push([]);
+		lesson.push(parallel);
 	}
-	return result;
+	return lesson;
 }
-function make_day(corp) {
-	let result = [];
-	for (let i = 0; i < Nlessons; ++i)
-		result.push(make_parallel(corp));
-	return result;
+function make_day(corp, day) {
+	let _day = [];
+	for (let i = 0; i < Nlessons[day]; ++i)
+		_day.push(make_lesson(corp));
+	return _day;
+}
+function make_week(corp) {
+	let week = [];
+	for (let day = 0; day < Ndays; ++day)
+		week.push(make_day(corp, day));
+	return week;
 }
 function build_table1(s) {
 	let table = parse_csv(s);
 	let fio = [];
-	for (let corp = 0; corp < Ncorp; ++corp) {
-		let week = [];
-		for (let day = 0; day < Ndays; ++day)
-			week.push(make_day(corp));
-		fio.push(week);
-	}
+	for (let corp = 0; corp < Ncorp; ++corp)
+		fio.push(make_week(corp));
 	let cabs = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
 		let week = [];
