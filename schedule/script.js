@@ -7,22 +7,19 @@ function fake_click() {
 	for(let i = 1; i < 7; ++i)
 		Nlessons.push(Number(document.getElementById("Nlessons_input"+i.toString()).value));
 	var fr = new FileReader();
-	let temp = [];
-	/*fr.onload = function () {
-		temp = parse_csv(new Uint8Array(fr.result));
-		console.log('temp:');
-		console.log(temp);
+	fr.onload = function () {
+		let temp = parse_csv(new Uint8Array(fr.result));
+		for(let i = 0; i < temp.length; ++i) {
+			let t = [];
+			for(let j = 0; j < temp[i].length; ++j)
+				t.push(ASCIIarrToInt(temp[i][j]));
+			Nparallel.push(t);
+		}
+		fake_click1();
 	};
-	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);*/
-	temp = parse_csv(new Uint8Array(document.getElementById("parallel_input").files[0]));
-	console.log('temp1:');
-	console.log(temp);
-	for(let i = 0; i < temp.length; ++i) {
-		let t = [];
-		for(let j = 0; j < temp[i].length; ++j)
-			t.push(ASCIIarrToInt(temp[i][j]));
-		Nparallel.push(t);
-	}
+	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
+}
+function fake_click1() {
 	console.log('Nparallel:');
 	console.log(Nparallel);
 	//build_table();
