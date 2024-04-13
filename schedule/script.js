@@ -197,28 +197,28 @@ function build_table1(s) {
 				}
 				let imin = 0;
 				while (imin < Nparallel[corp][parallel] &&
-					fio[corp][day][lesson][parallel][imin].length != 0)
+					schedule[corp][day][lesson][parallel][imin].length != 0)
 					++imin;
 				if (imin >= Nparallel[corp][parallel]) {
 					continue;
 				}
 				for (let icur = imin + 1; icur < Nparallel[corp][parallel]; ++icur) {
-					if (fio[corp][day][lesson][parallel][imin].length != 0)
+					if (schedule[corp][day][lesson][parallel][imin].length != 0)
 						continue;
 					let cursum = 0,
 						minsum = 0;
 					for (let c = 0; c < lesson; ++c) {
-						if (fio[corp][day][c][parallel][imin] == _fio)
+						if (schedule[corp][day][c][parallel][imin] == _fio)
 							minsum += 1;
-						if (fio[corp][day][c][parallel][icur] == _fio)
+						if (schedule[corp][day][c][parallel][icur] == _fio)
 							cursum += 1;
 					}
 					if (cursum < minsum) {
 						imin = icur;
 					}
 				}
-				//--hrs;
-				fio[corp][day][lesson][parallel][imin] = _fio;
+				--hrs;
+				schedule[corp][day][lesson][parallel][imin] = fio;
 				cabs[corp][day][lesson][cab] = 1;
 			}
 		}
