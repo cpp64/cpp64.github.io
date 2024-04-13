@@ -9,6 +9,8 @@ function fake_click() {
 	var fr = new FileReader();
 	fr.onload = function () {
 		let temp = parse_csv(new Uint8Array(fr.result));
+		console.log('temp:');
+		console.log(temp);
 		for(let i = 0; i < temp.length; ++i) {
 			let t = [];
 			for(let j = 0; j < temp[i].length; ++j)
