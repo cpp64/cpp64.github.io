@@ -122,33 +122,28 @@ function build_table() {
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
 // индексация фио[корпус][день][урок][параллель][класс]
-function make_lesson(corp) {
-	let lesson = [];
-	for (let _class = 0; _class < 11; ++_class) {
-		let parallel = [];
-		for (let i = 0; i < Nparallel[corp][_class]; ++i)
-			parallel.push([]);
-		lesson.push(parallel);
-	}
-	return lesson;
-}
-function make_day(corp, day) {
-	let _day = [];
-	for (let i = 0; i < Nlessons[day]; ++i)
-		_day.push(make_lesson(corp));
-	return _day;
-}
-function make_week(corp) {
-	let week = [];
-	for (let day = 0; day < Ndays; ++day)
-		week.push(make_day(corp, day));
-	return week;
-}
 function build_table1(s) {
 	let table = parse_csv(s);
 	let fio = [];
-	for (let corp = 0; corp < Ncorp; ++corp)
-		fio.push(make_week(corp));
+	for (let corp = 0; corp < Ncorp; ++corp) {
+		let week = [];
+		for (let day = 0; day < Ndays; ++day) {
+			let _day = [];
+			for (let lesson = 0; lesson < Nlessons; ++lesson) {
+				let _lesson = [];
+				for (let parallel = 0; parallel < 11; ++parallel) {
+					let _parallel = [];
+					for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+						_parallel.push([]);
+					}
+					_lesson.push(_parallel);
+				}
+				_day.push(_lesson);
+			}
+			week.push(_day);
+		}
+		fio.push(week);
+	}
 	let cabs = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
 		let week = [];
