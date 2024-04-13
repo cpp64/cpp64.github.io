@@ -259,11 +259,10 @@ function saveData(data, fileName) {
 	var blob = new Blob([new Uint8Array(data)], {
 		type: "application/octet-stream"
 	});
-	var url = window.URL.createObjectURL(blob);
 	var a = document.createElement("a");
 	// document.body.appendChild(a); можно
 	// a.style = "display: none"; но не нужно
-	a.href = url;
+	a.href = window.URL.createObjectURL(blob);
 	a.download = fileName;
 	a.click();
 	window.URL.revokeObjectURL(url);
