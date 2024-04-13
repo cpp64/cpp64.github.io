@@ -253,19 +253,6 @@ function build_table1(s) {
 			appendStrToIntArray("\n", s);
 		}
 	}
-	/*var saveData = (function () {
-	        var a = document.createElement("a");
-	        // document.body.appendChild(a); можно
-	        // a.style = "display: none"; но не нужно
-	        return function (data, fileName) {
-	                var blob = new Blob([new Uint8Array(data)], { type: "application/octet-stream" });
-	                var url = window.URL.createObjectURL(blob);
-	                a.href = url;
-	                a.download = fileName;
-	                a.click();
-	                window.URL.revokeObjectURL(url);
-	        };
-	})();*/
 	saveData(s, "Расписание.csv");
 } // build_table1()
 function saveData(data, fileName) {
@@ -281,3 +268,16 @@ function saveData(data, fileName) {
 	a.click();
 	window.URL.revokeObjectURL(url);
 }
+var saveData_old = (function () {
+	var a = document.createElement("a");
+	// document.body.appendChild(a); можно
+	// a.style = "display: none"; но не нужно
+	return function (data, fileName) {
+	        var blob = new Blob([new Uint8Array(data)], { type: "application/octet-stream" });
+	        var url = window.URL.createObjectURL(blob);
+	        a.href = url;
+	        a.download = fileName;
+	        a.click();
+	        window.URL.revokeObjectURL(url);
+	};
+})();
