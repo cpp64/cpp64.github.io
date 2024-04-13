@@ -179,14 +179,14 @@ function build_table1(s) {
 		cabs.push(_week);
 	}
 	for (let i = 1; i < table.length; ++i) {
-		let corp = ASCIIarrToInt(table[i][0]) - 1;
+		let corp = ASCIIarrToInt(my_split(table[i][0]," \t")) - 1;
 		let _class_temp = my_split(table[i][1], "/- _");
 		let parallel = ASCIIarrToInt(_class_temp[0]) - 1;
 		let _class = ASCIIarrToInt(_class_temp[1]) - 1;
-		let hrs = ASCIIarrToInt(table[i][2]) - 1;
-		let min = ASCIIarrToInt(table[i][3]) - 1;
-		let max = ASCIIarrToInt(table[i][4]) - 1;
-		let skip = ASCIIarrToInt(table[i][5]) - 1;
+		let hrs = ASCIIarrToInt(my_split(table[i][2]," \t")) - 1;
+		let min = ASCIIarrToInt(my_split(table[i][3]," \t")) - 1;
+		let max = ASCIIarrToInt(my_split(table[i][4]," \t")) - 1;
+		let skip = ASCIIarrToInt(my_split(table[i][5]," \t")) - 1;
 		let days = parse_interval(table[i][6]);
 		let cab = my_split(table[i][7],"/ -;,+");
 		let fio = my_split(table[i][8],"/ -;,+");
