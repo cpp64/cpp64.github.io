@@ -142,7 +142,7 @@ function build_table1(s) {
 			}
 			_week.push(_day);
 		}
-		fio.push(week);
+		fio.push(_week);
 	}
 	let cabs = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
@@ -158,7 +158,7 @@ function build_table1(s) {
 			}
 			_week.push(_day);
 		}
-		cabs.push(week);
+		cabs.push(_week);
 	}
 	for (let i = 1; i < table.length; ++i) {
 		let corp = ASCIIarrToInt(table[i][0]) - 1;
