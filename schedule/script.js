@@ -23,10 +23,10 @@ function fake_click() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
 }
-let arrr = [];
+/*let arrr = [];
 appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
-//console.log(arrr);
-//console.log(parse_interval(arrr));
+console.log(arrr);
+console.log(parse_interval(arrr));*/
 function parse_interval(s) {
 	let t = [[],[]], result = [], t_id = 0;
 	for(let i = 0; i <= s.length; ++i) {
