@@ -256,13 +256,13 @@ function build_table1(s) {
 	saveData(s, "Расписание.csv");
 } // build_table1()
 function saveData(data, fileName) {
-	var a = document.createElement("a");
-	// document.body.appendChild(a); можно
-	// a.style = "display: none"; но не нужно
 	var blob = new Blob([new Uint8Array(data)], {
 		type: "application/octet-stream"
 	});
 	var url = window.URL.createObjectURL(blob);
+	var a = document.createElement("a");
+	// document.body.appendChild(a); можно
+	// a.style = "display: none"; но не нужно
 	a.href = url;
 	a.download = fileName;
 	a.click();
