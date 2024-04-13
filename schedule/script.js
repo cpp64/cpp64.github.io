@@ -122,26 +122,28 @@ function build_table() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
+function make_day() {
+	let _day = [];
+	for (let lesson = 0; lesson < Nlessons; ++lesson) {
+		let _lesson = [];
+		for (let parallel = 0; parallel < 11; ++parallel) {
+			let _parallel = [];
+			for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+				_parallel.push([]);
+			}
+			_lesson.push(_parallel);
+		}
+		_day.push(_lesson);
+	}
+	return _day;
+}
 function build_table1(s) {
 	let table = parse_csv(s);
 	let fio = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
 		let week = [];
-		for (let day = 0; day < Ndays; ++day) {
-			let _day = [];
-			for (let lesson = 0; lesson < Nlessons; ++lesson) {
-				let _lesson = [];
-				for (let parallel = 0; parallel < 11; ++parallel) {
-					let _parallel = [];
-					for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-						_parallel.push([]);
-					}
-					_lesson.push(_parallel);
-				}
-				_day.push(_lesson);
-			}
-			week.push(_day);
-		}
+		for (let day = 0; day < Ndays; ++day)
+			week.push(make_day());
 		fio.push(week);
 	}
 	let cabs = [];
