@@ -114,7 +114,6 @@ function ASCIIarrToInt(arr) {
 		res = res * 10 + arr[i] - 48;
 	return res;
 }
-//document.getElementById("input").addEventListener("change", handleFiles, false);
 function build_table() {
 	var fr = new FileReader();
 	fr.onload = function () {
@@ -125,8 +124,10 @@ function build_table() {
 function make_parallel(corp) {
 	let result = [];
 	for (let i = 0; i < 11; ++i) {
+		let temp = [];
 		for (let j = 0; j < Nparallel[corp][i]; ++j)
-			result.push([]);
+			temp.push([]);
+		result.push(temp);
 	}
 	return result;
 }
