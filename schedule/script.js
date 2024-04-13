@@ -129,7 +129,7 @@ function build_table1(s) {
 		let week = [];
 		for (let day = 0; day < Ndays; ++day) {
 			let _day = [];
-			for (let lesson = 0; lesson < Nlessons; ++lesson) {
+			for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
 				let _lesson = [];
 				for (let parallel = 0; parallel < 11; ++parallel) {
 					let _parallel = [];
