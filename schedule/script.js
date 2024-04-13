@@ -121,6 +121,7 @@ function build_table() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
+// индексация фио[корпус][день][урок][параллель][класс]
 function make_parallel(corp) {
 	let result = [];
 	for (let i = 0; i < 11; ++i) {
