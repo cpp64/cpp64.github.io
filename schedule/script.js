@@ -126,7 +126,7 @@ function build_table1(s) {
 	let table = parse_csv(s);
 	let fio = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
-		let week = [];
+		let _week = [];
 		for (let day = 0; day < Ndays; ++day) {
 			let _day = [];
 			for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
@@ -140,13 +140,13 @@ function build_table1(s) {
 				}
 				_day.push(_lesson);
 			}
-			week.push(_day);
+			_week.push(_day);
 		}
 		fio.push(week);
 	}
 	let cabs = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
-		let week = [];
+		let _week = [];
 		for (let day = 0; day < Ndays; ++day) {
 			let _day = [];
 			for (let lesson = 0; lesson < Nlessons; ++lesson) {
@@ -156,7 +156,7 @@ function build_table1(s) {
 				}
 				_day.push(_lesson);
 			}
-			week.push(_day);
+			_week.push(_day);
 		}
 		cabs.push(week);
 	}
