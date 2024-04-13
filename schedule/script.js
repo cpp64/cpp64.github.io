@@ -121,10 +121,28 @@ function build_table() {
 	};
 	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
-// индексация фио[корпус][день][урок][параллель][класс]
+// индексация schedule[корпус][день][урок][параллель][класс]
+function my_split(str, sep) {
+	let res = [], t = "";
+	for(let i = 0; i < str.length; ++i) {
+		let j = 0;
+		while(j < sep.length && str[i] != sep[j])
+			++j;
+		if(j < sep.length) {
+			if(t.length > 0)
+				res.push(t);
+			t = "";
+			continue;
+		}
+		t += str[i];
+	}
+	if(t.length > 0)
+		res.push(t);
+	return res;
+}
 function build_table1(s) {
 	let table = parse_csv(s);
-	let fio = [];
+	let schedule = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
 		let _week = [];
 		for (let day = 0; day < Ndays; ++day) {
@@ -142,7 +160,7 @@ function build_table1(s) {
 			}
 			_week.push(_day);
 		}
-		fio.push(_week);
+		schedule.push(_week);
 	}
 	let cabs = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
@@ -162,9 +180,16 @@ function build_table1(s) {
 	}
 	for (let i = 1; i < table.length; ++i) {
 		let corp = ASCIIarrToInt(table[i][0]) - 1;
-		let _fio = table[i][1];
-		let cab = ASCIIarrToInt(table[i][3]) - 1;
-		let parallel = ASCIIarrToInt(table[i][4]) - 1;
+		let _class_temp = my_split(table[i][1], "/- _");
+		let parallel = ASCIIarrToInt(_class_temp[0]) - 1;
+		let _class = ASCIIarrToInt(_class_temp[1]) - 1;
+		let hrs = ASCIIarrToInt(table[i][2]) - 1;
+		let min = ASCIIarrToInt(table[i][3]) - 1;
+		let max = ASCIIarrToInt(table[i][4]) - 1;
+		let skip = ASCIIarrToInt(table[i][5]) - 1;
+		let days = parse_interval(table[i][6]);
+		let cab = my_split(table[i][7],"/ -;,+");
+		let fio = my_split(table[i][8],"/ -;,+");
 		for (let day = 0; day < Ndays && hrs > 0; ++day) {
 			for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
 				if (cabs[corp][day][lesson][cab] != 0) {
