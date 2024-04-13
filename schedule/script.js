@@ -265,7 +265,7 @@ function saveData(data, fileName) {
 	a.href = window.URL.createObjectURL(blob);
 	a.download = fileName;
 	a.click();
-	window.URL.revokeObjectURL(url);
+	window.URL.revokeObjectURL(a.href);
 }
 var saveData_old = (function () {
 	var a = document.createElement("a");
