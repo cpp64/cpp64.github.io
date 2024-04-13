@@ -273,8 +273,7 @@ var saveData_old = (function () {
 	// document.body.appendChild(a); можно
 	// a.style = "display: none"; но не нужно
 	return function (data, fileName) {
-	        var blob = new Blob([new Uint8Array(data)], { type: "application/octet-stream" });
-	        var url = window.URL.createObjectURL(blob);
+	        var url = window.URL.createObjectURL(new Blob([new Uint8Array(data)], { type: "application/octet-stream" }));
 	        a.href = url;
 	        a.download = fileName;
 	        a.click();
