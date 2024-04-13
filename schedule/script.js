@@ -16,14 +16,12 @@ function fake_click() {
 				t.push(ASCIIarrToInt(temp[i][j]));
 			Nparallel.push(t);
 		}
+		console.log('Nparallel:');
+		console.log(Nparallel);
+		build_table();
 		fake_click1();
 	};
 	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
-}
-function fake_click1() {
-	console.log('Nparallel:');
-	console.log(Nparallel);
-	//build_table();
 }
 let arrr = [];
 appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
