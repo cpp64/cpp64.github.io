@@ -10,6 +10,7 @@ function fake_click() {
 	}
 	var fr = new FileReader();
 	fr.onload = function () {
+		saveData(fr.result,"temporary.csv");
 		let temp = parse_csv(new Uint8Array(fr.result));
 		for(let i = 1; i < temp.length; ++i) {
 			// 0 строка - заголовок таблицы
