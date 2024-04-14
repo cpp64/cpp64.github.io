@@ -270,14 +270,3 @@ function saveData(data, fileName) {
 	a.click();
 	window.URL.revokeObjectURL(a.href);
 }
-var saveData_old = (function () {
-	var a = document.createElement("a");
-	// document.body.appendChild(a); можно
-	// a.style = "display: none"; но не нужно
-	return function (data, fileName) {
-	        a.href = window.URL.createObjectURL(new Blob([new Uint8Array(data)], { type: "application/octet-stream" }));
-	        a.download = fileName;
-	        a.click();
-	        window.URL.revokeObjectURL(url);
-	};
-})();
