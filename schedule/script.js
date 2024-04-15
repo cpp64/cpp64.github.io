@@ -105,11 +105,11 @@ function _int(_char) {
 }
 function appendStrToIntArray(s, a) {
 	for (let i = 0; i < s.length; ++i)
-		a.push(s[i].charCodeAt(0));
+		a.push(_int(s[i]));
 }
 function appendTranslitStrToIntArray(s, a) {
 	for (let i = 0; i < s.length; ++i)
-		a.push(translit[s[i].charCodeAt(0)]);
+		a.push(translit[_int(s[i])]);
 }
 function ASCIIarrToInt(arr) {
 	let res = 0;
@@ -143,6 +143,13 @@ function my_split(str, sep) {
 		res.push(t);
 	return res;
 }
+function make_parallel(corp, parallel) {
+	let _parallel = [];
+	for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+		_parallel.push([]);
+	}
+	return _parallel;
+}
 function build_table1(s) {
 	let table = parse_csv(s);
 	let schedule = [];
@@ -152,13 +159,8 @@ function build_table1(s) {
 			let _day = [];
 			for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
 				let _lesson = [];
-				for (let parallel = 0; parallel < 11; ++parallel) {
-					let _parallel = [];
-					for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-						_parallel.push([]);
-					}
-					_lesson.push(_parallel);
-				}
+				for (let parallel = 0; parallel < 11; ++parallel)
+					_lesson.push(make_parallel(corp, parallel));
 				_day.push(_lesson);
 			}
 			_week.push(_day);
