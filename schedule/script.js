@@ -150,6 +150,15 @@ function make_parallel(corp, parallel) {
 	}
 	return _parallel;
 }
+function push_parallel(s, corp, parallel) {
+	for (let i = 0; i < Nparallel[corp][parallel]; ++i) {
+		appendStrToIntArray("; "+(parallel+1).toString()+"-"+(i+1).toString(), s);
+	}
+}
+function push_array(dest, src) {
+	for(let i = 0; i < src.length; ++i)
+		dest.push(src[i]);
+}
 function build_table1(s) {
 	let table = parse_csv(s);
 	let schedule = [];
@@ -228,28 +237,30 @@ function build_table1(s) {
 			}
 		}
 	}
-	s = [];
 	// дни недели транслитом
-	let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
+	let weekday = [
+		"Gjytltkmybr",
+		"Dnjhybr",
+		"Chtlf",
+		"Xtndthu",
+		"Gznybwf",
+		"Ce,,jnf",
+		"Djcrhtctymt"
+	];
+	s = [];
 	for (let corp = 0; corp < Ncorp; ++corp) {
 		appendTranslitStrToIntArray("Rjhgec ", s); //"Корпус "
 		appendStrToIntArray((corp + 1).toString() + "\n", s);
 		for (let day = 0; day < Ndays; ++day) {
 			appendTranslitStrToIntArray(weekday[day], s);
-			for (let parallel = 0; parallel < 11; ++parallel) {
-				for (let i = 0; i < Nparallel[corp][parallel]; ++i) {
-					appendStrToIntArray("; " + (parallel + 1).toString() + "-" + (i + 1).toString(), s);
-				}
-			}
+			for (let parallel = 0; parallel < 11; ++parallel)
+				push_parallel(s, corp, parallel);
 			appendStrToIntArray("\n", s);
 			for (let lesson = 0; lesson < Nlessons; ++lesson) {
 				appendStrToIntArray((lesson + 1).toString() + ";", s);
 				for (let parallel = 0; parallel < 11; ++parallel) {
 					for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-						//s.concat(a[corp][day][lesson]); почему нельзя это
-						// вместо кошмара ниже
-						for (let x = 0; x < fio[corp][day][lesson][parallel][_class].length; ++x)
-							s.push(fio[corp][day][lesson][parallel][_class][x]);
+						push_array(s, fio[corp][day][lesson][parallel][_class]);
 						appendStrToIntArray(";", s);
 					}
 				}
