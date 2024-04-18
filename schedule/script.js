@@ -2,7 +2,8 @@
 let Ncorp, Nlessons = [], Ncab = 9999, Nparallel = [], Ndays = 6;
 function fake_click() {
         console.log("fake_click");
-	Ncorp = Number(document.getElementById("Ncorp_input").value);
+	let Ncorp_input = document.getElementById("Ncorp_input");
+	Ncorp = Number(Ncorp_input.value);
 	Nlessons = [];
 	for(let i = 1; i < 7; ++i) {
 		let id = "Nlessons_input"+i.toString();
