@@ -148,9 +148,9 @@ function my_split(str, sep) {
 }
 function make_parallel(corp, parallel) {
 	let _parallel = [];
-	for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+	let class_count = Nparallel[corp][parallel];
+	for (let _class = 0; _class < class_count; ++_class)
 		_parallel.push([]);
-	}
 	return _parallel;
 }
 function build_table() {
@@ -158,7 +158,8 @@ function build_table() {
 	fr.onload = function () {
 		build_table1(new Uint8Array(fr.result));
 	};
-	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
+	let hours_table_input = document.getElementById("hours_table_input");
+	fr.readAsArrayBuffer(hours_table_input.files[0]);
 }
 function build_table1(s) {
 	let table = parse_csv(s);
