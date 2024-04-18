@@ -197,36 +197,36 @@ function build_table1(s) {
 	}
 	for (let i = 1; i < table.length; ++i) {
 		let corp = ASCIIarrToInt(my_split(table[i][0]," \t")) - 1;
-		let _class_temp = my_split(table[i][1], "/- _");
-		let parallel = ASCIIarrToInt(_class_temp[0]) - 1;
-		let _class = ASCIIarrToInt(_class_temp[1]) - 1;
-		let hrs = ASCIIarrToInt(my_split(table[i][2]," \t")) - 1;
-		let min = ASCIIarrToInt(my_split(table[i][3]," \t")) - 1;
-		let max = ASCIIarrToInt(my_split(table[i][4]," \t")) - 1;
-		let skip = ASCIIarrToInt(my_split(table[i][5]," \t")) - 1;
-		let days = parse_interval(table[i][6]);
-		let cab = my_split(table[i][7],"/ -;,+");
-		let fio = my_split(table[i][8],"/ -;,+");
 		console.log("corp");
 		console.log(corp);
+		let _class_temp = my_split(table[i][1], "/- _");
 		console.log("_class_temp");
 		console.log(_class_temp);
+		let parallel = ASCIIarrToInt(_class_temp[0]) - 1;
 		console.log("parallel");
 		console.log(parallel);
+		let _class = ASCIIarrToInt(_class_temp[1]) - 1;
 		console.log("_class");
 		console.log(_class);
+		let hrs = ASCIIarrToInt(my_split(table[i][2]," \t")) - 1;
 		console.log("hrs");
 		console.log(hrs);
+		let min = ASCIIarrToInt(my_split(table[i][3]," \t")) - 1;
 		console.log("min");
 		console.log(min);
+		let max = ASCIIarrToInt(my_split(table[i][4]," \t")) - 1;
 		console.log("max");
 		console.log(max);
+		let skip = ASCIIarrToInt(my_split(table[i][5]," \t")) - 1;
 		console.log("skip");
 		console.log(skip);
+		let days = parse_interval(table[i][6]);
 		console.log("days");
 		console.log(days);
+		let cab = my_split(table[i][7],"/ -;,+");
 		console.log("cab");
 		console.log(cab);
+		let fio = my_split(table[i][8],"/ -;,+");
 		console.log("fio");
 		console.log(fio);
 		for (let day = 0; day < Ndays && hrs > 0; ++day) {
