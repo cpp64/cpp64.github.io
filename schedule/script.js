@@ -5,37 +5,43 @@ function fake_click() {
 	Ncorp = Number(document.getElementById("Ncorp_input").value);
 	Nlessons = [];
 	for(let i = 1; i < 7; ++i) {
-		let input = document.getElementById("Nlessons_input"+i.toString());
+		let id = "Nlessons_input"+i.toString();
+		let input = document.getElementById(id);
 		Nlessons.push(Number(input.value));
 	}
 	var fr = new FileReader();
 	fr.onload = function () {
-		saveData(fr.result,"temporary.csv");
+		saveData(fr.result, "temporary.csv");
 		let temp = parse_csv(new Uint8Array(fr.result));
 		for(let i = 1; i < temp.length; ++i) {
 			// 0 строка - заголовок таблицы
 			let t = [];
-			for(let j = 0; j < temp[i].length; ++j)
-				t.push(ASCIIarrToInt(my_split(temp[i][j]," \t")));
+			for(let j = 0; j < temp[i].length; ++j) {
+				let cell = my_split(temp[i][j]," \t");
+				t.push(ASCIIarrToInt(cell[0]));
+			}
 			Nparallel.push(t);
 		}
 		console.log('Nparallel:');
 		console.log(Nparallel);
 		build_table();
 	};
-	fr.readAsArrayBuffer(document.getElementById("parallel_input").files[0]);
+	let parallel_input = document.getElementById("parallel_input");
+	fr.readAsArrayBuffer(parallel_input.files[0]);
 }
-/*let arrr = [];
+/* let arrr = [];
 appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
 console.log(arrr);
-console.log(parse_interval(arrr));*/
+console.log(parse_interval(arrr)); */
 function parse_interval(s) {
 	let t = [[],[]], result = [], t_id = 0;
 	for(let i = 0; i <= s.length; ++i) {
 		// если i == s.length, дальше условие проверяться не будет
 		if(i == s.length || s[i] == _int(',') || s[i] == _int(';')) {
 			if(t_id == 1) {
-				for(let i = ASCIIarrToInt(t[0]); i <= ASCIIarrToInt(t[1]); ++i)
+				let start = ASCIIarrToInt(t[0]);
+				let end = ASCIIarrToInt(t[1]);
+				for(let i = start; i <= end; ++i)
 					result.push(i);
 				t_id = 0;
 			} else {
@@ -57,6 +63,9 @@ function parse_interval(s) {
 	}
 	return result;
 }
+function is_rn(code) {
+	return code == _int('\r') || code == _int('\n');
+}
 function parse_csv(s) {
 	//console.log("parse_csv()");
 	//console.log(s);
@@ -66,8 +75,9 @@ function parse_csv(s) {
 		if (s[i] == _int(';')) {
 			row.push(t);
 			t = [];
-		} else if (s[i] == _int('\r') || s[i] == _int('\n')) {
-			if (i > 0 && (s[i-1] == _int('\r') || s[i-1] == _int('\r'))) // очень коряво
+		} else if (is_rn(s[i])) {
+			// очень коряво
+			if (i > 0 && is_rn(s[i-1]))
 				continue;
 			row.push(t);
 			t = [];
