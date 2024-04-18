@@ -137,7 +137,7 @@ function ASCIIarrToInt(arr) {
 // индексация schedule[корпус][день][урок][параллель][класс]
 function my_split(arr, separators_str) {
 	let sep = [];
-	appendStrToIntArray(sep, separators_str);
+	appendStrToIntArray(separators_str, sep);
 	let res = [], t = [];
 	for(let i = 0; i < arr.length; ++i) {
 		let j = 0;
