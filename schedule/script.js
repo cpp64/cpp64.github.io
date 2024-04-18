@@ -14,17 +14,23 @@ function fake_click() {
 	fr.onload = function () {
 		saveData(fr.result, "temporary.csv");
 		let temp = parse_csv(new Uint8Array(fr.result));
+		let buf = [];
 		for(let i = 1; i < temp.length; ++i) {
 			// 0 строка - заголовок таблицы
 			let t = [];
+			let t_buf = [];
 			for(let j = 0; j < temp[i].length; ++j) {
 				let cell = my_split(temp[i][j]," \t");
 				t.push(ASCIIarrToInt(cell[0]));
+				t_buf.push(cell);
 			}
 			Nparallel.push(t);
+			buf.push(t_buf);
 		}
 		console.log('Nparallel:');
 		console.log(Nparallel);
+		console.log('buf:');
+		console.log(buf);
 		build_table();
 	};
 	let parallel_input = document.getElementById("parallel_input");
