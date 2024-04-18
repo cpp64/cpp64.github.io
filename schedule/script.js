@@ -20,6 +20,7 @@ function fake_click() {
 			let t = [];
 			let t_buf = [];
 			for(let j = 0; j < temp[i].length; ++j) {
+				// Глюки здесь
 				let cell = my_split(temp[i][j]," \t");
 				t.push(ASCIIarrToInt(cell[0]));
 				t_buf.push(cell);
@@ -120,13 +121,13 @@ let translit = [
 function _int(_char) {
 	return _char.charCodeAt(0);
 }
-function appendStrToIntArray(s, a) {
-	for (let i = 0; i < s.length; ++i)
-		a.push(_int(s[i]));
+function appendStrToIntArray(str, arr) {
+	for (let i = 0; i < str.length; ++i)
+		arr.push(_int(str[i]));
 }
-function appendTranslitStrToIntArray(s, a) {
-	for (let i = 0; i < s.length; ++i)
-		a.push(translit[_int(s[i])]);
+function appendTranslitStrToIntArray(str, arr) {
+	for (let i = 0; i < str.length; ++i)
+		arr.push(translit[_int(str[i])]);
 }
 function ASCIIarrToInt(arr) {
 	let res = 0;
@@ -135,19 +136,21 @@ function ASCIIarrToInt(arr) {
 	return res;
 }
 // индексация schedule[корпус][день][урок][параллель][класс]
-function my_split(str, sep) {
-	let res = [], t = "";
-	for(let i = 0; i < str.length; ++i) {
+function my_split(arr, separators_str) {
+	let sep = [];
+	appendStrToIntArray(sep, separators_str);
+	let res = [], t = [];
+	for(let i = 0; i < arr.length; ++i) {
 		let j = 0;
-		while(j < sep.length && str[i] != sep[j])
+		while(j < sep.length && arr[i] != sep[j])
 			++j;
 		if(j < sep.length) {
 			if(t.length > 0)
 				res.push(t);
-			t = "";
+			t = [];
 			continue;
 		}
-		t += str[i];
+		t.push(arr[i]);
 	}
 	if(t.length > 0)
 		res.push(t);
