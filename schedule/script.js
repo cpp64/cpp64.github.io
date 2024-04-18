@@ -20,7 +20,6 @@ function fake_click() {
 			let t = [];
 			let t_buf = [];
 			for(let j = 0; j < temp[i].length; ++j) {
-				// Глюки здесь
 				let cell = my_split(temp[i][j]," \t");
 				t.push(ASCIIarrToInt(cell[0]));
 				t_buf.push(cell);
