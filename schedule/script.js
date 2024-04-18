@@ -208,6 +208,7 @@ function build_table1(s) {
                 console.log("corp");
                 console.log(corp);
                 console.log(my_split(table[i][0], " \t"));
+                console.log(my_split(table[i][0], " \t")[0]);
                 let _class_temp = my_split(table[i][1], "/- _");
                 console.log("_class_temp");
                 console.log(_class_temp);
