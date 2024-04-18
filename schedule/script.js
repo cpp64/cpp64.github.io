@@ -117,13 +117,6 @@ function ASCIIarrToInt(arr) {
 		res = res * 10 + arr[i] - 48;
 	return res;
 }
-function build_table() {
-	var fr = new FileReader();
-	fr.onload = function () {
-		build_table1(new Uint8Array(fr.result));
-	};
-	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
-}
 // индексация schedule[корпус][день][урок][параллель][класс]
 function my_split(str, sep) {
 	let res = [], t = "";
@@ -149,6 +142,13 @@ function make_parallel(corp, parallel) {
 		_parallel.push([]);
 	}
 	return _parallel;
+}
+function build_table() {
+	var fr = new FileReader();
+	fr.onload = function () {
+		build_table1(new Uint8Array(fr.result));
+	};
+	fr.readAsArrayBuffer(document.getElementById("input").files[0]);
 }
 function build_table1(s) {
 	let table = parse_csv(s);
