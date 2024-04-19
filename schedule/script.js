@@ -211,37 +211,42 @@ function build_table1(s) {
         }
         for (let i = 1; i < table.length; ++i) {
                 let corp = split_to_int(table[i][0], " \t")-1;
-                console.log("corp");
+                console.log("corp:");
                 console.log(corp);
                 let _class_temp = my_split(table[i][1], "/- _");
-                console.log("_class_temp");
+                console.log("_class_temp:");
                 console.log(_class_temp);
                 let parallel = ASCIIarrToInt(_class_temp[0])-1;
-                console.log("parallel");
+                console.log("parallel:");
                 console.log(parallel);
                 let _class = ASCIIarrToInt(_class_temp[1])-1;
-                console.log("_class");
+                console.log("_class:");
                 console.log(_class);
                 let hrs = split_to_int(table[i][2], " \t");
-                console.log("hrs");
+                console.log("hrs:");
                 console.log(hrs);
                 let min = split_to_int(table[i][3], " \t");
-                console.log("min");
+                console.log("min:");
                 console.log(min);
                 let max = split_to_int(table[i][4], " \t");
-                console.log("max");
+                console.log("max:");
                 console.log(max);
                 let skip = split_to_int(table[i][5]," \t");
-                console.log("skip");
+                console.log("skip:");
                 console.log(skip);
                 let days = parse_interval(table[i][6]);
-                console.log("days");
+                console.log("days:");
                 console.log(days);
-                let cab = my_split(table[i][7], "/ -;,+");
-                console.log("cab");
+                let cab_temp = my_split(table[i][7], "/ -;,+");
+                console.log("cab_temp:");
+                console.log(cab_temp);
+                let cab = [];
+                for(let i = 0; i < cab_temp.length; ++i)
+                        cab.push(ASCIIarrToInt(cab_temp[i]));
+                console.log("cab:");
                 console.log(cab);
                 let fio = my_split(table[i][8], "/ -;,+");
-                console.log("fio");
+                console.log("fio:");
                 console.log(fio);
                 for (let day = 0; day < Ndays && hrs > 0; ++day) {
                         for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
