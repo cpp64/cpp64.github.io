@@ -303,7 +303,9 @@ function build_table1(s) {
                         appendTranslitStrToIntArray(weekday[day], s);
                         for (let parallel = 0; parallel < 11; ++parallel) {
                                 for (let i = 0; i < Nparallel[corp][parallel]; ++i) {
-                                        appendStrToIntArray("; " + (parallel + 1).toString() + "-" + (i + 1).toString(), s);
+                                        let parallel_s = (parallel+1).toString();
+                                        let class_s = (i+1).toString();
+                                        appendStrToIntArray("; "+parallel_s+"-"+class_s, s);
                                 }
                         }
                         appendStrToIntArray("\n", s);
