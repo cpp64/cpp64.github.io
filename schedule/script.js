@@ -313,10 +313,7 @@ function build_table1(s) {
                                 appendStrToIntArray((lesson + 1).toString() + ";", s);
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-                                                //s.concat(a[corp][day][lesson]); почему нельзя это
-                                                // вместо кошмара ниже
-                                                for (let x = 0; x < fio[corp][day][lesson][parallel][_class].length; ++x)
-                                                        s.push(fio[corp][day][lesson][parallel][_class][x]);
+                                                push_arr_to_arr(s, fio[corp][day][lesson][parallel][_class]);
                                                 appendStrToIntArray(";", s);
                                         }
                                 }
@@ -338,4 +335,8 @@ function saveData(data, fileName) {
         a.download = fileName;
         a.click();
         window.URL.revokeObjectURL(a.href);
+}
+function push_arr_to_arr(dst, src) {
+        for(let i = 0; i < src.length; ++i)
+                dst.push(src[i]);
 }
