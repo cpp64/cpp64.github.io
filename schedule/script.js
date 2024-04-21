@@ -258,6 +258,7 @@ function build_table1(s) {
                                 // проверка таблицы учителей не нужна
                                 if (cabs[corp][day][lesson][cab] != 0)
                                         continue;
+                                ++free_cnt;
                         }
                         --hrs;
                         schedule[corp][day][lesson][parallel][imin] = fio;
