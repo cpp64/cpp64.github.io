@@ -271,7 +271,7 @@ function build_table1(s) {
                 let fio = my_split(table[i][8], "/ -;,+");
                 console.log("fio:");
                 console.log(fio);
-                for (let day = 0; day < Ndays && hrs > 0; ++day) {
+                for (let day = 0; day < Ndays && hrs > 0; ++day) { // hrs условие не понятное
                         // БАГИ ЗДЕСЬ
                         let free_cnt = 0;
                         for (let lesson = 0; lesson < lesson; ++lesson) {
@@ -281,9 +281,14 @@ function build_table1(s) {
                                         continue;
                                 ++free_cnt;
                         }
-                        --hrs;
-                        schedule[corp][day][lesson][parallel][imin] = fio;
-                        cabs[corp][day][lesson][cab] = 1;
+                        if(free_cnt < min)
+                                continue;
+                        let hrs_to_fill = min(max, free_cnt);
+                        for (let lesson = 0; lesson < lesson && hrs_to_fill > 0; ++lesson) {
+                                schedule[corp][day][lesson][parallel][_class] = fio;
+                                cabs[corp][day][lesson][cab] = 1;
+                                --hrs_to_fill;
+                        }
                 }
         }
         s = [];
