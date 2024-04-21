@@ -1,5 +1,5 @@
 // количество корпусов, дней, уроков в день, кабинетов, классов в каждой параллели
-let Ncorp, Nlessons = [], Ncab = 9999, Nparallel = [], Ndays = 6;
+let Ncorp, Nlessons = [], Nparallel = [], Ndays = 6, Ncab = 9999;
 function fake_click() {
         console.log("fake_click");
         let Ncorp_input = document.getElementById("Ncorp_input");
