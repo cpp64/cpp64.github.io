@@ -254,9 +254,9 @@ function build_table1(s) {
                         // БАГИ ЗДЕСЬ
                         let free_cnt = 0;
                         for (let lesson = 0; lesson < lesson; ++lesson) {
+                                // достаточно проверки занятости кабинета
+                                // проверка таблицы учителей не нужна
                                 if (cabs[corp][day][lesson][cab] != 0)
-                                        continue;
-                                if (schedule[corp][day][lesson][parallel][_class].length != 0)
                                         continue;
                         }
                         --hrs;
