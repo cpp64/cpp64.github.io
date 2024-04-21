@@ -1,3 +1,5 @@
+// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
+
 // количество корпусов, дней, уроков в день, кабинетов, классов в каждой параллели
 let Ncorp, Nlessons = [], Nparallel = [], Ndays = 6, Ncab = 9999;
 function fake_click() {
@@ -249,35 +251,17 @@ function build_table1(s) {
                 console.log("fio:");
                 console.log(fio);
                 for (let day = 0; day < Ndays && hrs > 0; ++day) {
-                        for (let lesson = 0; lesson < Nlessons && hrs > 0; ++lesson) {
-                                if (cabs[corp][day][lesson][cab] != 0) {
+                        // БАГИ ЗДЕСЬ
+                        let free_cnt = 0;
+                        for (let lesson = 0; lesson < lesson; ++lesson) {
+                                if (cabs[corp][day][lesson][cab] != 0)
                                         continue;
-                                }
-                                let imin = 0;
-                                while (imin < Nparallel[corp][parallel] &&
-                                        schedule[corp][day][lesson][parallel][imin].length != 0)
-                                        ++imin;
-                                if (imin >= Nparallel[corp][parallel]) {
+                                if (schedule[corp][day][lesson][parallel][_class].length != 0)
                                         continue;
-                                }
-                                for (let icur = imin + 1; icur < Nparallel[corp][parallel]; ++icur) {
-                                        if (schedule[corp][day][lesson][parallel][imin].length != 0)
-                                                continue;
-                                        let cursum = 0, minsum = 0;
-                                        for (let c = 0; c < lesson; ++c) {
-                                                if (schedule[corp][day][c][parallel][imin] == _fio)
-                                                        minsum += 1;
-                                                if (schedule[corp][day][c][parallel][icur] == _fio)
-                                                        cursum += 1;
-                                        }
-                                        if (cursum < minsum) {
-                                                imin = icur;
-                                        }
-                                }
-                                --hrs;
-                                schedule[corp][day][lesson][parallel][imin] = fio;
-                                cabs[corp][day][lesson][cab] = 1;
                         }
+                        --hrs;
+                        schedule[corp][day][lesson][parallel][imin] = fio;
+                        cabs[corp][day][lesson][cab] = 1;
                 }
         }
         s = [];
