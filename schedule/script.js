@@ -1,25 +1,3 @@
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
-// ВЕРСИЯ ОБНОВЛЯЛАСЬ, НА КОМПЕ КОПИЯ УСТАРЕЛА
 
 // может переделат структуру таблицы, чтоб было в первую очередь по кабинетам
 
@@ -38,15 +16,15 @@ function fake_click() {
         var fr = new FileReader();
         fr.onload = function () {
                 saveData(fr.result, "temporary.csv");
-                let temp = parse_csv(new Uint8Array(fr.result));
+                let temp = parseCSV(new Uint8Array(fr.result));
                 let buf = [];
                 for(let i = 1; i < temp.length; ++i) {
                         // 0 строка - заголовок таблицы
                         let t = [];
                         let t_buf = [];
                         for(let j = 0; j < temp[i].length; ++j) {
-                                let cell = split_to_1(temp[i][j]," \t");
-                                t.push(ASCIIarrToInt(cell));
+                                let cell = SplitTo1(temp[i][j]," \t");
+                                t.push(atoi(cell));
                                 t_buf.push(cell);
                         }
                         Nparallel.push(t);
@@ -56,39 +34,35 @@ function fake_click() {
                 console.log(Nparallel);
                 console.log('buf:');
                 console.log(buf);
-                build_table();
+                buildTable();
         };
         let parallel_input = document.getElementById("parallel_input");
         fr.readAsArrayBuffer(parallel_input.files[0]);
 }
-/* let arrr = [];
-appendStrToIntArray("1 - 3, 8, 12 - 15", arrr);
-console.log(arrr);
-console.log(parse_interval(arrr)); */
-function parse_interval(s) {
+function parseInterval(s) {
         let t = [[],[]], result = [], t_id = 0;
         for(let i = 0; i <= s.length; ++i) {
                 // если i == s.length, дальше условие проверяться не будет
-                if(i == s.length || s[i] == _int(',') || s[i] == _int(';')) {
+                if(i == s.length || s[i] == INT(',') || s[i] == INT(';')) {
                         if(t_id == 1) {
-                                let start = ASCIIarrToInt(t[0]);
-                                let end = ASCIIarrToInt(t[1]);
+                                let start = atoi(t[0]);
+                                let end = atoi(t[1]);
                                 for(let i = start; i <= end; ++i)
                                         result.push(i);
                                 t_id = 0;
                         } else {
-                                result.push(ASCIIarrToInt(t[0]));
+                                result.push(atoi(t[0]));
                         }
                         t = [[],[]];
                         continue;
                 }
-                if(s[i] == _int(' '))
+                if(s[i] == INT(' '))
                         continue;
-                if(_int('0') <= s[i] && s[i] <= _int('9')) {
+                if(_int('0') <= s[i] && s[i] <= INT('9')) {
                         t[t_id].push(s[i]);
                         continue;
                 }
-                if(s[i] == _int('-')) {
+                if(s[i] == INT('-')) {
                         t_id = 1;
                         continue;
                 }
@@ -96,15 +70,15 @@ function parse_interval(s) {
         return result;
 }
 function is_rn(code) {
-        return code == _int('\r') || code == _int('\n');
+        return code == INT('\r') || code == INT('\n');
 }
-function parse_csv(s) {
+function parseCSV(s) {
         //console.log("parse_csv()");
         //console.log(s);
         let table = [], row = [], t = [];
         for (let i = 0; i < s.length; ++i) {
                 // работает некорректно, не добавляет последнюю ячейку
-                if (s[i] == _int(';')) {
+                if (s[i] == INT(';')) {
                         row.push(t);
                         t = [];
                 } else if (is_rn(s[i])) {
@@ -142,27 +116,27 @@ let translit = [
         231, 233, 234, 251, 229, 227, 236, 246,
         247, 237, 255, 213,   0, 218, 168,   0
 ];
-function _int(_char) {
-        return _char.charCodeAt(0);
+function INT(CHAR) {
+        return CHAR.charCodeAt(0);
 }
-function appendStrToIntArray(str, arr) {
+function AppendStr(str, arr) {
         for (let i = 0; i < str.length; ++i)
-                arr.push(_int(str[i]));
+                arr.push(INT(str[i]));
 }
-function appendTranslitStrToIntArray(str, arr) {
+function AppendTranslit(str, arr) {
         for (let i = 0; i < str.length; ++i)
-                arr.push(translit[_int(str[i])]);
+                arr.push(translit[INT(str[i])]);
 }
-function ASCIIarrToInt(arr) {
+function atoi(arr) {
         let res = 0;
         for (let i = 0; i < arr.length; ++i)
                 res = res * 10 + arr[i] - 48;
         return res;
 }
 // индексация schedule[корпус][день][урок][параллель][класс]
-function my_split(arr, separators_str) {
+function MySplit(arr, separators_str) {
         let sep = [];
-        appendStrToIntArray(separators_str, sep);
+        appendStr(separators_str, sep);
         let res = [], t = [];
         for(let i = 0; i < arr.length; ++i) {
                 let j = 0;
@@ -180,29 +154,29 @@ function my_split(arr, separators_str) {
                 res.push(t);
         return res;
 }
-function split_to_1(arr, separators_str) {
-        return my_split(arr, separators_str)[0];
+function SplitTo1(arr, separators_str) {
+        return MySplit(arr, separators_str)[0];
 }
-function split_to_int(arr, separators_str) {
-        return ASCIIarrToInt(split_to_1(arr, " \t"));
+function SplitToInt(arr, separators_str) {
+        return atoi(SplitTo1(arr, " \t"));
 }
-function make_parallel(corp, parallel) {
+function MakeParallel(corp, parallel) {
         let _parallel = [];
         let class_count = Nparallel[corp][parallel];
         for (let _class = 0; _class < class_count; ++_class)
                 _parallel.push([]);
         return _parallel;
 }
-function build_table() {
+function BuildTable() {
         var fr = new FileReader();
         fr.onload = function () {
-                build_table1(new Uint8Array(fr.result));
+                BuildTable1(new Uint8Array(fr.result));
         };
         let hours_table_input = document.getElementById("hours_table_input");
         fr.readAsArrayBuffer(hours_table_input.files[0]);
 }
-function build_table1(s) {
-        let table = parse_csv(s);
+function BuildTable1(s) {
+        let table = parseCSV(s);
         let schedule = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
                 let _week = [];
@@ -235,42 +209,42 @@ function build_table1(s) {
                 cabs.push(_week);
         }
         for (let i = 1; i < table.length; ++i) {
-                let corp = split_to_int(table[i][0], " \t")-1;
+                let corp = SplitToInt(table[i][0], " \t")-1;
                 console.log("corp:");
                 console.log(corp);
-                let _class_temp = my_split(table[i][1], "/- _");
+                let _class_temp = MySplit(table[i][1], "/- _");
                 console.log("_class_temp:");
                 console.log(_class_temp);
-                let parallel = ASCIIarrToInt(_class_temp[0])-1;
+                let parallel = atoi(_class_temp[0])-1;
                 console.log("parallel:");
                 console.log(parallel);
-                let _class = ASCIIarrToInt(_class_temp[1])-1;
+                let _class = atoi(_class_temp[1])-1;
                 console.log("_class:");
                 console.log(_class);
-                let hrs = split_to_int(table[i][2], " \t");
+                let hrs = SplitToInt(table[i][2], " \t");
                 console.log("hrs:");
                 console.log(hrs);
-                let min = split_to_int(table[i][3], " \t");
+                let min = SplitToInt(table[i][3], " \t");
                 console.log("min:");
                 console.log(min);
-                let max = split_to_int(table[i][4], " \t");
+                let max = SplitToInt(table[i][4], " \t");
                 console.log("max:");
                 console.log(max);
-                let skip = split_to_int(table[i][5]," \t");
+                let skip = SplitToInt(table[i][5]," \t");
                 console.log("skip:");
                 console.log(skip);
-                let days = parse_interval(table[i][6]);
+                let days = parseInterval(table[i][6]);
                 console.log("days:");
                 console.log(days);
-                let cab_temp = my_split(table[i][7], "/ -;,+");
+                let cab_temp = MySplit(table[i][7], "/ -;,+");
                 console.log("cab_temp:");
                 console.log(cab_temp);
                 let cab = [];
                 for(let i = 0; i < cab_temp.length; ++i)
-                        cab.push(ASCIIarrToInt(cab_temp[i]));
+                        cab.push(atoi(cab_temp[i]));
                 console.log("cab:");
                 console.log(cab);
-                let fio = my_split(table[i][8], "/ -;,+");
+                let fio = MySplit(table[i][8], "/ -;,+");
                 console.log("fio:");
                 console.log(fio);
                 for (let day = 0; day < Ndays && hrs > 0; ++day) { // hrs условие не понятное
@@ -297,34 +271,34 @@ function build_table1(s) {
         // дни недели транслитом
         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
         for (let corp = 0; corp < Ncorp; ++corp) {
-                appendTranslitStrToIntArray("Rjhgec ", s); //"Корпус "
-                appendStrToIntArray((corp + 1).toString() + "\n", s);
+                AppendTranslit("Rjhgec ", s); //"Корпус "
+                AppendStr((corp + 1).toString()+"\n", s);
                 for (let day = 0; day < Ndays; ++day) {
-                        appendTranslitStrToIntArray(weekday[day], s);
+                        AppendTranslit(weekday[day], s);
                         for (let parallel = 0; parallel < 11; ++parallel) {
                                 for (let i = 0; i < Nparallel[corp][parallel]; ++i) {
-                                        let parallel_s = (parallel+1).toString();
-                                        let class_s = (i+1).toString();
-                                        appendStrToIntArray("; "+parallel_s+"-"+class_s, s);
+                                        let ParallelS = (parallel+1).toString();
+                                        let ClassS = (i+1).toString();
+                                        AppendStr("; "+ParallelS+"-"+ClassS, s);
                                 }
                         }
-                        appendStrToIntArray("\n", s);
+                        AppendStr("\n", s);
                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
-                                appendStrToIntArray((lesson + 1).toString() + ";", s);
+                                AppendStr((lesson + 1).toString() + ";", s);
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-                                                push_arr_to_arr(s, fio[corp][day][lesson][parallel][_class]);
-                                                appendStrToIntArray(";", s);
+                                                PushArr(s, fio[corp][day][lesson][parallel][_class]);
+                                                AppendStr(";", s);
                                         }
                                 }
-                                appendStrToIntArray("\n", s);
+                                AppendStr("\n", s);
                         }
-                        appendStrToIntArray("\n", s);
+                        AppendStr("\n", s);
                 }
         }
-        saveData(s, "Расписание.csv");
+        SaveData(s, "Расписание.csv");
 } // build_table1()
-function saveData(data, fileName) {
+function SaveData(data, fileName) {
         var blob = new Blob([new Uint8Array(data)], {
                 type: "application/octet-stream"
         });
@@ -336,7 +310,7 @@ function saveData(data, fileName) {
         a.click();
         window.URL.revokeObjectURL(a.href);
 }
-function push_arr_to_arr(dst, src) {
+function PushArr(dst, src) {
         for(let i = 0; i < src.length; ++i)
                 dst.push(src[i]);
 }
