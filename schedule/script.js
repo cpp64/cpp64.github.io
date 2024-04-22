@@ -136,7 +136,7 @@ function atoi(arr) {
 // индексация schedule[корпус][день][урок][параллель][класс]
 function MySplit(arr, separators_str) {
         let sep = [];
-        appendStr(separators_str, sep);
+        AppendStr(separators_str, sep);
         let res = [], t = [];
         for(let i = 0; i < arr.length; ++i) {
                 let j = 0;
@@ -185,7 +185,7 @@ function BuildTable1(s) {
                         for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
                                 let _lesson = [];
                                 for (let parallel = 0; parallel < 11; ++parallel)
-                                        _lesson.push(make_parallel(corp, parallel));
+                                        _lesson.push(MakeParallel(corp, parallel));
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
