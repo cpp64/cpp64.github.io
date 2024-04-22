@@ -15,7 +15,7 @@ function fake_click() {
         }
         var fr = new FileReader();
         fr.onload = function () {
-                saveData(fr.result, "temporary.csv");
+                SaveData(fr.result, "temporary.csv");
                 let temp = parseCSV(new Uint8Array(fr.result));
                 let buf = [];
                 for(let i = 1; i < temp.length; ++i) {
