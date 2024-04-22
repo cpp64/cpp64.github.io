@@ -34,7 +34,7 @@ function fake_click() {
                 console.log(Nparallel);
                 console.log('buf:');
                 console.log(buf);
-                buildTable();
+                BuildTable();
         };
         let parallel_input = document.getElementById("parallel_input");
         fr.readAsArrayBuffer(parallel_input.files[0]);
