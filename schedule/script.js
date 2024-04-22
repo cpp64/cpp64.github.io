@@ -58,7 +58,7 @@ function parseInterval(s) {
                 }
                 if(s[i] == INT(' '))
                         continue;
-                if(_int('0') <= s[i] && s[i] <= INT('9')) {
+                if(INT('0') <= s[i] && s[i] <= INT('9')) {
                         t[t_id].push(s[i]);
                         continue;
                 }
