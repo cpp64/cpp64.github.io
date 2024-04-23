@@ -197,7 +197,7 @@ function BuildTable1(s) {
                 let _week = [];
                 for (let day = 0; day < Ndays; ++day) {
                         let _day = [];
-                        for (let lesson = 0; lesson < Nlessons; ++lesson) {
+                        for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
                                 let _lesson = [];
                                 for (let cab = 0; cab < Ncab; ++cab) {
                                         _lesson.push(0);
@@ -250,7 +250,7 @@ function BuildTable1(s) {
                 for (let day = 0; day < Ndays && hrs > 0; ++day) { // hrs условие не понятное
                         // БАГИ ЗДЕСЬ
                         let free_cnt = 0;
-                        for (let lesson = 0; lesson < lesson; ++lesson) {
+                        for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
                                 // достаточно проверки занятости кабинета
                                 // проверка таблицы учителей не нужна
                                 if (cabs[corp][day][lesson][cab] != 0)
@@ -266,7 +266,7 @@ function BuildTable1(s) {
                         let hrs_to_fill = min(max, free_cnt);
                         console.log("hrs_to_fill:");
                         console.log(hrs_to_fill);
-                        for (let lesson = 0; lesson < lesson && hrs_to_fill > 0; ++lesson) {
+                        for (let lesson = 0; lesson < Nlessons[day] && hrs_to_fill > 0; ++lesson) {
                                 if (cabs[corp][day][lesson][cab] != 0)
                                         continue;
                                 schedule[corp][day][lesson][parallel][_class] = fio;
