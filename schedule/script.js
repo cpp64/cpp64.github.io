@@ -271,9 +271,9 @@ function BuildTable1(s) {
                                 // если просто присвоить он почему-то добавляет
                                 // массив в массив, вместо того, чтобы присвоить
                                 // массиву массив
-                                // schedule[corp][day][lesson][parallel][_class] = fio;
-                                for(let i = 0; i < fio.length; ++i)
-                                        schedule[corp][day][lesson][parallel][_class].push(fio[i]);
+                                 schedule[corp][day][lesson][parallel][_class] = fio;
+                                //for(let i = 0; i < fio.length; ++i)
+                                //        schedule[corp][day][lesson][parallel][_class].push(fio[i]);
                                 cabs[corp][day][lesson][cab] = 1;
                                 --hrs_to_fill;
                         }
@@ -301,10 +301,9 @@ function BuildTable1(s) {
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
                                                 PushStr("{", s);
-                                                let str = schedule[corp][day][lesson][parallel][_class];
-                                                console.log("pushing:", str);
-                                                for(let i = 0; i < str.length; ++i)
-                                                        s.push(str[i]);
+                                                console.log("pushing:", schedule[corp][day][lesson][parallel][_class]);
+                                                for(let i = 0; i < schedule[corp][day][lesson][parallel][_class].length; ++i)
+                                                        s.push(schedule[corp][day][lesson][parallel][_class][i]);
                                                 // здесь почему-то пихается массив в массиве вместо
                                                 // просто массива
                                                 PushStr("};", s);
