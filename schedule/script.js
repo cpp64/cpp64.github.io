@@ -272,19 +272,19 @@ function BuildTable1(s) {
         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
         for (let corp = 0; corp < Ncorp; ++corp) {
                 PushTranslit("Rjhgec ", s); //"Корпус "
-                PushStr((corp + 1).toString()+"\n", s);
+                PushStr((corp+1).toString()+"\n", s);
                 for (let day = 0; day < Ndays; ++day) {
                         PushTranslit(weekday[day], s);
                         for (let parallel = 0; parallel < 11; ++parallel) {
-                                for (let i = 0; i < Nparallel[corp][parallel]; ++i) {
+                                for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
                                         let ParallelS = (parallel+1).toString();
-                                        let ClassS = (i+1).toString();
+                                        let ClassS = (_class+1).toString();
                                         PushStr("; "+ParallelS+"-"+ClassS, s);
                                 }
                         }
                         PushStr("\n", s);
-                        for (let lesson = 0; lesson < Nlessons; ++lesson) {
-                                PushStr((lesson + 1).toString() + ";", s);
+                        for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
+                                PushStr((lesson+1).toString()+";", s);
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
                                                 PushArr(s, fio[corp][day][lesson][parallel][_class]);
