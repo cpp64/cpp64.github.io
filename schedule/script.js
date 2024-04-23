@@ -15,7 +15,6 @@ function fake_click() {
         }
         var fr = new FileReader();
         fr.onload = function () {
-                SaveData(fr.result, "temporary.csv");
                 let temp = ParseCSV(new Uint8Array(fr.result));
                 let buf = [];
                 for(let i = 1; i < temp.length; ++i) {
@@ -297,10 +296,10 @@ function BuildTable1(s) {
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
                                                 PushStr("{", s);
-                                                console.log("pushing:");
-                                                console.log(schedule[corp][day][lesson][parallel][_class]);
                                                 //PushArr(s, schedule[corp][day][lesson][parallel][_class]);
                                                 let str = schedule[corp][day][lesson][parallel][_class];
+                                                console.log("pushing:");
+                                                console.log(str);
                                                 for(let i = 0; i < str.length; ++i)
                                                         s.push(str[i]);
                                                 PushStr("};", s);
@@ -311,8 +310,10 @@ function BuildTable1(s) {
                         PushStr("\n", s);
                 }
         }
+        console.log("schedule[]:");
+        console.log(schedule);
         SaveData(s, "Расписание.csv");
-} // build_table1()
+}
 function SaveData(data, fileName) {
         var blob = new Blob([new Uint8Array(data)], {
                 type: "application/octet-stream"
