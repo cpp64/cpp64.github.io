@@ -119,11 +119,11 @@ let translit = [
 function INT(CHAR) {
         return CHAR.charCodeAt(0);
 }
-function AppendStr(str, arr) {
+function PushStr(str, arr) {
         for (let i = 0; i < str.length; ++i)
                 arr.push(INT(str[i]));
 }
-function AppendTranslit(str, arr) {
+function PushTranslit(str, arr) {
         for (let i = 0; i < str.length; ++i)
                 arr.push(translit[INT(str[i])]);
 }
@@ -136,7 +136,7 @@ function atoi(arr) {
 // индексация schedule[корпус][день][урок][параллель][класс]
 function MySplit(arr, separators_str) {
         let sep = [];
-        AppendStr(separators_str, sep);
+        PushStr(separators_str, sep);
         let res = [], t = [];
         for(let i = 0; i < arr.length; ++i) {
                 let j = 0;
@@ -176,7 +176,7 @@ function BuildTable() {
         fr.readAsArrayBuffer(hours_table_input.files[0]);
 }
 function BuildTable1(s) {
-        let table = parseCSV(s);
+        let table = ParseCSV(s);
         let schedule = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
                 let _week = [];
@@ -271,29 +271,29 @@ function BuildTable1(s) {
         // дни недели транслитом
         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
         for (let corp = 0; corp < Ncorp; ++corp) {
-                AppendTranslit("Rjhgec ", s); //"Корпус "
-                AppendStr((corp + 1).toString()+"\n", s);
+                PushTranslit("Rjhgec ", s); //"Корпус "
+                PushStr((corp + 1).toString()+"\n", s);
                 for (let day = 0; day < Ndays; ++day) {
-                        AppendTranslit(weekday[day], s);
+                        PushTranslit(weekday[day], s);
                         for (let parallel = 0; parallel < 11; ++parallel) {
                                 for (let i = 0; i < Nparallel[corp][parallel]; ++i) {
                                         let ParallelS = (parallel+1).toString();
                                         let ClassS = (i+1).toString();
-                                        AppendStr("; "+ParallelS+"-"+ClassS, s);
+                                        PushStr("; "+ParallelS+"-"+ClassS, s);
                                 }
                         }
-                        AppendStr("\n", s);
+                        PushStr("\n", s);
                         for (let lesson = 0; lesson < Nlessons; ++lesson) {
-                                AppendStr((lesson + 1).toString() + ";", s);
+                                PushStr((lesson + 1).toString() + ";", s);
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
                                                 PushArr(s, fio[corp][day][lesson][parallel][_class]);
-                                                AppendStr(";", s);
+                                                PushStr(";", s);
                                         }
                                 }
-                                AppendStr("\n", s);
+                                PushStr("\n", s);
                         }
-                        AppendStr("\n", s);
+                        PushStr("\n", s);
                 }
         }
         SaveData(s, "Расписание.csv");
