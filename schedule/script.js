@@ -257,15 +257,24 @@ function BuildTable1(s) {
                                         continue;
                                 ++free_cnt;
                         }
+                        console.log("free_cnt:");
+                        console.log(free_cnt);
+                        console.log("min:");
+                        console.log(min);
                         if(free_cnt < min)
                                 continue;
                         let hrs_to_fill = min(max, free_cnt);
+                        console.log("hrs_to_fill:");
+                        console.log(hrs_to_fill);
                         for (let lesson = 0; lesson < lesson && hrs_to_fill > 0; ++lesson) {
+                                if (cabs[corp][day][lesson][cab] != 0)
+                                        continue;
                                 schedule[corp][day][lesson][parallel][_class] = fio;
                                 cabs[corp][day][lesson][cab] = 1;
                                 --hrs_to_fill;
                         }
                 }
+                console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         }
         s = [];
         // дни недели транслитом
