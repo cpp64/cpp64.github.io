@@ -310,8 +310,8 @@ function BuildTable1(s) {
                         PushStr("\n", s);
                 }
         }
-        console.log("schedule[]:");
-        console.log(schedule);
+        console.log("schedule[0][0][0]:");
+        console.log(schedule[0][0][0]);
         SaveData(s, "Расписание.csv");
 }
 function SaveData(data, fileName) {
