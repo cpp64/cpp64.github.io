@@ -39,7 +39,7 @@ function fake_click() {
         let parallel_input = document.getElementById("parallel_input");
         fr.readAsArrayBuffer(parallel_input.files[0]);
 }
-function parseInterval(s) {
+function ParseInterval(s) {
         let t = [[],[]], result = [], t_id = 0;
         for(let i = 0; i <= s.length; ++i) {
                 // если i == s.length, дальше условие проверяться не будет
@@ -69,10 +69,10 @@ function parseInterval(s) {
         }
         return result;
 }
-function is_rn(code) {
+function RN(code) {
         return code == INT('\r') || code == INT('\n');
 }
-function parseCSV(s) {
+function ParseCSV(s) {
         //console.log("parse_csv()");
         //console.log(s);
         let table = [], row = [], t = [];
@@ -81,9 +81,9 @@ function parseCSV(s) {
                 if (s[i] == INT(';')) {
                         row.push(t);
                         t = [];
-                } else if (is_rn(s[i])) {
+                } else if (RN(s[i])) {
                         // очень коряво
-                        if (i > 0 && is_rn(s[i-1]))
+                        if (i > 0 && RN(s[i-1]))
                                 continue;
                         row.push(t);
                         t = [];
@@ -233,7 +233,7 @@ function BuildTable1(s) {
                 let skip = SplitToInt(table[i][5]," \t");
                 console.log("skip:");
                 console.log(skip);
-                let days = parseInterval(table[i][6]);
+                let days = ParseInterval(table[i][6]);
                 console.log("days:");
                 console.log(days);
                 let cab_temp = MySplit(table[i][7], "/ -;,+");
