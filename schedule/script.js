@@ -287,7 +287,7 @@ function BuildTable1(s) {
                                 PushStr((lesson+1).toString()+";", s);
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
-                                                PushArr(s, fio[corp][day][lesson][parallel][_class]);
+                                                PushArr(s, schedule[corp][day][lesson][parallel][_class]);
                                                 PushStr(";", s);
                                         }
                                 }
