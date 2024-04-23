@@ -16,7 +16,7 @@ function fake_click() {
         var fr = new FileReader();
         fr.onload = function () {
                 SaveData(fr.result, "temporary.csv");
-                let temp = parseCSV(new Uint8Array(fr.result));
+                let temp = ParseCSV(new Uint8Array(fr.result));
                 let buf = [];
                 for(let i = 1; i < temp.length; ++i) {
                         // 0 строка - заголовок таблицы
