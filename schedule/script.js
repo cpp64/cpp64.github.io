@@ -296,13 +296,14 @@ function BuildTable1(s) {
                                 PushStr((lesson+1).toString()+";", s);
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+                                                PushStr("{", s);
                                                 console.log("pushing:");
                                                 console.log(schedule[corp][day][lesson][parallel][_class]);
                                                 //PushArr(s, schedule[corp][day][lesson][parallel][_class]);
                                                 let str = schedule[corp][day][lesson][parallel][_class];
                                                 for(let i = 0; i < str.length; ++i)
                                                         s.push(str[i]);
-                                                PushStr(";", s);
+                                                PushStr("};", s);
                                         }
                                 }
                                 PushStr("\n", s);
