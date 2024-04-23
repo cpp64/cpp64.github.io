@@ -263,7 +263,7 @@ function BuildTable1(s) {
                         console.log(min);
                         if(free_cnt < min)
                                 continue;
-                        let hrs_to_fill = min(max, free_cnt);
+                        let hrs_to_fill = Math.min(max, free_cnt);
                         console.log("hrs_to_fill:");
                         console.log(hrs_to_fill);
                         for (let lesson = 0; lesson < Nlessons[day] && hrs_to_fill > 0; ++lesson) {
