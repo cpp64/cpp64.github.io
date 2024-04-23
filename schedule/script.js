@@ -268,7 +268,12 @@ function BuildTable1(s) {
                         for (let lesson = 0; lesson < Nlessons[day] && hrs_to_fill > 0; ++lesson) {
                                 if (cabs[corp][day][lesson][cab] != 0)
                                         continue;
-                                schedule[corp][day][lesson][parallel][_class] = fio;
+                                // если просто присвоить он почему-то добавляет
+                                // массив в массив, вместо того, чтобы присвоить
+                                // массиву массив
+                                // schedule[corp][day][lesson][parallel][_class] = fio;
+                                for(let i = 0; i < fio.length; ++i)
+                                        schedule[corp][day][lesson][parallel][_class].push(fio[i]);
                                 cabs[corp][day][lesson][cab] = 1;
                                 --hrs_to_fill;
                         }
@@ -300,6 +305,8 @@ function BuildTable1(s) {
                                                 console.log("pushing:", str);
                                                 for(let i = 0; i < str.length; ++i)
                                                         s.push(str[i]);
+                                                // здесь почему-то пихается массив в массиве вместо
+                                                // просто массива
                                                 PushStr("};", s);
                                         }
                                 }
