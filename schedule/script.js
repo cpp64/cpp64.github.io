@@ -20,23 +20,18 @@ function fake_click() {
                 for(let i = 1; i < temp.length; ++i) {
                         // 0 строка - заголовок таблицы
                         let t = [];
-                        let t_buf = [];
                         for(let j = 0; j < temp[i].length; ++j) {
                                 let cell = SplitTo1(temp[i][j]," \t");
                                 t.push(atoi(cell));
-                                t_buf.push(cell);
                         }
                         Nparallel.push(t);
-                        buf.push(t_buf);
                 }
                 console.log('Nparallel:');
                 console.log(Nparallel);
-                console.log('buf:');
-                console.log(buf);
                 BuildTable();
         };
-        let parallel_input = document.getElementById("parallel_input");
-        fr.readAsArrayBuffer(parallel_input.files[0]);
+        let ParallelInput = document.getElementById("parallel_input");
+        fr.readAsArrayBuffer(ParallelInput.files[0]);
 }
 function ParseInterval(s) {
         let t = [[],[]], result = [], t_id = 0;
@@ -159,13 +154,6 @@ function SplitTo1(arr, separators_str) {
 function SplitToInt(arr, separators_str) {
         return atoi(SplitTo1(arr, " \t"));
 }
-function MakeParallel(corp, parallel) {
-        let _parallel = [];
-        let class_count = Nparallel[corp][parallel];
-        for (let _class = 0; _class < class_count; ++_class)
-                _parallel.push([]);
-        return _parallel;
-}
 function BuildTable() {
         var fr = new FileReader();
         fr.onload = function () {
@@ -183,8 +171,13 @@ function BuildTable1(s) {
                         let _day = [];
                         for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
                                 let _lesson = [];
-                                for (let parallel = 0; parallel < 11; ++parallel)
-                                        _lesson.push(MakeParallel(corp, parallel));
+                                for (let parallel = 0; parallel < 11; ++parallel) {
+                                        let _parallel = [];
+                                        let Nclass = Nparallel[corp][parallel];
+                                        for (let _class = 0; _class < Nclass; ++_class)
+                                                _parallel.push([]);
+                                        lesson.push(_parallel);
+                                }
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
@@ -209,43 +202,31 @@ function BuildTable1(s) {
         }
         for (let i = 1; i < table.length; ++i) {
                 let corp = SplitToInt(table[i][0], " \t")-1;
-                console.log("corp:");
-                console.log(corp);
+                console.log("corp:", corp);
                 let _class_temp = MySplit(table[i][1], "/- _");
-                console.log("_class_temp:");
-                console.log(_class_temp);
+                console.log("_class_temp:", _class_temp);
                 let parallel = atoi(_class_temp[0])-1;
-                console.log("parallel:");
-                console.log(parallel);
+                console.log("parallel:", parallel);
                 let _class = atoi(_class_temp[1])-1;
-                console.log("_class:");
-                console.log(_class);
+                console.log("_class:", _class);
                 let hrs = SplitToInt(table[i][2], " \t");
-                console.log("hrs:");
-                console.log(hrs);
+                console.log("hrs:", hrs);
                 let min = SplitToInt(table[i][3], " \t");
-                console.log("min:");
-                console.log(min);
+                console.log("min:", min);
                 let max = SplitToInt(table[i][4], " \t");
-                console.log("max:");
-                console.log(max);
+                console.log("max:", max);
                 let skip = SplitToInt(table[i][5]," \t");
-                console.log("skip:");
-                console.log(skip);
+                console.log("skip:", skip);
                 let days = ParseInterval(table[i][6]);
-                console.log("days:");
-                console.log(days);
+                console.log("days:", days);
                 let cab_temp = MySplit(table[i][7], "/ -;,+");
-                console.log("cab_temp:");
-                console.log(cab_temp);
+                console.log("cab_temp:", cab_temp);
                 let cab = [];
                 for(let i = 0; i < cab_temp.length; ++i)
                         cab.push(atoi(cab_temp[i]));
-                console.log("cab:");
-                console.log(cab);
+                console.log("cab:", cab);
                 let fio = MySplit(table[i][8], "/ -;,+");
-                console.log("fio:");
-                console.log(fio);
+                console.log("fio:", fio);
                 for (let day = 0; day < Ndays && hrs > 0; ++day) { // hrs условие не понятное
                         // БАГИ ЗДЕСЬ
                         let free_cnt = 0;
@@ -256,26 +237,24 @@ function BuildTable1(s) {
                                         continue;
                                 ++free_cnt;
                         }
-                        console.log("free_cnt:");
-                        console.log(free_cnt);
-                        console.log("min:");
-                        console.log(min);
+                        console.log("free_cnt:", free_cnt);
+                        console.log("min:", min);
                         if(free_cnt < min)
                                 continue;
-                        let hrs_to_fill = Math.min(max, free_cnt);
-                        console.log("hrs_to_fill:");
-                        console.log(hrs_to_fill);
-                        for (let lesson = 0; lesson < Nlessons[day] && hrs_to_fill > 0; ++lesson) {
+                        let HrsToFill = Math.min(max, free_cnt);
+                        console.log("HrsToFill:", HrsToFill);
+                        hrs -= HrsToFill;
+                        for (let lesson = 0; lesson < Nlessons[day] && HrsToFill > 0; ++lesson) {
                                 if (cabs[corp][day][lesson][cab] != 0)
                                         continue;
                                 // если просто присвоить он почему-то добавляет
                                 // массив в массив, вместо того, чтобы присвоить
                                 // массиву массив
-                                 schedule[corp][day][lesson][parallel][_class] = fio;
-                                //for(let i = 0; i < fio.length; ++i)
-                                //        schedule[corp][day][lesson][parallel][_class].push(fio[i]);
+                                // schedule[corp][day][lesson][parallel][_class] = fio;
+                                for(let i = 0; i < fio.length; ++i)
+                                        schedule[corp][day][lesson][parallel][_class].push(fio[i]);
                                 cabs[corp][day][lesson][cab] = 1;
-                                --hrs_to_fill;
+                                --HrsToFill;
                         }
                 }
                 console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -289,7 +268,8 @@ function BuildTable1(s) {
                 for (let day = 0; day < Ndays; ++day) {
                         PushTranslit(weekday[day], s);
                         for (let parallel = 0; parallel < 11; ++parallel) {
-                                for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+                                let Nclass = Nparallel[corp][parallel];
+                                for (let _class = 0; _class < Nclass; ++_class) {
                                         let ParallelS = (parallel+1).toString();
                                         let ClassS = (_class+1).toString();
                                         PushStr("; "+ParallelS+"-"+ClassS, s);
@@ -299,10 +279,11 @@ function BuildTable1(s) {
                         for (let lesson = 0; lesson < Nlessons[day]; ++lesson) {
                                 PushStr((lesson+1).toString()+";", s);
                                 for (let parallel = 0; parallel < 11; ++parallel) {
-                                        for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
+                                        let Nclass = Nparallel[corp][parallel];
+                                        for (let _class = 0; _class < Nclass; ++_class) {
                                                 PushStr("{", s);
                                                 let x = schedule[corp][day][lesson][parallel][_class];
-                                                console.log("pushing::", x);
+                                                console.log("pushing:", x);
                                                 if(typeof x[0] !== 'undefined') {
                                                         for(let i = 0; i < x[0].length; ++i)
                                                                 s.push(x[0][i]);
