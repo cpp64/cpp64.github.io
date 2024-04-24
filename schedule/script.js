@@ -301,9 +301,12 @@ function BuildTable1(s) {
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
                                                 PushStr("{", s);
-                                                console.log("pushing:", schedule[corp][day][lesson][parallel][_class]);
-                                                for(let i = 0; i < schedule[corp][day][lesson][parallel][_class][0].length; ++i)
-                                                        s.push(schedule[corp][day][lesson][parallel][_class][0][i]);
+                                                let x = schedule[corp][day][lesson][parallel][_class];
+                                                console.log("pushing:", x);
+                                                if(typeof x[0] !== 'undefined') {
+                                                        for(let i = 0; i < x[0].length; ++i)
+                                                                s.push(x[0][i]);
+                                                }
                                                 // здесь почему-то пихается массив в массиве вместо
                                                 // просто массива
                                                 // WHAT ?? WHAT ?? WHAT ?? WHAT ??
