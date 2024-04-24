@@ -219,13 +219,13 @@ function BuildTable1(s) {
                 console.log("skip:", skip);
                 let days = ParseInterval(table[i][6]);
                 console.log("days:", days);
-                let cab_temp = MySplit(table[i][7], "/ -;,+");
+                let cab_temp = MySplit(table[i][7], "/\\");
                 console.log("cab_temp:", cab_temp);
-                let cab = [];
-                for(let i = 0; i < cab_temp.length; ++i)
-                        cab.push(atoi(cab_temp[i]));
+                let cab = [];  // это НАБОР из нескольких НАБОРОВ кабинетов
+//                for(let i = 0; i < cab_temp.length; ++i)
+//                        cab.push(atoi(cab_temp[i]));
                 console.log("cab:", cab);
-                let fio = MySplit(table[i][8], "/ -;,+");
+                let fio = MySplit(table[i][8], "/\\"); // это НАБОР из нескольких ФИО
                 console.log("fio:", fio);
                 for (let day = 0; day < Ndays && hrs > 0; ++day) { // hrs условие не понятное
                         // БАГИ ЗДЕСЬ
@@ -251,8 +251,10 @@ function BuildTable1(s) {
                                 // массив в массив, вместо того, чтобы присвоить
                                 // массиву массив
                                 // schedule[corp][day][lesson][parallel][_class] = fio;
-                                for(let i = 0; i < fio.length; ++i)
-                                        schedule[corp][day][lesson][parallel][_class].push(fio[i]);
+                                
+                                // fio - ЭТО МАССИВ В МАССИВЕ - ВОТ ГДЕ КОСЯК
+                                for(let i = 0; i < fio[0].length; ++i)
+                                        schedule[corp][day][lesson][parallel][_class].push(fio[0][i]);
                                 cabs[corp][day][lesson][cab] = 1;
                                 --HrsToFill;
                         }
@@ -281,17 +283,11 @@ function BuildTable1(s) {
                                 for (let parallel = 0; parallel < 11; ++parallel) {
                                         let Nclass = Nparallel[corp][parallel];
                                         for (let _class = 0; _class < Nclass; ++_class) {
-                                                PushStr("{", s);
                                                 let x = schedule[corp][day][lesson][parallel][_class];
                                                 console.log("pushing:", x);
-                                                if(typeof x[0] !== 'undefined') {
-                                                        for(let i = 0; i < x[0].length; ++i)
-                                                                s.push(x[0][i]);
-                                                }
-                                                // здесь почему-то пихается массив в массиве вместо
-                                                // просто массива
-                                                // WHAT ?? WHAT ?? WHAT ?? WHAT ??
-                                                PushStr("};", s);
+                                                for(let i = 0; i < x.length; ++i)
+                                                        s.push(x[i]);
+                                                PushStr(";", s);
                                         }
                                 }
                                 PushStr("\n", s);
