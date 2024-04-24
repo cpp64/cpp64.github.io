@@ -302,7 +302,7 @@ function BuildTable1(s) {
                                         for (let _class = 0; _class < Nparallel[corp][parallel]; ++_class) {
                                                 PushStr("{", s);
                                                 let x = schedule[corp][day][lesson][parallel][_class];
-                                                console.log("pushing:", x);
+                                                console.log("pushing::", x);
                                                 if(typeof x[0] !== 'undefined') {
                                                         for(let i = 0; i < x[0].length; ++i)
                                                                 s.push(x[0][i]);
