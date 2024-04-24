@@ -176,7 +176,7 @@ function BuildTable1(s) {
                                         let Nclass = Nparallel[corp][parallel];
                                         for (let _class = 0; _class < Nclass; ++_class)
                                                 _parallel.push([]);
-                                        lesson.push(_parallel);
+                                        _lesson.push(_parallel);
                                 }
                                 _day.push(_lesson);
                         }
