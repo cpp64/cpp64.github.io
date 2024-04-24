@@ -303,9 +303,10 @@ function BuildTable1(s) {
                                                 PushStr("{", s);
                                                 console.log("pushing:", schedule[corp][day][lesson][parallel][_class]);
                                                 for(let i = 0; i < schedule[corp][day][lesson][parallel][_class].length; ++i)
-                                                        s.push(schedule[corp][day][lesson][parallel][_class][i]);
+                                                        s.push(schedule[corp][day][lesson][parallel][_class][0][i]);
                                                 // здесь почему-то пихается массив в массиве вместо
                                                 // просто массива
+                                                // WHAT ?? WHAT ?? WHAT ?? WHAT ??
                                                 PushStr("};", s);
                                         }
                                 }
