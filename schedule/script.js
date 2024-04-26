@@ -221,9 +221,9 @@ function BuildTable1(s) {
                 console.log("days:", days);
                 let cab_temp = MySplit(table[i][7], "/\\");
                 console.log("cab_temp:", cab_temp);
-                let cab = [];  // это НАБОР из нескольких НАБОРОВ кабинетов
-//                for(let i = 0; i < cab_temp.length; ++i)
-//                        cab.push(atoi(cab_temp[i]));
+                let cab = [];
+                for(let i = 0; i < cab_temp.length; ++i)
+                        cab.push(ParseInterval(cab_temp[i]));
                 console.log("cab:", cab);
                 let fio = MySplit(table[i][8], "/\\"); // это НАБОР из нескольких ФИО
                 console.log("fio:", fio);
