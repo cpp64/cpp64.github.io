@@ -168,9 +168,9 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
                                 let _lesson = [];
                                 for (let P = 0; P < 11; ++P) {
-                                        let _parallel = [];
+                                        let _parallel = Array(NP[corp][P]).fill([]);/*[];
                                         for (let i = 0; i < NP[corp][P]; ++i)
-                                                _parallel.push([]);
+                                                _parallel.push([]);*/
                                         _lesson.push(_parallel);
                                 }
                                 _day.push(_lesson);
@@ -185,10 +185,10 @@ function BuildTable1(s) {
                 for (let D = 0; D < ND; ++D) {
                         let _day = [];
                         for (let L = 0; L < NL[day]; ++L) {
-                                let _lesson = [];
+                                let _lesson = Array(Ncab).fill(0);/*[];
                                 for (let cab = 0; cab < Ncab; ++cab) {
                                         _lesson.push(0);
-                                }
+                                }               */
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
@@ -225,29 +225,29 @@ function BuildTable1(s) {
                 console.log("fio:", fio);
                 for (let D = 0; D < ND && H > 0; ++D) { // hrs условие не понятное
                         // БАГИ ЗДЕСЬ
-                        let free_cnt = 0;
-                        for (let L = 0; L < NL[D]; ++L) {
-                                // достаточно проверки занятости кабинета
-                                // проверка таблицы учителей не нужна
-                                let i = 0;
-                                //while(i < cabs// (cabs[corp][day][lesson][cab] != 0)
-                                        // ...
-                                        ++i;
-                                //if(i < ...)
-                                        ++free_cnt;
-                        }
-                        console.log("free_cnt:", free_cnt);
-                        if(free_cnt < min)
+                        FreeCnt = 0;
+                        // посчитать free_cnt через Brute
+                        // .........................
+                        console.log("FreeCnt:", FreeCnt);
+                        if(FreeCnt < min)
                                 continue;
-                        let HrsToFill = Math.min(max, free_cnt);
+                        BruteCab = Array(Ncab).fill(false);
+                        BruteAns = Array(CabList.length).fill(0);
+                        Brute(CabList,0);
+                        let HrsToFill = Math.min(max, FreeCnt);
                         console.log("HrsToFill:", HrsToFill);
                         H -= HrsToFill;
                         for (let lesson = 0; lesson < NL[day] && HrsToFill > 0; ++lesson) {
-                                //if (cabs[corp][day][lesson][cab] != 0)
-                                //        continue;
-                                for(let i = 0; i < fio[0].length; ++i)
-                                        schedule[corp][day][lesson][parallel][_class].push(fio[0][i]);
-                                //cabs[corp][day][lesson][cab] = 1;
+                                let flag = true;
+                                for(let i = 0; flag && i < BruteAns.length; ++i)
+                                        if (cabs[corp][day][lesson][BruteAns[i]] != 0)
+                                                flag = false;
+                                if(!flag)
+                                        break;
+                                for(let i = 0; i < table[i][8].length; ++i)
+                                        schedule[corp][day][lesson][parallel][_class].push(table[i][8][i]);
+                                for(let i = 0; i < BruteAns.length; ++i)
+                                        cabs[corp][day][lesson][BruteAns[i]] = 1;
                                 --HrsToFill;
                         }
                 }
@@ -297,3 +297,26 @@ function SaveData(data, fileName) {
         a.click();
         window.URL.revokeObjectURL(a.href);
 }
+let BruteAns = [], BruteFlag, BruteCab = [], FreeCnt;
+function Brute(a,i) {
+        if(BruteFlag)
+                return;
+        if(i == a.length) {
+                BruteFlag = true;
+                return;
+        }
+        for(let j = 0; j < a[i].length; ++j) {
+                if(BruteCab[a[i][j]])
+                        continue;
+		BruteAns[i] = a[i][j];
+                BruteCab[a[i][j]] = true;
+                Brute(a,i+1);
+                BruteCab[a[i][j]] = false;
+        }
+}
+console.log("trying Brute");
+BruteFlag = false;
+BruteCab = Array(4).fill(false);
+BruteAns = Array(4).fill(0);
+Brute([[1,2,3],[1,2,3],[1,2,3]],0);
+console.log("BruteAns = ",BruteAns);
