@@ -305,7 +305,7 @@ function Brute(a,i) {
                 BruteFlag = true;
                 return;
         }
-        for(let j = 0; j < a[i].length; ++j) {
+        for(let j = 0; j < a[i].length && BruteFlag; ++j) {
                 if(BruteCab[a[i][j]])
                         continue;
 		BruteAns[i] = a[i][j];
