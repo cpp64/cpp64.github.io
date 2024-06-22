@@ -241,7 +241,7 @@ function BuildTable1(s) {
 				Brute(CabList, 0);
                                 let flag = 1;
                                 for(let i = 0; flag == 1 && i < BruteAns.length; ++i)
-                                        if (cabs[corp][D][L][BruteAns[i]] != 0)
+                                        if (cab[corp][D][L][BruteAns[i]] != 0)
                                                 flag = 0;
                                 FreeCnt += flag;
                         }
@@ -255,7 +255,7 @@ function BuildTable1(s) {
                                 for(let i = 0; i < table[i][8].length; ++i)
                                         schedule[corp][D][L][P][_class].push(table[i][8][i]);
                                 for(let i = 0; i < BruteAns.length; ++i)
-                                        cabs[corp][D][L][BruteAns[i]] = 1;
+                                        cab[corp][D][L][BruteAns[i]] = 1;
                                 --HrsToFill;
 			}
                 }
