@@ -184,11 +184,13 @@ function BuildTable1(s) {
                 let _week = [];
                 for (let D = 0; D < ND; ++D) {
                         let _day = [];
-                        for (let L = 0; L < NL[day]; ++L) {
-                                let _lesson = Array(Ncab).fill(0);/*[];
+                        for (let L = 0; L < NL[D]; ++L) {
+                                let _lesson = Array(Ncab).fill(0);//[];
+				/*
                                 for (let cab = 0; cab < Ncab; ++cab) {
                                         _lesson.push(0);
-                                }               */
+                                }
+				*/
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
