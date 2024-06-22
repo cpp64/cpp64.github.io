@@ -241,6 +241,8 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
 				BruteCab = Array(Ncab).fill(false);
 				BruteAns = Array(CabList.length).fill(0);
+                                for(let i = 0; i < Ncab; ++i)
+                                       BruteCab[i] = cab[corp][D][L][i];
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
                                 let flag = 1;
@@ -337,3 +339,9 @@ BruteAns = Array(4).fill(0);
 Brute([[1,2,3],[1,2,3],[1,2,3]],0);
 console.log("BruteAns = ",BruteAns);
 */
+console.log("array copy check");
+a1 = [1,2,3];
+a2 = a1;
+a2[0] = 9;
+console.log("a1: ", a1);
+console.log("a2: ", a2);
