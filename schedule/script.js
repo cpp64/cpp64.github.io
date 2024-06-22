@@ -204,11 +204,11 @@ function BuildTable1(s) {
                 let _class_temp = MySplit(table[i][1], "/- _");
                 console.log("_class_temp:", _class_temp);
                 let P = atoi(_class_temp[0])-1;
-                console.log("parallel:", parallel);
+                console.log("P:", P);
                 let _class = atoi(_class_temp[1])-1;
                 console.log("_class:", _class);
                 let H = SplitToInt(table[i][2], " \t");
-                console.log("hrs:", hrs);
+                console.log("H:", H);
                 let min = SplitToInt(table[i][3], " \t");
                 console.log("min:", min);
                 let max = SplitToInt(table[i][4], " \t");
