@@ -184,6 +184,7 @@ function BuildTable1(s) {
                 }
                 schedule.push(_week);
         }
+	console.log("schedule after create: ", schedule);
         let cab = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
                 let _week = [];
