@@ -219,7 +219,7 @@ function BuildTable1(s) {
                 for(let i = 0; i < cab_temp.length; ++i)
                         CabList.push(ParseInterval(cab_temp[i]));
                 console.log("CabList:", CabList);
-                let fio = MySplit(table[i][8], "/\\"); // это НАБОР из нескольких ФИО
+                let fio = MySplit(table[i][8], "/\\"); // НАБОР из нескольких ФИО
                 console.log("fio:", fio);
 		/*
   			L - lesson
