@@ -186,7 +186,7 @@ function BuildTable1(s) {
                 for (let D = 0; D < ND; ++D) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
-                                let _lesson = Array(Ncab).fill(0);//[];
+                                let _lesson = Array(Ncab).fill(0);
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
