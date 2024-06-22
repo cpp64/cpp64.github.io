@@ -251,7 +251,7 @@ function BuildTable1(s) {
                         let HrsToFill = Math.min(max, FreeCnt);
                         console.log("HrsToFill: ", HrsToFill);
                         H -= HrsToFill;
-                        for (let L = 0; L < NL[day] && HrsToFill > 0; ++L) {
+                        for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
                                 for(let i = 0; i < table[i][8].length; ++i)
                                         schedule[corp][D][L][P][_class].push(table[i][8][i]);
                                 for(let i = 0; i < BruteAns.length; ++i)
