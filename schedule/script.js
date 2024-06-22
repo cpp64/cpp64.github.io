@@ -241,10 +241,8 @@ function BuildTable1(s) {
 			let answers = [];
                         for (let L = 0; L < NL[D]; ++L) {
 				BruteFlag = false;
-				BruteCab = Array(Ncab).fill(false);
 				BruteAns = Array(CabList.length).fill(0);
-                                for(let i = 0; i < Ncab; ++i)
-                                       BruteCab[i] = cab[corp][D][L][i];
+                                BruteCab = ArrClone(cab[corp][D][L]);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
                                 if(BruteFlag) {
@@ -287,10 +285,7 @@ function BuildTable1(s) {
                                 PushStr((L+1).toString()+";", s);
                                 for (let P = 0; P < 11; ++P) {
                                         for (let i = 0; i < NP[corp][P]; ++i) {
-                                                let x = schedule[corp][D][L][P][i];
-                                                console.log("pushing:", x);
-                                                for(let j = 0; j < x.length; ++j)
-                                                        s.push(x[j]);
+						ArrPush(s, schedule[corp][D][L][P][i]);
                                                 PushStr(";", s);
                                         }
                                 }
@@ -306,6 +301,11 @@ function BuildTable1(s) {
 function ArrPush(dst, src) {
 	for(let i = 0; i < src.length; ++i)
 		dst.push(src[i]);
+}
+function ArrClone(src) {
+	let dst = [];
+	ArrPush(dst, src);
+	return dst;
 }
 function SaveData(data, fileName) {
         var blob = new Blob([new Uint8Array(data)], {
