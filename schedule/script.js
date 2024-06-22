@@ -197,8 +197,8 @@ function BuildTable1(s) {
                 }
                 cab.push(_week);
         }
-        let csv = ParseCSV(s);
-        for (let i = 1; i < csv.length; ++i) {
+        let table = ParseCSV(s);
+        for (let i = 1; i < table.length; ++i) {
                 let corp = SplitToInt(table[i][0], " \t")-1;
                 console.log("corp:", corp);
                 let _class_temp = MySplit(table[i][1], "/- _");
