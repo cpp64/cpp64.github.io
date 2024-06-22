@@ -235,7 +235,7 @@ function BuildTable1(s) {
   		*/
                 for (let D = 0; D < ND && H > 0; ++D) {
                         FreeCnt = 0;
-                        for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
+                        for (let L = 0; L < NL[D]; ++L) {
 				BruteCab = Array(Ncab).fill(false);
 				BruteAns = Array(CabList.length).fill(0);
 				Brute(CabList, 0);
