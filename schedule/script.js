@@ -263,7 +263,6 @@ function BuildTable1(s) {
                 }
                 console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         }
-	console.log("table: ", table);
         s = [];
         // дни недели транслитом
         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
