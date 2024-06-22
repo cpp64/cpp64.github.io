@@ -223,36 +223,43 @@ function BuildTable1(s) {
                 console.log("CabList:", CabList);
                 let fio = MySplit(table[i][8], "/\\"); // это НАБОР из нескольких ФИО
                 console.log("fio:", fio);
-                for (let D = 0; D < ND && H > 0; ++D) { // hrs условие не понятное
-                        // БАГИ ЗДЕСЬ
+		/*
+  			L - lesson
+     			D - day
+     			H - hours
+     			P - parallel
+			ND - number of days
+			NL - number of lessons
+  		*/
+                for (let D = 0; D < ND && H > 0; ++D) {
                         FreeCnt = 0;
-                        // посчитать free_cnt через Brute
-                        // .........................
-                        console.log("FreeCnt:", FreeCnt);
+                        for (let L = 0; L < NL[day] && HrsToFill > 0; ++L) {
+				BruteCab = Array(Ncab).fill(false);
+				BruteAns = Array(CabList.length).fill(0);
+				Brute(CabList, 0);
+                                let flag = 1;
+                                for(let i = 0; flag && i < BruteAns.length; ++i)
+                                        if (cabs[corp][D][L][BruteAns[i]] != 0)
+                                                flag = 0;
+                                FreeCnt += flag;
+                        }
+                        console.log("FreeCnt: ", FreeCnt);
                         if(FreeCnt < min)
                                 continue;
-                        BruteCab = Array(Ncab).fill(false);
-                        BruteAns = Array(CabList.length).fill(0);
-                        Brute(CabList,0);
                         let HrsToFill = Math.min(max, FreeCnt);
-                        console.log("HrsToFill:", HrsToFill);
+                        console.log("HrsToFill: ", HrsToFill);
                         H -= HrsToFill;
-                        for (let lesson = 0; lesson < NL[day] && HrsToFill > 0; ++lesson) {
-                                let flag = true;
-                                for(let i = 0; flag && i < BruteAns.length; ++i)
-                                        if (cabs[corp][day][lesson][BruteAns[i]] != 0)
-                                                flag = false;
-                                if(!flag)
-                                        break;
+                        for (let L = 0; L < NL[day] && HrsToFill > 0; ++L) {
                                 for(let i = 0; i < table[i][8].length; ++i)
-                                        schedule[corp][day][lesson][parallel][_class].push(table[i][8][i]);
+                                        schedule[corp][D][L][P][_class].push(table[i][8][i]);
                                 for(let i = 0; i < BruteAns.length; ++i)
-                                        cabs[corp][day][lesson][BruteAns[i]] = 1;
+                                        cabs[corp][D][L][BruteAns[i]] = 1;
                                 --HrsToFill;
-                        }
+			}
                 }
                 console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         }
+	console.log("table: ", table);
         s = [];
         // дни недели транслитом
         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
@@ -314,9 +321,11 @@ function Brute(a,i) {
                 BruteCab[a[i][j]] = false;
         }
 }
+/*
 console.log("trying Brute");
 BruteFlag = false;
 BruteCab = Array(4).fill(false);
 BruteAns = Array(4).fill(0);
 Brute([[1,2,3],[1,2,3],[1,2,3]],0);
 console.log("BruteAns = ",BruteAns);
+*/
