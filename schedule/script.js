@@ -238,18 +238,21 @@ function BuildTable1(s) {
   		*/
                 for (let D = 0; D < ND && H > 0; ++D) {
                         FreeCnt = 0;
+			let answers = [];
                         for (let L = 0; L < NL[D]; ++L) {
+				BruteFlag = false;
 				BruteCab = Array(Ncab).fill(false);
 				BruteAns = Array(CabList.length).fill(0);
                                 for(let i = 0; i < Ncab; ++i)
                                        BruteCab[i] = cab[corp][D][L][i];
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
-                                let flag = 1;
-                                for(let i = 0; flag == 1 && i < BruteAns.length; ++i)
-                                        if (cab[corp][D][L][BruteAns[i]] != 0)
-                                                flag = 0;
-                                FreeCnt += flag;
+                                if(BruteFlag) {
+					answers.push(BruteAns);
+					FreeCnt += 1;
+				} else {
+					answers.push([]);
+				}
                         }
                         console.log("FreeCnt: ", FreeCnt);
                         if(FreeCnt < min)
@@ -258,9 +261,11 @@ function BuildTable1(s) {
                         console.log("HrsToFill: ", HrsToFill);
                         H -= HrsToFill;
                         for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
+				if(answers[L].length == 0)
+					continue;
 				ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
-                                for(let i = 0; i < BruteAns.length; ++i)
-                                        cab[corp][D][L][BruteAns[i]] = 1;
+                                for(let i = 0; i < answers[L].length; ++i)
+                                        cab[corp][D][L][answers[L][i]] = 1;
                                 --HrsToFill;
 			}
                 }
