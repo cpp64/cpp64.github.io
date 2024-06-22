@@ -242,6 +242,7 @@ function BuildTable1(s) {
 				BruteCab = Array(Ncab).fill(false);
 				BruteAns = Array(CabList.length).fill(0);
 				Brute(CabList, 0);
+				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
                                 let flag = 1;
                                 for(let i = 0; flag == 1 && i < BruteAns.length; ++i)
                                         if (cab[corp][D][L][BruteAns[i]] != 0)
