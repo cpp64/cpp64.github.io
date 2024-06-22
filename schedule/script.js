@@ -235,12 +235,12 @@ function BuildTable1(s) {
   		*/
                 for (let D = 0; D < ND && H > 0; ++D) {
                         FreeCnt = 0;
-                        for (let L = 0; L < NL[day] && HrsToFill > 0; ++L) {
+                        for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
 				BruteCab = Array(Ncab).fill(false);
 				BruteAns = Array(CabList.length).fill(0);
 				Brute(CabList, 0);
                                 let flag = 1;
-                                for(let i = 0; flag && i < BruteAns.length; ++i)
+                                for(let i = 0; flag == 1 && i < BruteAns.length; ++i)
                                         if (cabs[corp][D][L][BruteAns[i]] != 0)
                                                 flag = 0;
                                 FreeCnt += flag;
