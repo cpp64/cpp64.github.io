@@ -171,9 +171,7 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
                                 let _lesson = [];
                                 for (let P = 0; P < 11; ++P) {
-                                        let _parallel = Array(NP[corp][P]).fill([]);/*[];
-                                        for (let i = 0; i < NP[corp][P]; ++i)
-                                                _parallel.push([]);*/
+                                        let _parallel = Array(NP[corp][P]).fill([]);
                                         _lesson.push(_parallel);
                                 }
                                 _day.push(_lesson);
@@ -189,11 +187,6 @@ function BuildTable1(s) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
                                 let _lesson = Array(Ncab).fill(0);//[];
-				/*
-                                for (let cab = 0; cab < Ncab; ++cab) {
-                                        _lesson.push(0);
-                                }
-				*/
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
