@@ -252,8 +252,7 @@ function BuildTable1(s) {
                         console.log("HrsToFill: ", HrsToFill);
                         H -= HrsToFill;
                         for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
-                                for(let i = 0; i < table[i][8].length; ++i)
-                                        schedule[corp][D][L][P][_class].push(table[i][8][i]);
+				ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
                                 for(let i = 0; i < BruteAns.length; ++i)
                                         cab[corp][D][L][BruteAns[i]] = 1;
                                 --HrsToFill;
@@ -293,6 +292,10 @@ function BuildTable1(s) {
         console.log("schedule[0][0][0]:");
         console.log(schedule[0][0][0]);
         SaveData(s, "Расписание.csv");
+}
+function ArrPush(dst, src) {
+	for(let i = 0; i < src.length; ++i)
+		dst.push(src[i]);
 }
 function SaveData(data, fileName) {
         var blob = new Blob([new Uint8Array(data)], {
