@@ -273,7 +273,7 @@ function BuildTable1(s) {
                                 for (let i = 0; i < NP[corp][P]; ++i)
                                         PushStr("; "+(P+1).toString()+"-"+(i+1).toString(), s);
                         PushStr("\n", s);
-                        for (let L = 0; L < NL[day]; ++L) {
+                        for (let L = 0; L < NL[D]; ++L) {
                                 PushStr((L+1).toString()+";", s);
                                 for (let P = 0; P < 11; ++P) {
                                         for (let i = 0; i < NP[corp][P]; ++i) {
