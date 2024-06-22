@@ -252,7 +252,7 @@ function BuildTable1(s) {
                         console.log("FreeCnt: ", FreeCnt);
                         if(FreeCnt < min)
                                 continue;
-                        let HrsToFill = Math.min(max, Math.min(FreeCnt, H));
+                        let HrsToFill = Math.min(Math.min(max, FreeCnt), H);
                         console.log("HrsToFill: ", HrsToFill);
                         H -= HrsToFill;
                         for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
