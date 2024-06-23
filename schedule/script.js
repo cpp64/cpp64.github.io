@@ -272,8 +272,6 @@ function BuildTable1(s) {
         s = [];
         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
 	///////////////"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"
-	schedule[1][0][0][6][0] = "TEST";
-	schedule[1][0][0][6][3] = "TEST";
 	console.log("!! schedule: ", schedule);
         for (let corp = 0; corp < Ncorp; ++corp) {
                 PushTranslit("Rjhgec ", s); //"Корпус "
