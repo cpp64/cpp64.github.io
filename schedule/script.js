@@ -175,7 +175,7 @@ function BuildTable1(s) {
                                 let _lesson = [];
                                 for (let P = 0; P < 11; ++P) {
 					let _parallel = [];
-					for (let P = 0; P < NP[corp][P]; ++P)
+					for (let i = 0; i < NP[corp][P]; ++i)
 						_parallel.push([]);
 					_lesson.push(_parallel);
 				}
