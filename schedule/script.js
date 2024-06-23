@@ -274,6 +274,7 @@ function BuildTable1(s) {
 	///////////////"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"
 	schedule[1][0][0][6][0] = "TEST";
 	schedule[1][0][0][6][3] = "TEST";
+	console.log("!! schedule: ", schedule);
         for (let corp = 0; corp < Ncorp; ++corp) {
                 PushTranslit("Rjhgec ", s); //"Корпус "
                 PushStr((corp+1).toString()+"\n", s);
