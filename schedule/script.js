@@ -165,12 +165,6 @@ function BuildTable() {
         let Hinput = document.getElementById("hours_table_input");
         fr.readAsArrayBuffer(Hinput.files[0]);
 }
-function MakeArrs(cnt) {
-	let arr = [];
-	for (let i = 0; i < cnt; ++i)
-		arr.push([]);
-	return arr;
-}
 function BuildTable1(s) {
         let schedule = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
@@ -179,8 +173,12 @@ function BuildTable1(s) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
                                 let _lesson = [];
-                                for (let P = 0; P < 11; ++P)
-                                        _lesson.push(MakeArrs(NP[corp][P]));
+                                for (let P = 0; P < 11; ++P) {
+					let _parallel = [];
+					for (let P = 0; P < NP[corp][P]; ++P)
+						_parallel.push([]);
+					_lesson.push(_parallel);
+				}
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
