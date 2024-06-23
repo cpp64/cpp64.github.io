@@ -335,21 +335,7 @@ function Brute(a,i) {
                         continue;
 		BruteAns[i] = a[i][j];
                 BruteCab[a[i][j]] = true;
-                Brute(a,i+1);
+                Brute(a, i+1);
                 BruteCab[a[i][j]] = false;
         }
 }
-/*
-console.log("trying Brute");
-BruteFlag = false;
-BruteCab = Array(4).fill(false);
-BruteAns = Array(4).fill(0);
-Brute([[1,2,3],[1,2,3],[1,2,3]],0);
-console.log("BruteAns = ",BruteAns);
-*/
-console.log("array copy check");
-a1 = [1,2,3];
-a2 = a1;
-a2[0] = 9;
-console.log("a1: ", a1);
-console.log("a2: ", a2);
