@@ -165,6 +165,12 @@ function BuildTable() {
         let Hinput = document.getElementById("hours_table_input");
         fr.readAsArrayBuffer(Hinput.files[0]);
 }
+function MakeArrs(cnt) {
+	let arr = [];
+	for (let i = 0; i < cnt; ++i)
+		arr.push([]);
+	return arr;
+}
 function BuildTable1(s) {
         let schedule = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
@@ -173,10 +179,8 @@ function BuildTable1(s) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
                                 let _lesson = [];
-                                for (let P = 0; P < 11; ++P) {
-                                        let _parallel = Array(NP[corp][P]).fill([]);
-                                        _lesson.push(_parallel);
-                                }
+                                for (let P = 0; P < 11; ++P)
+                                        _lesson.push(MakeArrs(NP[corp][P]));
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
@@ -190,6 +194,8 @@ function BuildTable1(s) {
                 for (let D = 0; D < ND; ++D) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
+				// fill заполняет одним и тем же, если заполнять пустым массивом,
+				// то накидает ссылок на один и тот же пустой массив
                                 let _lesson = Array(Ncab).fill(0);
                                 _day.push(_lesson);
                         }
