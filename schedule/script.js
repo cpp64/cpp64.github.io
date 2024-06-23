@@ -272,6 +272,8 @@ function BuildTable1(s) {
         s = [];
         let weekday = ["Gjytltkmybr", "Dnjhybr", "Chtlf", "Xtndthu", "Gznybwf", "Ce,,jnf", "Djcrhtctymt"];
 	///////////////"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"
+	schedule[1][0][0][6][0] = "TEST";
+	schedule[1][0][0][6][3] = "TEST";
         for (let corp = 0; corp < Ncorp; ++corp) {
                 PushTranslit("Rjhgec ", s); //"Корпус "
                 PushStr((corp+1).toString()+"\n", s);
@@ -294,8 +296,6 @@ function BuildTable1(s) {
                         PushStr("\n", s);
                 }
         }
-        console.log("schedule[0][0][0]:");
-        console.log(schedule[0][0][0]);
         SaveData(s, "Расписание.csv");
 }
 function ArrPush(dst, src) {
