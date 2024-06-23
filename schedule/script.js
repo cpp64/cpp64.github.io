@@ -10,7 +10,6 @@
  	Не будет работать со случаем: min = 3, max = 6 и H = 8,
 	заполнит в первый день сразу 6 и на 2 день не останется, чтобы заполнить 3.
 */
-
 let Ncab = 9999, Ncorp, ND = 6, NL = [], NP = [];
 function fake_click() {
         let Ncorp_input = document.getElementById("Ncorp_input");
