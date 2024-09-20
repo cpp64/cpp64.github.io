@@ -281,7 +281,7 @@ function BuildTable1(s) {
 	                        FreeCnt = 0;
 				let answers = [];
 	                        for (let L = 0; L < NL[D]; ++L) {
-					if(ArrEqual(,))
+					if(ArrEqual(schedule[corp][D][L][P][_class], table[i][8]))
 						++Equal;
 					BruteFlag = false;
 					BruteAns = Array(CabList.length).fill(0);
@@ -296,7 +296,7 @@ function BuildTable1(s) {
 					}
 	                        }
 	                        console.log("FreeCnt1: ", FreeCnt);
-	                        if(FreeCnt == 0)
+	                        if(FreeCnt == 0 || Equal == 0)
 	                                continue;
 	                        let HrsToFill = 1;
 	                        console.log("1 to fill: ", HrsToFill);
