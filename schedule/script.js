@@ -262,8 +262,8 @@ function BuildTable1(s) {
                         console.log("FreeCnt: ", FreeCnt);
                         if(FreeCnt < min)
                                 continue;
-                        let HrsToFill = Math.min(Math.min(max, FreeCnt), H);
-                        console.log("HrsToFill: ", HrsToFill);
+                        let HrsToFill = min;
+                        console.log("min to fill: ", HrsToFill);
                         H -= HrsToFill;
                         for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
 				if(answers[L].length == 0)
@@ -293,11 +293,11 @@ function BuildTable1(s) {
 						answers.push([]);
 					}
 	                        }
-	                        console.log("FreeCnt: ", FreeCnt);
-	                        if(FreeCnt < min)
+	                        console.log("FreeCnt1: ", FreeCnt);
+	                        if(FreeCnt == 0)
 	                                continue;
-	                        let HrsToFill = Math.min(Math.min(max, FreeCnt), H);
-	                        console.log("HrsToFill: ", HrsToFill);
+	                        let HrsToFill = 1;
+	                        console.log("1 to fill: ", HrsToFill);
 	                        H -= HrsToFill;
 	                        for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
 					if(answers[L].length == 0)
@@ -342,6 +342,14 @@ function BuildTable1(s) {
                 }
         }
         SaveData(s, "Расписание.csv");
+}
+function ArrCmp(a, b) {
+	if(a.length != b.length)
+		return false;
+	for(let i = 0; i < a.length; ++i)
+		if(a[i] != b[i])
+			return false;
+	return true;
 }
 function ArrPush(dst, src) {
 	for(let i = 0; i < src.length; ++i)
