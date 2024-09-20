@@ -274,8 +274,44 @@ function BuildTable1(s) {
                                 --HrsToFill;
 			}
                 }
-		if(H > 0)
-			alert("Ошибка 000");
+		////////////////////////////////////////////////////////////////////////////
+		while(true) {
+			let Filled = 0;
+	                for (let D = 0; D < ND && H > 0; ++D) {
+	                        FreeCnt = 0;
+				let answers = [];
+	                        for (let L = 0; L < NL[D]; ++L) {
+					BruteFlag = false;
+					BruteAns = Array(CabList.length).fill(0);
+	                                BruteCab = ArrClone(cab[corp][D][L]);
+					Brute(CabList, 0);
+					console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
+	                                if(BruteFlag) {
+						answers.push(BruteAns);
+						FreeCnt += 1;
+					} else {
+						answers.push([]);
+					}
+	                        }
+	                        console.log("FreeCnt: ", FreeCnt);
+	                        if(FreeCnt < min)
+	                                continue;
+	                        let HrsToFill = Math.min(Math.min(max, FreeCnt), H);
+	                        console.log("HrsToFill: ", HrsToFill);
+	                        H -= HrsToFill;
+	                        for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
+					if(answers[L].length == 0)
+						continue;
+					ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
+	                                for(let i = 0; i < answers[L].length; ++i)
+	                                        cab[corp][D][L][answers[L][i]] = 1;
+	                                --HrsToFill;
+					++Filled;
+				}
+	                }
+			if(Filled == 0)
+				break;
+		}
                 console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         }
         s = [];
