@@ -276,11 +276,13 @@ function BuildTable1(s) {
                 }
 		////////////////////////////////////////////////////////////////////////////
 		while(true) {
-			let Filled = 0;
+			let Filled = 0, Equal = 0;
 	                for (let D = 0; D < ND && H > 0; ++D) {
 	                        FreeCnt = 0;
 				let answers = [];
 	                        for (let L = 0; L < NL[D]; ++L) {
+					if(ArrEqual(,))
+						++Equal;
 					BruteFlag = false;
 					BruteAns = Array(CabList.length).fill(0);
 	                                BruteCab = ArrClone(cab[corp][D][L]);
@@ -343,7 +345,7 @@ function BuildTable1(s) {
         }
         SaveData(s, "Расписание.csv");
 }
-function ArrCmp(a, b) {
+function ArrEqual(a, b) {
 	if(a.length != b.length)
 		return false;
 	for(let i = 0; i < a.length; ++i)
