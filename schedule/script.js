@@ -259,6 +259,7 @@ function BuildTable1(s) {
 					answers.push([]);
 				}
                         }
+                        console.log("answers: ", answers);
                         console.log("FreeCnt: ", FreeCnt);
                         if(FreeCnt < min)
                                 continue;
@@ -273,6 +274,7 @@ function BuildTable1(s) {
                                         cab[corp][D][L][answers[L][i]] = true;
                                 --HrsToFill;
 			}
+                        console.log("cab[corp][D]: ", cab[corp][D]);
                 }
                 console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
 		while(false) {
