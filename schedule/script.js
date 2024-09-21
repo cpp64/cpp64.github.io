@@ -244,7 +244,7 @@ function BuildTable1(s) {
 			NL - number of lessons
   		*/
                 for (let D = 0; D < ND && H > 0; ++D) {
-                        FreeCnt = 0;
+                        let FreeCnt = 0;
 			let answers = [];
                         for (let L = 0; L < NL[D]; ++L) {
 				BruteFlag = false;
@@ -278,7 +278,7 @@ function BuildTable1(s) {
 		while(true) {
 			let Filled = 0;
 	                for (let D = 0; D < ND && H > 0; ++D) {
-	                        FreeCnt = 0;
+	                        let FreeCnt = 0;
 				let answers = [];
 				let Equal = 0;
 	                        for (let L = 0; L < NL[D]; ++L) {
