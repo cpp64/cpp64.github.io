@@ -252,7 +252,7 @@ function BuildTable1(s) {
                                 BruteCab = ArrClone(cab[corp][D][L]);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
-                                if(BruteFlag) {
+                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0) {
 					answers.push(BruteAns);
 					FreeCnt += 1;
 				} else {
