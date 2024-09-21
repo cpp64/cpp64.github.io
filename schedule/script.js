@@ -200,7 +200,7 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
 				// fill заполняет одним и тем же, если заполнять пустым массивом,
 				// то накидает ссылок на один и тот же пустой массив
-                                let _lesson = Array(Ncab).fill(0);
+                                let _lesson = Array(Ncab).fill(false);
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
