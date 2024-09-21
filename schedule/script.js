@@ -274,7 +274,7 @@ function BuildTable1(s) {
                                 --HrsToFill;
 			}
                 }
-                console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
 		while(true) {
 			let Filled = 0;
 	                for (let D = 0; D < ND && H > 0; ++D) {
@@ -305,6 +305,7 @@ function BuildTable1(s) {
 	                        for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
 					if(answers[L].length == 0)
 						continue;
+					PushStr("/", schedule[corp][D][L][P][_class]);
 					ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
 	                                for(let i = 0; i < answers[L].length; ++i)
 	                                        cab[corp][D][L][answers[L][i]] = 1;
