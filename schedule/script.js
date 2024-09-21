@@ -251,7 +251,7 @@ function BuildTable1(s) {
 				BruteAns = Array(CabList.length).fill(0);
                                 BruteCab = Array(Ncab).fill(false);
 				for(let i = 0; i < Ncab; ++i)
-	                                if(cab[corp][D][L][answers[i])
+	                                if(cab[corp][D][L][i])
 						BruteCab = true; ////////////////////////
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
