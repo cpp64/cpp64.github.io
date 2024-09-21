@@ -277,7 +277,7 @@ function BuildTable1(s) {
                         console.log("cab[corp][D]: ", cab[corp][D]);
                 }
                 console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
-		while(false) {
+		while(true) {
 			let Filled = 0;
 	                for (let D = 0; D < ND && H > 0; ++D) {
 	                        let FreeCnt = 0;
@@ -291,7 +291,7 @@ function BuildTable1(s) {
 	                                BruteCab = ArrClone(cab[corp][D][L]);
 					Brute(CabList, 0);
 					console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
-	                                if(BruteFlag) {
+	                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0) {
 						answers.push(BruteAns);
 						FreeCnt += 1;
 					} else {
