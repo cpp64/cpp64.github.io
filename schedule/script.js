@@ -275,7 +275,7 @@ function BuildTable1(s) {
 			}
                 }
                 console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
-		while(true) {
+		while(false) {
 			let Filled = 0;
 	                for (let D = 0; D < ND && H > 0; ++D) {
 	                        let FreeCnt = 0;
