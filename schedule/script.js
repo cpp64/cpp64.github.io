@@ -249,7 +249,7 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
 				BruteFlag = false;
 				BruteAns = Array(CabList.length).fill(0);
-                                BruteCab = ArrClone(cab[corp][D][L]);
+                                BruteCab = Array(CabList.length).fill(Ncab); // ArrClone(cab[corp][D][L]);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
                                 if(BruteFlag) {
