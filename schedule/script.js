@@ -276,10 +276,11 @@ function BuildTable1(s) {
                 }
 		////////////////////////////////////////////////////////////////////////////
 		while(true) {
-			let Filled = 0, Equal = 0;
+			let Filled = 0;
 	                for (let D = 0; D < ND && H > 0; ++D) {
 	                        FreeCnt = 0;
 				let answers = [];
+				let Equal = 0;
 	                        for (let L = 0; L < NL[D]; ++L) {
 					if(ArrEqual(schedule[corp][D][L][P][_class], table[i][8]))
 						++Equal;
