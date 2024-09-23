@@ -223,10 +223,10 @@ function BuildTable1(s) {
                 console.log("min:", min);
                 let max = SplitToInt(table[i][4], " \t");
                 console.log("max:", max);
-                let skip = SplitToInt(table[i][5]," \t");
-                console.log("skip:", skip);
-                let DayList = ParseInterval(table[i][6]);
-                console.log("DayList:", DayList);
+                //let skip = SplitToInt(table[i][5]," \t");
+                //console.log("skip:", skip);
+                //let DayList = ParseInterval(table[i][6]);
+                //console.log("DayList:", DayList);
                 let cab_temp = MySplit(table[i][7], "/\\");
                 console.log("cab_temp:", cab_temp);
                 let CabList = [];
