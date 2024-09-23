@@ -307,9 +307,9 @@ function BuildTable1(s) {
 	                        for (let L = 0; L < NL[D] && HrsToFill > 0; ++L) {
 					if(answers[L].length == 0)
 						continue;
-					PushStr("{", schedule[corp][D][L][P][_class]);
+					//PushStr("{", schedule[corp][D][L][P][_class]);
 					ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
-					PushStr("}", schedule[corp][D][L][P][_class]);
+					//PushStr("}", schedule[corp][D][L][P][_class]);
 	                                for(let i = 0; i < answers[L].length; ++i)
 	                                        cab[corp][D][L][answers[L][i]] = 1;
 	                                --HrsToFill;
