@@ -13,11 +13,11 @@
 /*
  	Ncab - количество кабинетов
   	Ncorp - корпусов
-   	ND - учебных дней
     	NL[i] - уроков в день i
      	NP[i] - классов в параллели i
+        Учебных дней - 6
 */
-let Ncab = 9999, Ncorp, ND = 6, NL = [], NP = [];
+let Ncab = 9999, Ncorp, NL = [], NP = [];
 function fake_click() {
         let Ncorp_input = document.getElementById("Ncorp_input");
         Ncorp = Number(Ncorp_input.value);
@@ -175,7 +175,7 @@ function BuildTable1(s) {
         let schedule = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
                 let _week = [];
-                for (let D = 0; D < ND; ++D) {
+                for (let D = 0; D < 6; ++D) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
                                 let _lesson = [];
@@ -195,7 +195,7 @@ function BuildTable1(s) {
         let cab = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
                 let _week = [];
-                for (let D = 0; D < ND; ++D) {
+                for (let D = 0; D < 6; ++D) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
 				// fill заполняет одним и тем же, если заполнять пустым массивом,
@@ -225,8 +225,11 @@ function BuildTable1(s) {
                 console.log("max:", max);
                 //let skip = SplitToInt(table[i][5]," \t");
                 //console.log("skip:", skip);
-                //let DayList = ParseInterval(table[i][6]);
-                //console.log("DayList:", DayList);
+                let DayList = ParseInterval(table[i][6]);
+                console.log("DayList:", DayList);
+		let DayMask = Array(6).fill(false);
+		for(let i = 0; i < DayList.length; ++i)
+			DayMask[DayList[i]-1] = true;
                 let cab_temp = MySplit(table[i][7], "/\\");
                 console.log("cab_temp:", cab_temp);
                 let CabList = [];
@@ -240,10 +243,9 @@ function BuildTable1(s) {
      			D - day
      			H - hours
      			P - parallel
-			ND - number of days
 			NL - number of lessons
   		*/
-                for (let D = 0; D < ND && H > 0; ++D) {
+                for (let D = 0; D < 6 && H > 0; ++D) {
                         let FreeCnt = 0;
 			let answers = [];
                         for (let L = 0; L < NL[D]; ++L) {
@@ -252,7 +254,7 @@ function BuildTable1(s) {
                                 BruteCab = ArrClone(cab[corp][D][L]);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
-                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0) {
+                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0 && DayMask[D]) {
 					answers.push(BruteAns);
 					FreeCnt += 1;
 				} else {
@@ -279,7 +281,7 @@ function BuildTable1(s) {
                 console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
 		while(true) {
 			let Filled = 0;
-	                for (let D = 0; D < ND && H > 0; ++D) {
+	                for (let D = 0; D < 6 && H > 0; ++D) {
 	                        let FreeCnt = 0;
 				let answers = [];
 				let Equal = 0;
@@ -291,7 +293,7 @@ function BuildTable1(s) {
 	                                BruteCab = ArrClone(cab[corp][D][L]);
 					Brute(CabList, 0);
 					console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
-	                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0) {
+	                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0 && DayMask[D]) {
 						answers.push(BruteAns);
 						FreeCnt += 1;
 					} else {
@@ -329,7 +331,7 @@ function BuildTable1(s) {
         for (let corp = 0; corp < Ncorp; ++corp) {
                 PushTranslit("Rjhgec ", s); //"Корпус "
                 PushStr((corp+1).toString()+"\n", s);
-                for (let D = 0; D < ND; ++D) {
+                for (let D = 0; D < 6; ++D) {
                         PushTranslit(weekday[D], s);
                         for (let P = 0; P < 11; ++P)
                                 for (let i = 0; i < NP[corp][P]; ++i)
