@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<meta charset = "UTF-8">
+		<meta charset="UTF-8">
 		<!-- <meta charset="windows-1251"> -->
-		<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
-		<link rel = "stylesheet" type = "text/css" href = "/style.css">
-		<link rel = "icon" type = "image/png" sizes = "192x192" href = "/icons/dove32w2.ico">
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0">
+		<link rel="stylesheet" type="text/css" href="/style.css">
+		<link rel="icon" type="image/png" sizes="192x192" href="/icons/dove32w2.ico">
 		<title>Тестовая</title>
 		<style>
 			li {
@@ -14,17 +14,16 @@
 				line-height: 1.5;
 			}
 			label.Indigo {
-				background:#eeffff;
-				color:black;
-				padding:14px 16px;
-				border-radius:10px;
-				margin-bottom:5px;
+				background: #eeffff;
+				color: black;
+				padding: 14px 16px;
+				border-radius: 10px;
+				margin-bottom: 5px;
 				border: 1px solid gray;
-				
 				cursor: pointer;
 			}
 			label.Indigo:hover {
-				background:#bbffff;
+				background: #bbffff;
 			}
 			/*.tablo a, input{
 				display:flex;
@@ -38,61 +37,43 @@
 		</style>
 	</head>
 	<body>
-		<script type = "text/javascript" src = "/jquery-3.7.1.min.js"></script>
-		<div class = "main">
+		<script type="text/javascript" src="/jquery-3.7.1.min.js"></script>
+		<div class="main">
 			<h3>Составление расписания - тестовая страница</h3>
-			<ol>
-				<li>
-					Укажите количество корпусов.
-                                        <br>
-					<label for = "Ncorp_input">Корпусов:</label>
-					<input id = "Ncorp_input" maxlength = "1" size = "1" value="3">
-					<br>
-					Укажите количество уроков в данные дни недели.
-					<br>
-					<label for = "Nlessons_input1">Понедельник:</label>
-					<input id = "Nlessons_input1" maxlength = "1" size = "1" value="6">
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<label for = "Nlessons_input2">Вторник:</label>
-					<input id = "Nlessons_input2" maxlength = "1" size = "1" value="6">
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<label for = "Nlessons_input3">Среда:</label>
-					<input id = "Nlessons_input3" maxlength = "1" size = "1" value="6">
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<label for = "Nlessons_input4">Четверг:</label>
-					<input id = "Nlessons_input4" maxlength = "1" size = "1" value="6">
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<label for = "Nlessons_input5">Пятница:</label>
-					<input id = "Nlessons_input5" maxlength = "1" size = "1" value="6">
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<label for = "Nlessons_input6">Суббота:</label>
-					<input id = "Nlessons_input6" maxlength = "1" size = "1" value="6">
-				</li>
-				<li>
-					<!-- actual upload which is hidden -->
-					<input type="file" id="parallel_input" hidden/>
-					<!-- our custom upload button -->
-					<label class = "Indigo" for="parallel_input">Таблица параллелей</label>
-					<!-- name of file chosen -->
-					<span id="parallel_input_chosen">Таблица не выбрана</span>
-					(<a href = "parallel.csv">Скачать шаблон</a>)
-					(<a href = "parallelinfo.html">Справка</a>)
-				</li>
-				<li>
-					<!-- actual upload which is hidden -->
-					<input type="file" id="hours_table_input" hidden/>
-					<!-- our custom upload button -->
-					<label class = "Indigo" for="hours_table_input">Таблица часов</label>
-					<!-- name of file chosen -->
-					<span id="hours_table_input_chosen">Таблица не выбрана</span>
-					(<a href = "schedule.csv">Скачать шаблон</a>)
-					(<a href = "hoursinfo.html">Справка</a>)
-				</li>
-				<li>
-					 <a href = "javascript:fake_click();">Составить расписание</a>
-				</li>
-			</ol>
+			<label for="Ncorp_input">Корпусов:</label>
+			<input id="Ncorp_input" maxlength="1" size="1" value="3">
+			<br>
+			Количество уроков по дням недели
+			<br>
+			<label for="Nlessons_input1">Понедельник:</label>
+			<input id="Nlessons_input1" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
+			<label for="Nlessons_input2">Вторник:</label>
+			<input id="Nlessons_input2" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
+			<label for="Nlessons_input3">Среда:</label>
+			<input id="Nlessons_input3" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
+			<label for="Nlessons_input4">Четверг:</label>
+			<input id="Nlessons_input4" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
+			<label for="Nlessons_input5">Пятница:</label>
+			<input id="Nlessons_input5" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
+			<label for="Nlessons_input6">Суббота:</label>
+			<input id="Nlessons_input6" maxlength="1" size="1" value="6">
+			<br>
+			<!-- actual upload which is hidden -->
+			<input type="file" id="parallel_input" hidden />
+			<!-- our custom upload button -->
+			<label class="Indigo" for="parallel_input">Таблица параллелей</label>
+			<!-- name of file chosen -->
+			<span id="parallel_input_chosen">Таблица не выбрана</span> ( <a href="parallel.csv">Скачать шаблон</a>) ( <a href="parallelinfo.html">Справка</a>)
+			<br>
+			<!-- actual upload which is hidden -->
+			<input type="file" id="hours_table_input" hidden />
+			<!-- our custom upload button -->
+			<label class="Indigo" for="hours_table_input">Таблица часов</label>
+			<!-- name of file chosen -->
+			<span id="hours_table_input_chosen">Таблица не выбрана</span> ( <a href="schedule.csv">Скачать шаблон</a>) ( <a href="hoursinfo.html">Справка</a>)
+			<br>
+			<a href="javascript:fake_click();">Составить расписание</a>
 		</div>
-		<script type = "text/javascript" src = "script1.js"></script>
+		<script type="text/javascript" src="script1.js"></script>
 	</body>
 </html>
