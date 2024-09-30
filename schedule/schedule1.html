@@ -59,27 +59,31 @@
 					<label for = "Nlessons_input6">Суббота:</label>
 					<input id = "Nlessons_input6" maxlength = "1" size = "1" value="6">
 				</li>
+				<div class="tablo">
 				<li>
 					<!-- actual upload which is hidden -->
 					<input type="file" id="parallel_input" hidden/>
 					<!-- our custom upload button -->
-					<label class = "Indigo" for="parallel_input">Таблица параллелей</label>
+					<label for="parallel_input">Таблица параллелей</label>
 					<!-- name of file chosen -->
 					<span id="parallel_input_chosen">Таблица не выбрана</span>
 					(<a href = "parallel.csv">Скачать шаблон</a>)
+					(<a href = "parallelinfo.html">Справка</a>)
 				</li>
 				<li>
 					<!-- actual upload which is hidden -->
 					<input type="file" id="hours_table_input" hidden/>
 					<!-- our custom upload button -->
-					<label class = "Indigo" for="hours_table_input">Таблица часов</label>
+					<label for="hours_table_input">Таблица часов</label>
 					<!-- name of file chosen -->
 					<span id="hours_table_input_chosen">Таблица не выбрана</span>
 					(<a href = "schedule.csv">Скачать шаблон</a>)
+					(<a href = "hoursinfo.html">Справка</a>)
 				</li>
 				<li>
-					 <div class="tablo"><a class = "tablo" href = "javascript:fake_click();">Составить расписание</a></div>
+					 <a class = "tablo" href = "javascript:fake_click();">Составить расписание</a>
 				</li>
+				</div>
 			</ol>
 		</div>
 		<script type = "text/javascript" src = "script1.js"></script>
