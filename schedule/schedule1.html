@@ -14,14 +14,27 @@
 				line-height: 1.5;
 			}
 			label.Indigo {
-				background-color: indigo;
-				color: white;
-				padding: 0.5rem;
-				font-family: sans-serif;
-				border-radius: 0.3rem;
+				background:#eeffff;
+				color:black;
+				padding:14px 16px;
+				border-radius:10px;
+				margin-bottom:5px;
+				border: 1px solid gray;
+				
 				cursor: pointer;
-				margin-top: 1rem;
 			}
+			label.Indigo:hover {
+				background:#bbffff;
+			}
+			/*.tablo a, input{
+				display:flex;
+				justify-content: center;
+				text-decoration:none;
+				-moz-border-radius:10px;
+				-webkit-border-radius:10px;
+				-o-border-radius:10px;
+				-ms-border-radius:10px;
+			}*/
 		</style>
 	</head>
 	<body>
@@ -55,12 +68,11 @@
 					<label for = "Nlessons_input6">Суббота:</label>
 					<input id = "Nlessons_input6" maxlength = "1" size = "1" value="6">
 				</li>
-				<div class="tablo">
 				<li>
 					<!-- actual upload which is hidden -->
 					<input type="file" id="parallel_input" hidden/>
 					<!-- our custom upload button -->
-					<label for="parallel_input">Таблица параллелей</label>
+					<label class = "Indigo" for="parallel_input">Таблица параллелей</label>
 					<!-- name of file chosen -->
 					<span id="parallel_input_chosen">Таблица не выбрана</span>
 					(<a href = "parallel.csv">Скачать шаблон</a>)
@@ -70,7 +82,7 @@
 					<!-- actual upload which is hidden -->
 					<input type="file" id="hours_table_input" hidden/>
 					<!-- our custom upload button -->
-					<label for="hours_table_input">Таблица часов</label>
+					<label class = "Indigo" for="hours_table_input">Таблица часов</label>
 					<!-- name of file chosen -->
 					<span id="hours_table_input_chosen">Таблица не выбрана</span>
 					(<a href = "schedule.csv">Скачать шаблон</a>)
@@ -79,7 +91,6 @@
 				<li>
 					 <a class = "tablo" href = "javascript:fake_click();">Составить расписание</a>
 				</li>
-				</div>
 			</ol>
 		</div>
 		<script type = "text/javascript" src = "script1.js"></script>
