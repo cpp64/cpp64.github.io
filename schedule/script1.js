@@ -9,7 +9,14 @@
 	заполнит в первый день сразу 6 и на 2 день не останется, чтобы заполнить 3.
 
   	Раскидывать так: сначала накидать по минимуму. Потом накинуть туда, где уже есть.
-*
+*/
+
+const actualBtn = document.getElementById('actual-btn');
+const fileChosen = document.getElementById('file-chosen');
+actualBtn.addEventListener('change', function() {
+	fileChosen.textContent = this.files[0].name
+});
+
 /*
  	Ncab - количество кабинетов
   	Ncorp - корпусов
