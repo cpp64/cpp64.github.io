@@ -17,7 +17,7 @@ PBtn.addEventListener('change', function() {
 	PChosen.textContent = this.files[0].name;
 });
 
-const HBtn = document.getElementById('parallel_input');
+const HBtn = document.getElementById('hours_table_input');
 const HChosen = document.getElementById('hours_table_input_chosen');
 HBtn.addEventListener('change', function() {
 	HChosen.textContent = this.files[0].name;
