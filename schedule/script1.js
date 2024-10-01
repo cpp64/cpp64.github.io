@@ -14,13 +14,13 @@
 const PBtn = document.getElementById('parallel_input');
 const PChosen = document.getElementById('parallel_input_chosen');
 PBtn.addEventListener('change', function() {
-	fileChosen.textContent = this.files[0].name
+	PChosen.textContent = this.files[0].name;
 });
 
 const HBtn = document.getElementById('parallel_input');
 const HChosen = document.getElementById('hours_table_input_chosen');
 HBtn.addEventListener('change', function() {
-	fileChosen.textContent = this.files[0].name
+	HChosen.textContent = this.files[0].name;
 });
 
 /*
