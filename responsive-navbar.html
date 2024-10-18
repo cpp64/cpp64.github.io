@@ -4,31 +4,35 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/style.css">
+        <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
         <link rel="icon" type="image/png" sizes="192x192" href="/icons/dove32w2.ico">
         <title>Информатика</title>
         <style>
-                .navigation  .icon {
-                        display: none;
+                .navigation {
+                        background-color: #888888;
+                        display:flex;
+                        align-items:strech;
+                }
+                .navigation a {
+                        color:#ffffff;
+                        text-decoration:none;
+                        line-height:40px; /* тяп-ляп */
+                        padding-right:10px;
+                        padding-left:10px;
+                }
+                .navigation a:hover {
+                        background-color:#eeeeee;
+                        color:#000000;
                 }
                 @media screen and (max-width: 600px) {
                         .navigation  a:not(: first-child) {
                                 display: none;
-                        }
-                        .navigation  a.icon {
-                                float: right;
-                                display: block;
                         }
                 }
                 @media screen and (max-width: 600px) {
                         .navigation .responsive {
                                 position: relative;
                                 display: block;
-                        }
-                        .navigation .responsive .icon {
-                                position: absolute;
-                                right: 0;
-                                top: 0;
                         }
                         .navigation .responsive a {
                                 float: none;
@@ -40,16 +44,12 @@
 </head>
 
 <body>
-        <div class="navigation " id="mynavigation ">
+        <div class = "navigation " id="mynavigation ">
                 <a href="#home" class="active">Home</a>
                 <a href="#news">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
-        </div>
-        <div style="padding-left:16px">
-                <h2>Responsive navigation  Example</h2>
-                <p>Resize the browser window to see how it works.</p>
         </div>
         <script>
                 function myFunction() {
