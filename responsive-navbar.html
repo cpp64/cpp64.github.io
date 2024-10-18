@@ -25,16 +25,16 @@
                         color:#000000;
                 }
                 @media screen and (max-width: 600px) {
-                        .navigation  a:not(: first-child) {
+                        .navigation a:not(: first-child) {
                                 display: none;
                         }
                 }
                 @media screen and (max-width: 600px) {
-                        .navigation .responsive {
+                        .navigation.responsive {
                                 position: relative;
                                 display: block;
                         }
-                        .navigation .responsive a {
+                        .navigation.responsive a {
                                 float: none;
                                 display: block;
                                 text-align: left;
@@ -59,8 +59,8 @@
         </div>
         <script>
                 function myFunction() {
-                        var x = document.getElementById("mynavigation ");
-                        if (x.className === "navigation ") {
+                        var x = document.getElementById("mynavigation");
+                        if (x.className === "navigation") {
                                 x.className += " responsive";
                         } else {
                                 x.className = "navigation ";
