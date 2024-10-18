@@ -11,11 +11,6 @@
                 .navigation  .icon {
                         display: none;
                 }
-                        .navigation .responsive a {
-                                float: none;
-                                display: block;
-                                text-align: left;
-                        }
                 @media screen and (max-width: 600px) {
                         .navigation  a:not(: first-child) {
                                 display: none;
@@ -28,6 +23,7 @@
                 @media screen and (max-width: 600px) {
                         .navigation .responsive {
                                 position: relative;
+                                display: block;
                         }
                         .navigation .responsive .icon {
                                 position: absolute;
@@ -49,9 +45,7 @@
                 <a href="#news">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i>
-                </a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
         </div>
         <div style="padding-left:16px">
                 <h2>Responsive navigation  Example</h2>
