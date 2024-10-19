@@ -19,7 +19,7 @@ body {
         display:inline-flex;
         flex-direction: column;
 }
-.tablo a{
+.tablo a {
         background:#eeffff;
         color:black;
         border: 1px solid gray;
