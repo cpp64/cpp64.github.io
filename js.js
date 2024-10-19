@@ -24,13 +24,18 @@ document.head.insertBefore(link_icon, document.head.firstChild);
 
 /// BODY
 
+// NAVIGATION
 var div_navigation = document.createElement('div');
 div_navigation.id = "navigation";
 div_navigation.class = "navigation";
+var _menu = document.createElement('href');
+_menu.class = "T2";
+_menu.href = "javascript:void(0);"
+_menu.onclick = "myFunction()"
+_menu.appendChild(document.createTextNode("Меню"));
+div_navigation.appendChild(_menu);
+
 document.body.insertBefore(div_navigation, document.body.firstChild);
-$(function () {
-        $("#navigation").load("/navigation.html");
-});
 
 function myFunction() {
         var x = document.getElementById("navigation");
