@@ -43,6 +43,21 @@ _img.style = "vertical-align: middle; margin-right: 5px;";
 _index.appendChild(_img);
 _index.appendChild(document.createTextNode("Информатика"));
 div_navigation.appendChild(_index);
+var _7kl = document.createElement('href');
+_7kl.class = "T1";
+_7kl.href = "/7kl/7kl.html";
+_7kl.appendChild(document.createTextNode("7 класс"));
+div_navigation.appendChild(_7kl);
+var _8kl = document.createElement('href');
+_8kl.class = "T1";
+_8kl.href = "/8kl/8kl.html";
+_8kl.appendChild(document.createTextNode("8 класс"));
+div_navigation.appendChild(_8kl);
+var _9kl = document.createElement('href');
+_9kl.class = "T1";
+_9kl.href = "/9kl/9kl.html";
+_9kl.appendChild(document.createTextNode("9 класс"));
+div_navigation.appendChild(_9kl);
 
 document.body.insertBefore(div_navigation, document.body.firstChild);
 
