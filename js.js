@@ -24,10 +24,6 @@ document.head.insertBefore(link_icon, document.head.firstChild);
 
 /// BODY
 
-var script = document.createElement("script");
-script.src = "/jquery-3.7.1.min.js";
-document.body.insertBefore(script, document.body.firstChild);
-
 var div_navigation = document.createElement('div');
 div_navigation.id = "navigation";
 div_navigation.class = "navigation";
