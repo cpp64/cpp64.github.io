@@ -25,39 +25,47 @@ document.head.insertBefore(link_icon, document.head.firstChild);
 /// BODY
 
 // NAVIGATION
+
 var div_navigation = document.createElement('div');
 div_navigation.id = "navigation";
 div_navigation.className  = "navigation";
+
 var _menu = document.createElement('a');
 _menu.className  = "T2";
 _menu.href = "javascript:void(0);"
 _menu.onclick = "myFunction()"
 _menu.appendChild(document.createTextNode("Меню"));
 div_navigation.appendChild(_menu);
+
 var _index = document.createElement('a');
 _index.className  = "T1";
 _index.href = "/index.html";
+
 var _img = document.createElement('img');
 _img.src = "/icons/dove32w2.ico";
 _img.style = "vertical-align: middle; margin-right: 5px;";
 _index.appendChild(_img);
 _index.appendChild(document.createTextNode("Информатика"));
 div_navigation.appendChild(_index);
+
 var _7kl = document.createElement('a');
 _7kl.className  = "T1";
 _7kl.href = "/7kl/7kl.html";
 _7kl.appendChild(document.createTextNode("7 класс"));
 div_navigation.appendChild(_7kl);
+
 var _8kl = document.createElement('a');
 _8kl.className  = "T1";
 _8kl.href = "/8kl/8kl.html";
 _8kl.appendChild(document.createTextNode("8 класс"));
 div_navigation.appendChild(_8kl);
+
 var _9kl = document.createElement('a');
 _9kl.className  = "T1";
 _9kl.href = "/9kl/9kl.html";
 _9kl.appendChild(document.createTextNode("9 класс"));
 div_navigation.appendChild(_9kl);
+
 var _sgu = document.createElement('a');
 _sgu.className  = "T1";
 _sgu.href = "/sgu/sgu.html";
