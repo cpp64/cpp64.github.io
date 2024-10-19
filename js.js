@@ -58,6 +58,11 @@ _9kl.class = "T1";
 _9kl.href = "/9kl/9kl.html";
 _9kl.appendChild(document.createTextNode("9 класс"));
 div_navigation.appendChild(_9kl);
+var _sgu = document.createElement('href');
+_sgu.class = "T1";
+_sgu.href = "/sgu/sgu.html";
+_sgu.appendChild(document.createTextNode("Студенты"));
+div_navigation.appendChild(_sgu);
 
 document.body.insertBefore(div_navigation, document.body.firstChild);
 
