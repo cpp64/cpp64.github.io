@@ -10,7 +10,7 @@ $(function () {
         $("#navigation").load("/navigation.html");
 });
 /jquery-3.7.1.min.js
-<div ></div>
+
 
 var meta_charset = document.createElement('meta');
 meta_charset.charset = "UTF-8";
