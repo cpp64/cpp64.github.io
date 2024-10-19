@@ -6,9 +6,11 @@
                 <title>Информатика</title>
         </head>
         <body>
-                var script = document.createElement("script");
-                script.src = "/js.js";
-                document.body.insertBefore(script, container.document.body);
+                <script id = "script">
+                        var script = document.createElement("script");
+                        script.src = "/js.js";
+                        document.body.getElementById("script").insertBefore(script, document.body.getElementById("script").nextSibling);
+                </script>
                 <div class="main">
                         <div class="tablo">
                                 <p><a href = "/cpp/editor.html">Онлайн-редактор</a></p>
