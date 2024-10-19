@@ -1,10 +1,8 @@
-var script = document.createElement("script");
-script.src = "/jquery-3.7.1.min.js";
-document.body.append(script);
+/// HEAD
 
 var meta_charset = document.createElement('meta');
 meta_charset.charset = "UTF-8";
-document.head.insertBefore(meta_charset, document.body.firstChild);
+document.head.insertBefore(meta_charset, document.head.firstChild);
 
 var meta_viewport = document.createElement('meta');
 meta_viewport.name = "viewport";
@@ -23,6 +21,12 @@ link_icon.type = "image/png";
 link_icon.sizes = "192x192";
 link_icon.href = "/icons/dove32w2.ico";
 document.head.insertBefore(link_icon, document.body.firstChild);
+
+/// BODY
+
+var script = document.createElement("script");
+script.src = "/jquery-3.7.1.min.js";
+document.body.append(script);
 
 var div_navigation = document.createElement('div');
 div_navigation.id = "navigation";
