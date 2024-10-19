@@ -6,7 +6,7 @@ document.head.insertBefore(meta_charset, document.head.firstChild);
 
 var meta_viewport = document.createElement('meta');
 meta_viewport.name = "viewport";
-meta_viewport.content = "width=device-width, initial-scale=1.0";
+meta_viewport.content = "width = device-width, initial-scale = 1.0";
 document.head.insertBefore(meta_viewport, document.body.firstChild);
 
 var link_style = document.createElement('link');
