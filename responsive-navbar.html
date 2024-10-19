@@ -42,12 +42,13 @@
 </head>
 
 <body>
-        <div class = "navigation" id="mynavigation">
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">Меню</a>
-                <a class = "T1"  href="#news">News</a>
-                <a class = "T1"  href="#contact">Contact</a>
-                <a class = "T1"  href="#about">About</a>
-        </div>
+        <div id="navigation" id="mynavigation"></div>
+        <script type="text/javascript" src="/jquery-3.7.1.min.js"></script>
+        <script>
+                $(function () {
+                        $("#navigation").load("/navigation.html");
+                });
+        </script>
         <script>
                 function myFunction() {
                         var x = document.getElementById("mynavigation");
