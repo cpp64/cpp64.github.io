@@ -32,7 +32,7 @@ div_navigation.className  = "navigation";
 
 var _menu = document.createElement('a');
 _menu.className  = "T2";
-_menu.href = "javascript:void(0);"
+_menu.href = "javascript:void(0);";
 _menu.onclick = "myFunction()";
 _menu.appendChild(document.createTextNode("Меню"));
 
