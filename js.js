@@ -34,6 +34,15 @@ _menu.href = "javascript:void(0);"
 _menu.onclick = "myFunction()"
 _menu.appendChild(document.createTextNode("Меню"));
 div_navigation.appendChild(_menu);
+var _index = document.createElement('href');
+_index.class = "T1";
+_index.href = "/index.html";
+var _img = document.createElement('img');
+_img.src = "/icons/dove32w2.ico";
+_img.style = "vertical-align: middle; margin-right: 5px;";
+_index.appendChild(_img);
+_index.appendChild(document.createTextNode("Информатика"));
+div_navigation.appendChild(_index);
 
 document.body.insertBefore(div_navigation, document.body.firstChild);
 
