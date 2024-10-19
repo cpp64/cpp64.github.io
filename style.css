@@ -1,57 +1,57 @@
 body {
-        background-color:#fffff5;
-        margin:0;
-        padding:0;
+        background-color: #fffff5;
+        margin: 0;
+        padding: 0;
 }
 .main {
-        padding:10px;
+        padding: 10px;
 }
 .footer {
-        position:absolute;
-        left:0;
-        bottom:0;
-        width:100%;
-        text-align:left;
-        color:#000000;
-        font-size:15px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: left;
+        color: #000000;
+        font-size: 15px;
 }
 .tablo {
-        display:inline-flex;
+        display: inline-flex;
         flex-direction: column;
 }
 .tablo a {
-        background:#eeffff;
-        color:black;
+        background: #eeffff;
+        color: black;
         border: 1px solid gray;
-        padding:14px 16px;
-        margin-bottom:5px;
-        display:flex;
+        padding: 14px 16px;
+        margin-bottom: 5px;
+        display: flex;
         justify-content: center;
-        text-decoration:none;
-        border-radius:10px;
-        -moz-border-radius:10px;
-        -webkit-border-radius:10px;
-        -o-border-radius:10px;
-        -ms-border-radius:10px;
+        text-decoration: none;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -o-border-radius: 10px;
+        -ms-border-radius: 10px;
 }
 .tablo a:hover {
-        background:#bbffff;
+        background: #bbffff;
 }
 .navigation {
         background-color: #888888;
-        display:flex;
-        align-items:strech;
+        display: flex;
+        align-items: strech;
 }
 .navigation a {
-        color:#ffffff;
-        text-decoration:none;
-        line-height:40px; /* тяп-ляп */
-        padding-right:10px;
-        padding-left:10px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 40px; /* тяп-ляп */
+        padding-right: 10px;
+        padding-left: 10px;
 }
 .navigation a:hover {
-        background-color:#eeeeee;
-        color:#000000;
+        background-color: #eeeeee;
+        color: #000000;
 }
 .navigation a.T2 {
         display: none;
