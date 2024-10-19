@@ -53,3 +53,26 @@ body {
         background-color:#eeeeee;
         color:#000000;
 }
+.navigation a.T2 {
+        display: none;
+}
+@media screen and (max-width: 600px) {
+        .navigation a.T1 {
+                display: none;
+        }
+        .navigation a.T2 {
+                display: block;
+        }
+        .navigation.responsive a.T2 {
+                display: block;
+        }
+        .navigation.responsive {
+                position: relative;
+                display: block;
+        }
+        .navigation.responsive a {
+                display: block;
+                float: none;
+                text-align: left;
+        }
+}
