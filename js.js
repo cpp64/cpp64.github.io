@@ -6,3 +6,6 @@ function myFunction() {
                 x.className = "navigation";
         }
 }
+$(function () {
+        $("#navigation").load("/navigation.html");
+});
