@@ -10,13 +10,9 @@
                 <title>Информатика</title>
         </head>
         <body>
-                <div id="navigation"></div>
-                <script type="text/javascript" src="/jquery-3.7.1.min.js"></script>
-                <script>
-                        $(function () {
-                                $("#navigation").load("/navigation.html");
-                        });
-                </script>
+                var script = document.createElement("script");
+                script.src = "/js.js";
+                document.body.insertBefore(script, container.document.body);
                 <div class="main">
                         <div class="tablo">
                                 <p><a href = "/cpp/editor.html">Онлайн-редактор</a></p>
