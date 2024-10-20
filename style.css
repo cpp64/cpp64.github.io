@@ -64,9 +64,15 @@ body {
                 display: block;
                 /*****/
                 float: none;
-                text-align: left;
+                text-align: center;
                 /*****/
         }
+        /*****/
+        .navigation {
+                position: relative;
+                display: block;
+        }
+        /*****/
         .navigation.responsive {
                 position: relative;
                 display: block;
@@ -74,7 +80,7 @@ body {
         .navigation.responsive a {
                 display: block;
                 float: none;
-                text-align: left;
+                text-align: center;
         }
         /*.navigation.responsive a.T2 {
                 display: block;
