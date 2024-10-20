@@ -19,20 +19,20 @@ body {
         display: inline-flex;
         flex-direction: column;
 }
-.tablo a {                          margin: auto;
+.tablo a {                          margin: auto; text-align: center; align-self: center;
+        display: flex;
         background: #eeffff;
         color: black;
         border: 1px solid gray;
         padding: 14px 16px;
         margin-bottom: 5px;
-        display: flex;
         justify-content: center;
         text-decoration: none;
         border-radius: 10px;
-        -moz-border-radius: 10px;
+        /*-moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         -o-border-radius: 10px;
-        -ms-border-radius: 10px;
+        -ms-border-radius: 10px;*/
 }
 .tablo a:hover {
         background: #bbffff;
