@@ -62,16 +62,14 @@ body {
         }
         .navigation a.T2 {
                 display: block;
-                /**float: none;
-                text-align: center;**/
+                text-align: center;
         }
         .navigation, .navigation.responsive {
-                /**position: relative;**/
                 display: block;
         }
         .navigation.responsive a {
                 display: block;
-                float: none;
                 text-align: center;
+                /***float: none;***/
         }
 }
