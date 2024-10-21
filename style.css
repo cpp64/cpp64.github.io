@@ -47,7 +47,7 @@ body {
         .navigation a.T1 {
                 display: none;
         }
-        .navigation, .navigation.responsive, .navigation.responsive, .navigation a.T2 {
+        .navigation, .navigation.responsive, .navigation a.T2, .navigation.responsive a.T1 {
                 display: block;
         }
         .navigation.responsive a, .navigation a.T2 {
