@@ -47,15 +47,10 @@ body {
         .navigation a.T1 {
                 display: none;
         }
-        .navigation a.T2 {
-                display: block;
-                text-align: center;
-        }
-        .navigation, .navigation.responsive {
+        .navigation, .navigation.responsive, .navigation.responsive, .navigation a.T2 {
                 display: block;
         }
-        .navigation.responsive a {
-                display: block;
+        .navigation.responsive a, .navigation a.T2 {
                 text-align: center;
         }
 }
