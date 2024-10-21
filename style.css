@@ -9,11 +9,6 @@ body {
 .tablo {
         display: inline-flex;
         flex-direction: column;
-
-
-
-        left: 50%;
-        transform: translate(-50%, -50%);
 }
 .tablo a {
         display: flex;
