@@ -5,13 +5,21 @@ body {
 }
 .main {
         padding: 10px;
+
+
+        text-align: center;
 }
 .tablo {
-        display: inline-flex;
-        flex-direction: column;
+        /*display: inline-flex;
+        flex-direction: column;*/
+
+        margin: auto;
+        width: fit-content;
+        text-align: center;
 }
 .tablo a {
-        display: flex;
+        /*display: flex;*/
+        display: block;
         background: #eeffff;
         color: black;
         border: 1px solid gray;
