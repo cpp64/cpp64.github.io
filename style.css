@@ -5,8 +5,9 @@ body {
 }
 .main {
         padding: 10px;
-
-
+}
+.main_tablo {
+        padding: 10px;
         text-align: center;
 }
 .tablo {
