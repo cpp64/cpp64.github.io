@@ -5,21 +5,20 @@ body {
 }
 .main {
         padding: 10px;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
 }
 .main_tablo {
         padding: 10px;
         text-align: center;
 }
 .tablo {
-        /*display: inline-flex;
-        flex-direction: column;*/
-
         margin: auto;
         width: fit-content;
         text-align: center;
 }
 .tablo a {
-        /*display: flex;*/
         display: block;
         background: #eeffff;
         color: black;
@@ -42,7 +41,7 @@ body {
 .navigation a {
         color: #ffffff;
         text-decoration: none;
-        line-height: 40px; /* тяп-ляп */
+        line-height: 40px;
         padding-right: 10px;
         padding-left: 10px;
 }
