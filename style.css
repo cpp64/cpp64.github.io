@@ -8,10 +8,11 @@ body {
         max-width: 640px;
         margin-left: auto;
         margin-right: auto;
-        /*width: fit-content;*/
-        display: inline-flex;
+        display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
+        /*justify-content: center;
+        width: fit-content;*/
 }
 .main_tablo {
         padding: 10px;
