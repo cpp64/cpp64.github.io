@@ -5,6 +5,11 @@ body {
 }
 .main {
         max-width: 640px;
+        text-align: center;
+}
+.main_inner {
+        display: inline-block;
+        text-align: left;
 }
 .main_tablo {
         padding: 10px;
