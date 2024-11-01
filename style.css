@@ -11,7 +11,7 @@ body {
         display: inline-block;
         text-align: left;
 }
-.tablo a {
+.main_inner a {
         display: block;
         background: #eeffff;
         color: black;
@@ -22,7 +22,7 @@ body {
         text-decoration: none;
         border-radius: 10px;
 }
-.tablo a:hover {
+.main_inner a:hover {
         background: #bbffff;
 }
 .navigation {
