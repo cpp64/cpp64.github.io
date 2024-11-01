@@ -4,15 +4,7 @@ body {
         padding: 0;
 }
 .main {
-        padding: 10px;
         max-width: 640px;
-        /*margin-left: auto;
-        margin-right: auto;*/
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /*justify-content: center;
-        width: fit-content;*/
 }
 .main_tablo {
         padding: 10px;
