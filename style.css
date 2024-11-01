@@ -11,15 +11,6 @@ body {
         display: inline-block;
         text-align: left;
 }
-.main_tablo {
-        padding: 10px;
-        text-align: center;
-}
-.tablo {
-        margin: auto;
-        width: fit-content;
-        text-align: center;
-}
 .tablo a {
         display: block;
         background: #eeffff;
