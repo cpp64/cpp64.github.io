@@ -13,13 +13,13 @@ body {
 }
 .main_inner a {
         display: block;
+        text-align: center;
+        text-decoration: none;
         background: #eeffff;
         color: black;
         border: 1px solid gray;
         padding: 14px 16px;
         margin-bottom: 5px;
-        justify-content: center;
-        text-decoration: none;
         border-radius: 10px;
 }
 .main_inner a:hover {
