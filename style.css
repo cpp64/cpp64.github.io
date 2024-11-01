@@ -4,10 +4,10 @@ body {
         padding: 0;
 }
 .main {
-        max-width: 640px;
         text-align: center;
 }
 .main_inner {
+        max-width: 640px;
         display: inline-block;
         text-align: left;
 }
