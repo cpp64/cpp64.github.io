@@ -1,88 +1,100 @@
 <!-- https://dev.to/faddalibrahim/how-to-create-a-custom-file-upload-button-using-html-css-and-javascript-1c03 -->
 <!DOCTYPE html>
-<html lang="ru">
-	<head>
-		<meta charset="UTF-8">
-		<!-- <meta charset="windows-1251"> -->
-		<meta name="viewport" content="width = device-width, initial-scale = 1.0">
-		<link rel="stylesheet" type="text/css" href="/style.css">
-		<link rel="icon" type="image/png" sizes="192x192" href="/icons/dove32w2.ico">
-		<title>Тестовая</title>
-		<style>
-			li {
-				margin: 10px 0;
-				line-height: 1.5;
-			}
-			label.Indigo, button.Indigo {
-				background: #eeffff;
-				color: black;
-				padding: 14px 16px;
-				border-radius: 10px;
-				border: 1px solid gray;
-				cursor: pointer;
-			}
-			label.Indigo:hover, button.Indigo:hover {
-				background: #bbffff;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="main"><div class="main_inner">
-			<h3>Составление расписания - тестовая страница</h3>
-			<div style = "display: inline-block; width: 100%;">
-				<label for="Ncorp_input">Корпусов:</label>
-				<input id="Ncorp_input" maxlength="1" size="1" value="3">
-			</div>
-			<div style = "display: inline-block; width: 100%;"></div>
-			<div style = "display: inline-block;">
-				Количество уроков по дням недели
-			</div>
-			<div style = "display: inline-block; width: 100%;"></div>
-			<div style = "display: inline-block;">
-				<label for="Nlessons_input1">Понедельник:</label>
-				<input id="Nlessons_input1" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
-				<label for="Nlessons_input2">Вторник:</label>
-				<input id="Nlessons_input2" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
-				<label for="Nlessons_input3">Среда:</label>
-				<input id="Nlessons_input3" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
-				<label for="Nlessons_input4">Четверг:</label>
-				<input id="Nlessons_input4" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
-				<label for="Nlessons_input5">Пятница:</label>
-				<input id="Nlessons_input5" maxlength="1" size="1" value="6"> &nbsp;&nbsp;&nbsp;&nbsp;
-				<label for="Nlessons_input6">Суббота:</label>
-				<input id="Nlessons_input6" maxlength="1" size="1" value="6">
-			</div>
-			<div style = "display: inline-block; width: 100%;"></div>
-			<div style = "display: inline-block;">
-				<!-- actual upload which is hidden -->
-				<input type="file" id="parallel_input" hidden />
-				<!-- our custom upload button -->
-				<label class="Indigo" for="parallel_input">Таблица параллелей</label>
-				<!-- name of file chosen -->
-				<button class="Indigo" onclick = "window.location = 'parallel.csv'";>Скачать шаблон</button>
-				<button class="Indigo" onclick = "window.location = 'parallelinfo.html'";>Справка</button>
-				<span id="parallel_input_chosen">Таблица не выбрана</span>
-			</div>
-			<div style = "display: inline-block; width: 100%;"></div>
-			<!-- div растягивается по содержимому только если в нем button, по label не растягивается -->
-			<div style = "display: inline-block;">
-			<fieldset>
-				<legend>Таблица часов</legend>
-				<!-- actual upload which is hidden -->
-				<input type="file" id="hours_table_input" hidden>
-				<!-- our custom upload button -->
-				<label class="Indigo" for="hours_table_input">Таблица часов</label>
-				<!-- name of file chosen -->
-				<button class="Indigo" onclick = "window.location = 'schedule1.csv'";>Скачать шаблон</button>
-				<button class="Indigo" onclick = "window.location = 'hoursinfo.html'";>Справка</button>
-				<span id="hours_table_input_chosen">Таблица не выбрана</span>
-			</fieldset>
-			</div>
-			<div style = "display: inline-block; width: 100%;"></div>
-			<div style = "display: inline-block;">
-				<button class="Indigo" onclick = "fake_click();">Составить расписание</button>
-			</div>
-		</div></div>
-		<script type="text/javascript" src="script1.js"></script>
-	</body>
+<html lang = "ru">
+
+<head>
+        <meta charset = "UTF-8">
+        <!-- <meta charset = "windows-1251"> -->
+        <meta name = "viewport" content = "width  =  device-width, initial-scale  =  1.0">
+        <link rel = "stylesheet" type = "text/css" href = "/style.css">
+        <link rel = "icon" type = "image/png" sizes = "192x192" href = "/icons/dove32w2.ico">
+        <title>Тестовая</title>
+        <style>
+                li {
+                        margin: 10px 0;
+                        line-height: 1.5;
+                }
+                
+                label.Indigo,
+                button.Indigo {
+                        background: #eeffff;
+                        color: black;
+                        padding: 14px 16px;
+                        border-radius: 10px;
+                        border: 1px solid gray;
+                        cursor: pointer;
+                }
+                
+                label.Indigo:hover,
+                button.Indigo:hover {
+                        background: #bbffff;
+                }
+        </style>
+</head>
+
+<body>
+        <div class = "main">
+                <div class = "main_inner">
+                        <h3>Составление расписания - тестовая страница</h3>
+                        <div style = "display: inline-block; width: 100%;">
+                                <label for = "Ncorp_input">Корпусов:</label>
+                                <input id = "Ncorp_input" maxlength = "1" size = "1" value = "3">
+                        </div>
+                        <div style = "display: inline-block; width: 100%;"></div>
+                        <div style = "display: inline-block;">
+                                Количество уроков по дням недели
+                        </div>
+                        <div style = "display: inline-block; width: 100%;"></div>
+                        <div style = "display: inline-block;">
+                                <label for = "Nlessons_input1">Понедельник:</label>
+                                <input id = "Nlessons_input1" maxlength = "1" size = "1" value = "6"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <label for = "Nlessons_input2">Вторник:</label>
+                                <input id = "Nlessons_input2" maxlength = "1" size = "1" value = "6"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <label for = "Nlessons_input3">Среда:</label>
+                                <input id = "Nlessons_input3" maxlength = "1" size = "1" value = "6"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <label for = "Nlessons_input4">Четверг:</label>
+                                <input id = "Nlessons_input4" maxlength = "1" size = "1" value = "6"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <label for = "Nlessons_input5">Пятница:</label>
+                                <input id = "Nlessons_input5" maxlength = "1" size = "1" value = "6"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <label for = "Nlessons_input6">Суббота:</label>
+                                <input id = "Nlessons_input6" maxlength = "1" size = "1" value = "6">
+                        </div>
+                        <div style = "display: inline-block; width: 100%;"></div>
+                        <div style = "display: inline-block;">
+                                <fieldset>
+                                        <legend>Таблица часов</legend>
+                                        <!-- actual upload which is hidden -->
+                                        <input type = "file" id = "parallel_input" hidden />
+                                        <!-- our custom upload button -->
+                                        <label class = "Indigo" for = "parallel_input">Таблица параллелей</label>
+                                        <!-- name of file chosen -->
+                                        <button class = "Indigo" onclick = "window.location  =  'parallel.csv'" ;>Скачать шаблон</button>
+                                        <button class = "Indigo" onclick = "window.location  =  'parallelinfo.html'" ;>Справка</button>
+                                        <span id = "parallel_input_chosen">Таблица не выбрана</span>
+                                </fieldset>
+                        </div>
+                        <div style = "display: inline-block; width: 100%;"></div>
+                        <!-- div растягивается по содержимому только если в нем button, по label не растягивается -->
+                        <div style = "display: inline-block;">
+                                <fieldset>
+                                        <legend>Таблица часов</legend>
+                                        <!-- actual upload which is hidden -->
+                                        <input type = "file" id = "hours_table_input" hidden>
+                                        <!-- our custom upload button -->
+                                        <label class = "Indigo" for = "hours_table_input">Таблица часов</label>
+                                        <!-- name of file chosen -->
+                                        <button class = "Indigo" onclick = "window.location  =  'schedule (1).csv'" ;>Скачать шаблон</button>
+                                        <button class = "Indigo" onclick = "window.location  =  'hoursinfo.html'" ;>Справка</button>
+                                        <span id = "hours_table_input_chosen">Таблица не выбрана</span>
+                                </fieldset>
+                        </div>
+                        <div style = "display: inline-block; width: 100%;"></div>
+                        <div style = "display: inline-block;">
+                                <button class = "Indigo" onclick = "fake_click();">Составить расписание</button>
+                        </div>
+                </div>
+        </div>
+        <script type = "text/javascript" src = "script1.js"></script>
+</body>
+
 </html>
