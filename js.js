@@ -72,6 +72,13 @@ _9kl.appendChild(document.createTextNode("9 класс"));
 
 div_navigation.appendChild(_9kl);
 
+var _10kl = document.createElement('a');
+_10kl.className  = "T1";
+_10kl.href = "/10kl/10kl.html";
+_10kl.appendChild(document.createTextNode("10 класс"));
+
+div_navigation.appendChild(_9kl);
+
 var _sgu = document.createElement('a');
 _sgu.className  = "T1";
 _sgu.href = "/sgu/sgu.html";
