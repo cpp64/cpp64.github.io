@@ -1,10 +1,11 @@
 body {
-        background-color: #fffff9;
+        background-color: #fffffb;
         margin: 0;
         padding: 0;
 }
 .main {
         text-align: center;
+        padding: 10px;
 }
 .main_inner {
         max-width: 640px;
@@ -45,7 +46,7 @@ body {
 .navigation a.T2 {
         display: none;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
         .navigation a.T1 {
                 display: none;
         }
