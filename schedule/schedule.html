@@ -4,8 +4,8 @@
 
 <head>
         <meta charset = "UTF-8">
-        <!-- <meta charset  =  "windows-1251"> -->
-        <meta name = "viewport" content = "width  =  device-width, initial-scale  =  1.0">
+        <!-- <meta charset = "windows-1251"> -->
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <link rel = "stylesheet" type = "text/css" href = "/style.css">
         <link rel = "icon" type = "image/png" sizes = "192x192" href = "/icons/dove32w2.ico">
         <title>Расписание</title>
@@ -29,6 +29,10 @@
                 button.Indigo:hover {
                         background: #bbffff;
                 }
+
+                .line {
+                        margin: 20px;
+                }
         </style>
 </head>
 
@@ -36,14 +40,14 @@
         <div class = "main">
                 <div class = "main_inner">
                         <h3>Составление расписания</h3>
-                        <div>
+                        <div class = "line">
                                 <label for = "Ncorp_input">Корпусов:</label>
                                 <input id = "Ncorp_input" maxlength = "1" size = "1" value = "3">
                         </div>
                         <div style = "display: inline-block;">
                                 Количество уроков по дням недели
                         </div>
-                        <div>
+                        <div class = "line">
                                 <label for = "Nlessons_input1">Понедельник:</label>
                                 <input id = "Nlessons_input1" maxlength = "1" size = "1" value = "6"> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <label for = "Nlessons_input2">Вторник:</label>
@@ -57,29 +61,29 @@
                                 <label for = "Nlessons_input6">Суббота:</label>
                                 <input id = "Nlessons_input6" maxlength = "1" size = "1" value = "6">
                         </div>
-                        <fieldset>
+                        <fieldset class = "line">
                                 <legend>Таблица часов</legend>
                                 <!-- actual upload which is hidden -->
                                 <input type = "file" id = "parallel_input" hidden>
                                 <!-- our custom upload button -->
                                 <label class = "Indigo" for = "parallel_input">Выбрать</label>
                                 <!-- name of file chosen -->
-                                <button class = "Indigo" onclick = "window.location  =  'parallel.csv'" ;>Скачать шаблон</button>
-                                <button class = "Indigo" onclick = "window.location  =  'parallelinfo.html'" ;>Справка</button>
+                                <button class = "Indigo" onclick = "window.location = 'parallel.csv'" ;>Скачать шаблон</button>
+                                <button class = "Indigo" onclick = "window.location = 'parallelinfo.html'" ;>Справка</button>
                                 <span id = "parallel_input_chosen">Таблица не выбрана</span>
                         </fieldset>
 
                         <!-- div растягивается по содержимому только если в нем button, по label не растягивается -->
 
-                        <fieldset>
+                        <fieldset class = "line">
                                 <legend>Таблица часов</legend>
                                 <!-- actual upload which is hidden -->
                                 <input type = "file" id = "hours_table_input" hidden>
                                 <!-- our custom upload button -->
                                 <label class = "Indigo" for = "hours_table_input">Выбрать</label>
                                 <!-- name of file chosen -->
-                                <button class = "Indigo" onclick = "window.location  =  'schedule.csv'" ;>Скачать шаблон</button>
-                                <button class = "Indigo" onclick = "window.location  =  'hoursinfo.html'" ;>Справка</button>
+                                <button class = "Indigo" onclick = "window.location = 'schedule.csv'" ;>Скачать шаблон</button>
+                                <button class = "Indigo" onclick = "window.location = 'hoursinfo.html'" ;>Справка</button>
                                 <span id = "hours_table_input_chosen">Таблица не выбрана</span>
                         </fieldset>
 
