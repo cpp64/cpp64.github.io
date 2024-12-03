@@ -63,7 +63,7 @@ _8kl.className  = "T1";
 _8kl.href = "/8kl/8kl.html";
 _8kl.appendChild(document.createTextNode("8 класс"));
 
-div_navigation.appendChild(_8kl);
+// div_navigation.appendChild(_8kl);
 
 var _9kl = document.createElement('a');
 _9kl.className  = "T1";
