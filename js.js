@@ -49,7 +49,7 @@ _img.style = "vertical-align: middle; margin-right: 5px;";
 _index.appendChild(_img);
 _index.appendChild(document.createTextNode("Информатика"));
 
-div_navigation.appendChild(_index);
+// div_navigation.appendChild(_index);
 
 var _7kl = document.createElement('a');
 _7kl.className  = "T1";
