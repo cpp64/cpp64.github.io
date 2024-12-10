@@ -213,6 +213,7 @@ function BuildTable1(s) {
                 let _corp = [];
                 for (let D = 0; D < 6; ++D) {
                         let _day = [];
+                        console.log("NL[", D, "]: ", NL[D]);
                         for (let L = 0; L < NL[D]; ++L) {
 				// fill заполняет одним и тем же, если заполнять пустым массивом,
 				// то накидает ссылок на один и тот же пустой массив
