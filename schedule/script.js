@@ -226,6 +226,7 @@ function BuildTable1(s) {
                 }
                 cab.push(_corp);
         }
+        console.log("cab after create: ", cab);
         let table = ParseCSV(s);
         for (let i = 1; i < table.length; ++i) {
 		console.log("сейчас смотрим в table[", i, "]");
