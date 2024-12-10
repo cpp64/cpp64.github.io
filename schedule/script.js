@@ -2,6 +2,7 @@
  *	?? может переделат структуру таблицы, чтоб было в первую очередь по кабинетам ??
  *
  *	индексация schedule[корпус][день][урок][параллель][класс]
+ *	индексация cab[корпус][день][урок][кабинет]
  *
  *	ДОБАВИТЬ ОПРЕДЕЛЕНИЕ КОЛ-ВА КАБИНЕТОВ ПО НОМЕРУ САМОГО БОЛЬШОГО КАБИНЕТА
  *
@@ -209,7 +210,7 @@ function BuildTable1(s) {
 	console.log("schedule after create: ", schedule);
         let cab = [];
         for (let corp = 0; corp < Ncorp; ++corp) {
-                let _week = [];
+                let _corp = [];
                 for (let D = 0; D < 6; ++D) {
                         let _day = [];
                         for (let L = 0; L < NL[D]; ++L) {
@@ -221,27 +222,27 @@ function BuildTable1(s) {
                                 }
                                 _day.push(_lesson);
                         }
-                        _week.push(_day);
+                        _corp.push(_day);
                 }
-                cab.push(_week);
+                cab.push(_corp);
         }
         let table = ParseCSV(s);
         for (let i = 1; i < table.length; ++i) {
-		console.log("looking at table[", i, "]");
+		console.log("сейчас смотрим в table[", i, "]");
                 let corp = SplitToInt(table[i][0], " \t")-1;
-                console.log("corp: ", corp);
+                console.log("номер корпуса corp: ", corp);
                 let _class_temp = MySplit(table[i][1], "/- _");
                 console.log("_class_temp: ", _class_temp);
                 let P = atoi(_class_temp[0])-1;
-                console.log("P: ", P);
+                console.log("параллель P: ", P);
                 let _class = atoi(_class_temp[1])-1;
                 console.log("_class: ", _class);
                 let H = SplitToInt(table[i][2], " \t");
-                console.log("H: ", H);
+                console.log("кол-во часов H: ", H);
                 let min = SplitToInt(table[i][3], " \t");
-                console.log("min: ", min);
+                console.log("уроков min: ", min);
                 let max = SplitToInt(table[i][4], " \t");
-                console.log("max: ", max);
+                console.log("уроков max: ", max);
                 //let skip = SplitToInt(table[i][5]," \t");
                 //console.log("skip:", skip);
                 let DayList = ParseInterval(table[i][6]);
@@ -270,7 +271,8 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
 				BruteFlag = false;
 				BruteAns = Array(CabList.length).fill(0);
-                                BruteCab = ArrClone(cab[corp][D][L]);
+                                BruteCab = ArrClone(cab[corp][D][L]); // пустой копируется
+                                console.log("cab[", corp,"][", D,"][", L,"]: ", cab[corp][D][L]);
                                 console.log("BruteCab: ", BruteCab);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
@@ -347,7 +349,7 @@ function BuildTable1(s) {
 					ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
 					//PushStr("}", schedule[corp][D][L][P][_class]);
 	                                for(let i = 0; i < answers[L].length; ++i)
-	                                        cab[corp][D][L][answers[L][i]] = 1;
+	                                        cab[corp][D][L][answers[L][i]] = 1; /////////////////////////////////////////////////
 	                                --HrsToFill;
 					++Filled;
 				}
