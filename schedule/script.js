@@ -1,15 +1,17 @@
 /*
-	?? может переделат структуру таблицы, чтоб было в первую очередь по кабинетам ??
-
-	индексация schedule[корпус][день][урок][параллель][класс]
-
-	ДОБАВИТЬ ОПРЕДЕЛЕНИЕ КОЛ-ВА КАБИНЕТОВ ПО НОМЕРУ САМОГО БОЛЬШОГО КАБИНЕТА
-
- 	Не будет работать со случаем: min = 3, max = 6 и H = 8,
-	заполнит в первый день сразу 6 и на 2 день не останется, чтобы заполнить 3.
-
-  	Раскидывать так: сначала накидать по минимуму. Потом накинуть туда, где уже есть.
-*/
+ *	?? может переделат структуру таблицы, чтоб было в первую очередь по кабинетам ??
+ *
+ *	индексация schedule[корпус][день][урок][параллель][класс]
+ *
+ *	ДОБАВИТЬ ОПРЕДЕЛЕНИЕ КОЛ-ВА КАБИНЕТОВ ПО НОМЕРУ САМОГО БОЛЬШОГО КАБИНЕТА
+ *
+ * 	Не будет работать со случаем: min = 3, max = 6 и H = 8,
+ *	заполнит в первый день сразу 6 и на 2 день не останется, чтобы заполнить 3.
+ *
+ *  	Раскидывать так: сначала накидать по минимуму. Потом накинуть туда, где уже есть.
+ *  	
+ *  	Добавлять номер кабинета в расписание рядом с учителем
+ */
 
 const PBtn = document.getElementById('parallel_input');
 const PChosen = document.getElementById('parallel_input_chosen');
@@ -24,12 +26,12 @@ HBtn.addEventListener('change', function() {
 });
 
 /*
- 	Ncab - количество кабинетов
-  	Ncorp - корпусов
-    	NL[i] - уроков в день i
-     	NP[i] - классов в параллели i
-        Учебных дней - 6
-*/
+ *	Ncab - количество кабинетов
+ *	Ncorp - корпусов
+ *	NL[i] - уроков в день i
+ *	NP[i] - классов в параллели i
+ *	Учебных дней - 6
+ */
 let Ncab = 9999, Ncorp, NL = [], NP = [];
 function fake_click() {
         let Ncorp_input = document.getElementById("Ncorp_input");
@@ -213,7 +215,10 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
 				// fill заполняет одним и тем же, если заполнять пустым массивом,
 				// то накидает ссылок на один и тот же пустой массив
-                                let _lesson = Array(Ncab).fill(false);
+                                let _lesson = [];
+                                for (let _cab; _cab < Ncab; ++_cab) {
+                                	_lesson.push("");
+                                }
                                 _day.push(_lesson);
                         }
                         _week.push(_day);
@@ -252,12 +257,12 @@ function BuildTable1(s) {
                 let fio = MySplit(table[i][8], "/\\"); // НАБОР из нескольких ФИО
                 console.log("fio:", fio);
 		/*
-  			L - lesson
-     			D - day
-     			H - hours
-     			P - parallel
-			NL - number of lessons
-  		*/
+  		 *  L - lesson
+     		 *  D - day
+     		 *  H - hours
+     		 *  P - parallel
+		 *  NL - number of lessons
+  		 */
                 for (let D = 0; D < 6 && H > 0; ++D) {
                         let FreeCnt = 0;
 			let answers = [];
@@ -267,7 +272,21 @@ function BuildTable1(s) {
                                 BruteCab = ArrClone(cab[corp][D][L]);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
-                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0 && DayMask[D]) {
+				/*  Проверим, что у учителя(или набора учителей через /)
+				 *  нет уроков в других корпусах и кабинетах в это же время
+				 */
+				let __cab = 0;
+				while(__cab < Ncab) {
+					let flag = 1;
+					for(let __corp = 0; __corp < Ncorp; ++__corp)
+						if(cab[__corp][D][L][__cab] == table[i][8])
+							flag = 0;
+					if(flag)
+						++__cab;
+					else
+						break;
+				}
+                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0 && DayMask[D] && __cab == Ncab) {
 					answers.push(BruteAns);
 					FreeCnt += 1;
 				} else {
@@ -403,7 +422,7 @@ function Brute(a,i) {
                 return;
         }
         for(let j = 0; j < a[i].length && !BruteFlag; ++j) {
-                if(BruteCab[a[i][j]])
+                if(BruteCab[a[i][j]].length == 0)
                         continue;
 		BruteAns[i] = a[i][j];
                 BruteCab[a[i][j]] = true;
