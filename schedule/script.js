@@ -14,6 +14,12 @@
  *  	Добавлять номер кабинета в расписание рядом с учителем
  */
 
+let temop = [];
+for(let i = 0; i < 5; ++i) {
+	temop.push("");
+}
+console.log("__ temop: ", temop);
+
 const PBtn = document.getElementById('parallel_input');
 const PChosen = document.getElementById('parallel_input_chosen');
 PBtn.addEventListener('change', function() {
