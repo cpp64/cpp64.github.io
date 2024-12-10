@@ -37,6 +37,7 @@ let Ncab = 9999, Ncorp, NL = [], NP = [];
 function fake_click() {
         let Ncorp_input = document.getElementById("Ncorp_input");
         Ncorp = Number(Ncorp_input.value);
+        console.log('Ncorp:', Ncorp);
         NL = [];
         for(let i = 1; i < 7; ++i) {
                 let id = "Nlessons_input"+i.toString();
@@ -55,8 +56,7 @@ function fake_click() {
                         }
                         NP.push(row);
                 }
-                console.log('NP:');
-                console.log(NP);
+                console.log('NP:', NP);
                 BuildTable();
         };
         let PInput = document.getElementById("parallel_input");
