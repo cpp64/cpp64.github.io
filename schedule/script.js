@@ -220,6 +220,7 @@ function BuildTable1(s) {
                                 for (let _cab; _cab < Ncab; ++_cab) {
                                 	_lesson.push("");
                                 }
+                                console.log("_lesson: ", _lesson);
                                 _day.push(_lesson);
                         }
                         _corp.push(_day);
