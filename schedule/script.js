@@ -228,34 +228,34 @@ function BuildTable1(s) {
         let table = ParseCSV(s);
         for (let i = 1; i < table.length; ++i) {
                 let corp = SplitToInt(table[i][0], " \t")-1;
-                console.log("corp:", corp);
+                console.log("corp: ", corp);
                 let _class_temp = MySplit(table[i][1], "/- _");
-                console.log("_class_temp:", _class_temp);
+                console.log("_class_temp: ", _class_temp);
                 let P = atoi(_class_temp[0])-1;
-                console.log("P:", P);
+                console.log("P: ", P);
                 let _class = atoi(_class_temp[1])-1;
-                console.log("_class:", _class);
+                console.log("_class: ", _class);
                 let H = SplitToInt(table[i][2], " \t");
-                console.log("H:", H);
+                console.log("H: ", H);
                 let min = SplitToInt(table[i][3], " \t");
-                console.log("min:", min);
+                console.log("min: ", min);
                 let max = SplitToInt(table[i][4], " \t");
-                console.log("max:", max);
+                console.log("max: ", max);
                 //let skip = SplitToInt(table[i][5]," \t");
                 //console.log("skip:", skip);
                 let DayList = ParseInterval(table[i][6]);
-                console.log("DayList:", DayList);
+                console.log("DayList: ", DayList);
 		let DayMask = Array(6).fill(false);
 		for(let i = 0; i < DayList.length; ++i)
 			DayMask[DayList[i]-1] = true;
                 let cab_temp = MySplit(table[i][7], "/\\");
-                console.log("cab_temp:", cab_temp);
+                console.log("cab_temp: ", cab_temp);
                 let CabList = [];
                 for(let i = 0; i < cab_temp.length; ++i)
                         CabList.push(ParseInterval(cab_temp[i]));
-                console.log("CabList:", CabList);
+                console.log("CabList: ", CabList);
                 let fio = MySplit(table[i][8], "/\\"); // НАБОР из нескольких ФИО
-                console.log("fio:", fio);
+                console.log("fio: ", fio);
 		/*
   		 *  L - lesson
      		 *  D - day
@@ -270,6 +270,7 @@ function BuildTable1(s) {
 				BruteFlag = false;
 				BruteAns = Array(CabList.length).fill(0);
                                 BruteCab = ArrClone(cab[corp][D][L]);
+                                console.log("BruteCab: ", BruteCab);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
 				/*  Проверим, что у учителя(или набора учителей через /)
