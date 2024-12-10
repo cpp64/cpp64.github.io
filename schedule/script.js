@@ -227,6 +227,7 @@ function BuildTable1(s) {
         }
         let table = ParseCSV(s);
         for (let i = 1; i < table.length; ++i) {
+		console.log("looking at table[", i, "]");
                 let corp = SplitToInt(table[i][0], " \t")-1;
                 console.log("corp: ", corp);
                 let _class_temp = MySplit(table[i][1], "/- _");
