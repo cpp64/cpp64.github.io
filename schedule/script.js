@@ -14,12 +14,6 @@
  *  	Добавлять номер кабинета в расписание рядом с учителем
  */
 
-let temop = [];
-for(let i = 0; i < 5; ++i) {
-	temop.push("");
-}
-console.log("__ temop: ", temop);
-
 const PBtn = document.getElementById('parallel_input');
 const PChosen = document.getElementById('parallel_input_chosen');
 PBtn.addEventListener('change', function() {
@@ -278,9 +272,7 @@ function BuildTable1(s) {
                         for (let L = 0; L < NL[D]; ++L) {
 				BruteFlag = false;
 				BruteAns = Array(CabList.length).fill(0);
-                                BruteCab = ArrClone(cab[corp][D][L]); // пустой копируется
-                                console.log("cab[", corp,"][", D,"][", L,"]: ", cab[corp][D][L]);
-                                console.log("BruteCab: ", BruteCab);
+                                BruteCab = ArrClone(cab[corp][D][L]);
 				Brute(CabList, 0);
 				console.log("D: ", D, " L: ", L, " BruteAns: ", BruteAns);
 				/*  Проверим, что у учителя(или набора учителей через /)
