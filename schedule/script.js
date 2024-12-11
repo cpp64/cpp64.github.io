@@ -219,7 +219,6 @@ function BuildTable1(s) {
                 let _corp = [];
                 for (let D = 0; D < 6; ++D) {
                         let _day = [];
-                        console.log("NL[", D, "]: ", NL[D]);
                         for (let L = 0; L < NL[D]; ++L) {
 				// fill заполняет одним и тем же, если заполнять пустым массивом,
 				// то накидает ссылок на один и тот же пустой массив
@@ -227,7 +226,6 @@ function BuildTable1(s) {
                                 for (let _cab = 0; _cab < Ncab; ++_cab) {
                                 	_lesson.push("");
                                 }
-                                console.log("_lesson: ", _lesson);
                                 _day.push(_lesson);
                         }
                         _corp.push(_day);
@@ -321,7 +319,6 @@ function BuildTable1(s) {
                                         cab[corp][D][L][answers[L][i]] = true;
                                 --HrsToFill;
 			}
-                        console.log("cab[corp][D]: ", cab[corp][D]);
                 }
                 console.log("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
 		while(true) {
