@@ -224,7 +224,7 @@ function BuildTable1(s) {
 				// fill заполняет одним и тем же, если заполнять пустым массивом,
 				// то накидает ссылок на один и тот же пустой массив
                                 let _lesson = [];
-                                for (let _cab; _cab < Ncab; ++_cab) {
+                                for (let _cab = 0; _cab < Ncab; ++_cab) {
                                 	_lesson.push("");
                                 }
                                 console.log("_lesson: ", _lesson);
