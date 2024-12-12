@@ -424,11 +424,11 @@ function Brute(a,i) {
                 return;
         }
         for(let j = 0; j < a[i].length && !BruteFlag; ++j) {
-                if(BruteCab[a[i][j]].length == 0)
+                if(BruteCab[a[i][j]].length != 0)
                         continue;
 		BruteAns[i] = a[i][j];
-                BruteCab[a[i][j]] = true;
+                BruteCab[a[i][j]] = "something";
                 Brute(a, i+1);
-                BruteCab[a[i][j]] = false;
+                BruteCab[a[i][j]] = "";
         }
 }
