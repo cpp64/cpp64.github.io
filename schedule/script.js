@@ -308,7 +308,7 @@ function BuildTable1(s) {
 					continue;
 				ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
                                 for(let i = 0; i < answers[L].length; ++i)
-                                        cab[corp][D][L][answers[L][i]] = true;
+                                        cab[corp][D][L][answers[L][i]] = table[i][8];
                                 --HrsToFill;
 			}
                 }
