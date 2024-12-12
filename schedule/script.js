@@ -289,7 +289,7 @@ function BuildTable1(s) {
 					else
 						break;
 				}
-                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0 && DayMask[D] && __cab == Ncab) {
+                                if(BruteFlag && schedule[corp][D][L][P][_class].length == 0 && DayMask[D] /* && __cab == Ncab */) {
 					answers.push(BruteAns);
 					FreeCnt += 1;
 				} else {
@@ -347,7 +347,7 @@ function BuildTable1(s) {
 					ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
 					//PushStr("}", schedule[corp][D][L][P][_class]);
 	                                for(let i = 0; i < answers[L].length; ++i)
-	                                        cab[corp][D][L][answers[L][i]] = 1; /////////////////////////////////////////////////
+	                                        cab[corp][D][L][answers[L][i]] = table[i][8]; /////////////////////////////////////////////////
 	                                --HrsToFill;
 					++Filled;
 				}
