@@ -156,7 +156,7 @@ function atoi(arr) {
 function itoa(i) {
 	let a = [];
 	while(i > 0) {
-		a.push(i%10);
+		a.push(i%10+48);
 		i /= 10;
 	}
 	for(let j = 0; j < a.length/2; ++j) {
