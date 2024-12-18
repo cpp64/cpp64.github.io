@@ -164,6 +164,7 @@ function itoa(i) {
 		a[j] = a[a.length-j-1];
 		a[a.length-j-1] = temp;
 	}
+	console.log("i: ", i, ", a[]: ", a);
 	return a;
 }
 function MySplit(arr, separators_str) {
