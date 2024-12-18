@@ -153,6 +153,19 @@ function atoi(arr) {
                 res = res*10+arr[i]-48;
         return res;
 }
+function itoa(i) {
+	let a = [];
+	while(i > 0) {
+		a.insert(i%10);
+		i /= 10;
+	}
+	for(let j = 0; j < a.length/2; ++j) {
+		let temp = a[j];
+		a[j] = a[a.length-j-1];
+		a[a.length-j-1] = temp;
+	}
+	return a;
+}
 function MySplit(arr, separators_str) {
         let sep = [];
         PushStr(separators_str, sep);
@@ -307,8 +320,12 @@ function BuildTable1(s) {
 				if(answers[L].length == 0)
 					continue;
 				ArrPush(schedule[corp][D][L][P][_class], table[i][8]);
-                                for(let i = 0; i < answers[L].length; ++i)
+				/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  */
+                                for(let i = 0; i < answers[L].length; ++i) {
                                         cab[corp][D][L][answers[L][i]] = table[i][8];
+                                        PushStr("/", schedule[corp][D][L][P][_class]);
+                                        ArrPush(schedule[corp][D][L][P][_class], itoa(answers[L][i]));
+                                }
                                 --HrsToFill;
 			}
                 }
