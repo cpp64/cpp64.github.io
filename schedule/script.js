@@ -154,6 +154,7 @@ function atoi(arr) {
         return res;
 }
 function itoa(i) {
+	console.log("i: ", i);
 	let a = [];
 	while(i > 0) {
 		a.push(i%10+48);
@@ -164,7 +165,7 @@ function itoa(i) {
 		a[j] = a[a.length-j-1];
 		a[a.length-j-1] = temp;
 	}
-	console.log("i: ", i, ", a[]: ", a);
+	console.log("a[]: ", a);
 	return a;
 }
 function MySplit(arr, separators_str) {
