@@ -63,7 +63,7 @@ _8kl.className  = "T1";
 _8kl.href = "/8kl/8kl.html";
 _8kl.appendChild(document.createTextNode("8 класс"));
 
-// div_navigation.appendChild(_8kl);
+div_navigation.appendChild(_8kl);
 
 var _9kl = document.createElement('a');
 _9kl.className  = "T1";
@@ -77,7 +77,7 @@ _10kl.className  = "T1";
 _10kl.href = "/10kl/10kl.html";
 _10kl.appendChild(document.createTextNode("10 класс"));
 
-// div_navigation.appendChild(_10kl);
+div_navigation.appendChild(_10kl);
 
 var _sgu = document.createElement('a');
 _sgu.className  = "T1";
