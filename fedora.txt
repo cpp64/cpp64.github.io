@@ -1,0 +1,24 @@
+sudo dnf install -y mysql-server gcc make perl dkms kernel-devel-$(uname -r) kernel-headers
+
+sudo /sbin/vboxconfig
+
+sudo systemctl status mysqld
+
+sudo mysql_secure_installation
+
+sudo grep 'temporary password' /var/log/mysqld.log
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'TempPass123!';
+
+SET GLOBAL validate_password.policy = 0;
+SET GLOBAL validate_password.length = 1;
+SET GLOBAL validate_password.mixed_case_count = 0;
+SET GLOBAL validate_password.number_count = 0;
+SET GLOBAL validate_password.special_char_count = 0;
+SET GLOBAL validate_password.check_user_name = OFF;
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+
+FLUSH PRIVILEGES;
+
+EXIT;
