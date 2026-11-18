@@ -1,5 +1,7 @@
 sudo dnf install -y geany mysql-server gcc make perl dkms kernel-devel-$(uname -r) kernel-headers https://packages.microsoft.com/config/fedora/44/packages-microsoft-prod.rpm https://download.virtualbox.org/virtualbox/7.2.22/VirtualBox-7.2-7.2.22_175245_fedora40-1.x86_64.rpm
 
+sudo dnf install -y dotnet-sdk-10.0
+
 sudo /sbin/vboxconfig
 
 sudo systemctl status mysqld
