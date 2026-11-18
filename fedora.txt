@@ -1,4 +1,4 @@
-sudo dnf install -y mysql-server gcc make perl dkms kernel-devel-$(uname -r) kernel-headers https://packages.microsoft.com/config/fedora/44/packages-microsoft-prod.rpm
+sudo dnf install -y geany mysql-server gcc make perl dkms kernel-devel-$(uname -r) kernel-headers https://packages.microsoft.com/config/fedora/44/packages-microsoft-prod.rpm
 
 sudo /sbin/vboxconfig
 
