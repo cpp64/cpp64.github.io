@@ -1,0 +1,40 @@
+sudo useradd -m user
+sudo passwd user
+sudo nano /etc/lightdm/lightdm.conf
+sudo ls /tmp/*.rpm
+sudo dnf -y install /tmp/*.rpm
+sudo dnf -y install geany dotnet-sdk-10.0 mysql-server
+sudo dnf install -y gcc make perl dkms kernel-devel-$(uname -r) kernel-headers
+sudo nano /etc/default/grub
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+=== REBOOT ===
+
+sudo /sbin/vboxconfig
+sudo grep 'temporary password' /var/log/mysqld.log
+sudo grep 'temp' /var/log/mysqld.log
+sudo systemctl status mysqld
+
+
+=======buggy===========
+
+sudo systemctl status mysqld
+
+sudo mysql_secure_installation
+
+sudo grep 'temporary password' /var/log/mysqld.log
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'TempPass123!';
+
+SET GLOBAL validate_password.policy = 0;
+SET GLOBAL validate_password.length = 1;
+SET GLOBAL validate_password.mixed_case_count = 0;
+SET GLOBAL validate_password.number_count = 0;
+SET GLOBAL validate_password.special_char_count = 0;
+SET GLOBAL validate_password.check_user_name = OFF;
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+
+FLUSH PRIVILEGES;
+
+EXIT;
