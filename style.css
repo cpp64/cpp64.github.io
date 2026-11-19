@@ -3,6 +3,9 @@ body {
         margin: 0;
         padding: 0;
 }
+ol {
+        line-height: 1.5;
+}
 .main {
         text-align: center;
         padding-top: 10px;
