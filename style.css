@@ -30,7 +30,7 @@ ol {
         background: #bbffff;
 }
 .navigation {
-        background-color: #888888;
+        background-color: #5555FF;
         display: flex;
         align-items: strech;
         justify-content: center;
@@ -43,8 +43,8 @@ ol {
         padding-left: 10px;
 }
 .navigation a:hover {
-        background-color: #eeeeee;
-        color: #000000;
+        background-color: #FFFFFF;
+        color: #5555FF;
 }
 .navigation a.T2 {
         display: none;
