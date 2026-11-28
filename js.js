@@ -25,7 +25,7 @@ document.head.insertBefore(link_icon, document.head.firstChild);
 /// BODY
 
 // NAVIGATION
-
+/*
 var div_navigation = document.createElement('div');
 div_navigation.id = "navigation";
 div_navigation.className  = "navigation";
@@ -50,7 +50,7 @@ _index.appendChild(_img);
 _index.appendChild(document.createTextNode("Информатика"));
 
 div_navigation.appendChild(_index);
-/*
+
 var _7kl = document.createElement('a');
 _7kl.className  = "T1";
 _7kl.href = "/7kl/7kl.html";
@@ -78,7 +78,7 @@ _10kl.href = "/10kl/10kl.html";
 _10kl.appendChild(document.createTextNode("10 класс"));
 
 div_navigation.appendChild(_10kl);
-*/
+
 var _sgu = document.createElement('a');
 _sgu.className  = "T1";
 _sgu.href = "/sgu/sgu.html";
@@ -96,3 +96,4 @@ function myFunction() {
                 x.className = "navigation";
         }
 }
+*/
